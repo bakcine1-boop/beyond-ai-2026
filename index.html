@@ -53,7 +53,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 /* ===== LOADER ===== */
 #ld{position:fixed;inset:0;z-index:100;background:var(--night);color:var(--paper)}
 #ld .cw{position:absolute;inset:0;overflow:hidden}
-#ld canvas{position:absolute;left:0;top:0;filter:grayscale(1) contrast(1.08) brightness(.9);transition:filter .9s ease;will-change:transform}
+#ld canvas{position:absolute;left:0;top:0;max-width:none;max-height:none;filter:grayscale(1) contrast(1.08) brightness(.9);transition:filter .9s ease;will-change:transform}
 #ld.color canvas{filter:none}
 #ld .fr{position:absolute;border:1px solid rgba(255,255,255,.22);pointer-events:none;transition:opacity .4s}
 #ld .fr::before,#ld .fr::after{content:'';position:absolute;width:14px;height:14px;border:solid var(--gold);opacity:.95}
@@ -722,16 +722,20 @@ $('#vctl').addEventListener('click', () => {
   const fr = $('#ldf'), res = $('#ldr'), num = $('#ldn'), cap = $('#ldcap');
   const FOCUS = [0.335, 0.66]; // 원본 영상에서 CTS 로고가 있는 자리(비율)
   const img = new Image(); img.src = 'hero-poster.jpg';
-  let W, H, D;
-  const size = () => { D = Math.min(2, devicePixelRatio || 1); W = innerWidth; H = innerHeight; c.width = Math.round(W * D); c.height = Math.round(H * D); c.style.width = W + 'px'; c.style.height = H + 'px'; };
+  let W, H, D, CW, CH, OX, OY;
+  const IW = () => img.naturalWidth || 1920, IH = () => img.naturalHeight || 1080;
+  const size = () => {
+    D = Math.min(2, devicePixelRatio || 1); W = innerWidth; H = innerHeight;
+    const sc = Math.max(W / IW(), H / IH()); CW = IW() * sc; CH = IH() * sc; OX = (W - CW) / 2; OY = (H - CH) / 2;
+    c.width = Math.round(CW * D); c.height = Math.round(CH * D); c.style.width = CW + 'px'; c.style.height = CH + 'px';
+  };
   size();
-  const cover = () => { const iw = img.naturalWidth, ih = img.naturalHeight, s = Math.max(W / iw, H / ih), sw = W / s, sh = H / s; return [(iw - sw) / 2, (ih - sh) / 2, sw, sh]; };
+  // 캔버스는 원본 전체를 그린다(화면 밖까지). 마지막에는 히어로 영상과 같은 위치(가운데 맞춤)로 옮긴다.
   const draw = (b) => {
     if (!img.naturalWidth) return;
-    const [sx, sy, sw, sh] = cover();
-    if (b <= 1) { x.imageSmoothingEnabled = true; x.imageSmoothingQuality = 'high'; x.drawImage(img, sx, sy, sw, sh, 0, 0, c.width, c.height); return; }
-    const cols = Math.max(2, Math.round(W / b)), rows = Math.max(2, Math.round(H / b));
-    off.width = cols; off.height = rows; ox.imageSmoothingEnabled = true; ox.drawImage(img, sx, sy, sw, sh, 0, 0, cols, rows);
+    if (b <= 1) { x.imageSmoothingEnabled = true; x.imageSmoothingQuality = 'high'; x.drawImage(img, 0, 0, c.width, c.height); return; }
+    const cols = Math.max(2, Math.round(CW / b)), rows = Math.max(2, Math.round(CH / b));
+    off.width = cols; off.height = rows; ox.imageSmoothingEnabled = true; ox.drawImage(img, 0, 0, cols, rows);
     x.imageSmoothingEnabled = false; x.drawImage(off, 0, 0, cols, rows, 0, 0, c.width, c.height);
   };
   const win = () => {
@@ -744,11 +748,8 @@ $('#vctl').addEventListener('click', () => {
     cw.style.clipPath = `inset(${r.t}px ${r.r}px ${r.b}px ${r.l}px)`;
     Object.assign(fr.style, { left: r.l + 'px', top: r.t + 'px', width: r.ww + 'px', height: r.wh + 'px' });
     cap.style.top = (r.t + r.wh + 26) + 'px';
-    // 창 가운데에 로고가 오도록 캔버스를 옮긴다 (창 밖으로 가장자리가 보이지 않게 제한)
-    const iw = img.naturalWidth || 1920, ih = img.naturalHeight || 1080, s = Math.max(W / iw, H / ih);
-    const fx = (W - iw * s) / 2 + FOCUS[0] * iw * s, fy = (H - ih * s) / 2 + FOCUS[1] * ih * s;
-    let tx = r.l + r.ww / 2 - fx, ty = r.t + r.wh / 2 - fy;
-    tx = Math.min(r.l, Math.max(r.l + r.ww - W, tx)); ty = Math.min(r.t, Math.max(r.t + r.wh - H, ty));
+    let tx = r.l + r.ww / 2 - FOCUS[0] * CW, ty = r.t + r.wh / 2 - FOCUS[1] * CH;
+    tx = Math.min(r.l, Math.max(r.l + r.ww - CW, tx)); ty = Math.min(r.t, Math.max(r.t + r.wh - CH, ty));
     c.style.transform = `translate(${tx.toFixed(1)}px,${ty.toFixed(1)}px)`;
   };
   place();
@@ -759,7 +760,7 @@ $('#vctl').addEventListener('click', () => {
   const ready = new Promise(r => { if (img.complete && img.naturalWidth) r(); else { img.onload = r; img.onerror = r; setTimeout(r, 3500); } });
   (async () => {
     await ready;
-    place();
+    size(); place();
     draw(cur);
     await wait(260);
     for (let i = 0; i < steps.length; i++) {
@@ -775,7 +776,7 @@ $('#vctl').addEventListener('click', () => {
     ld.classList.add('out');
     cw.style.transition = 'clip-path 1.1s cubic-bezier(.76,0,.24,1)';
     c.style.transition = 'transform 1.1s cubic-bezier(.76,0,.24,1), filter .9s ease';
-    requestAnimationFrame(() => { cw.style.clipPath = 'inset(0px 0px 0px 0px)'; c.style.transform = 'translate(0px,0px)'; });
+    requestAnimationFrame(() => { cw.style.clipPath = 'inset(0px 0px 0px 0px)'; c.style.transform = `translate(${OX.toFixed(1)}px,${OY.toFixed(1)}px)`; });
     await wait(700);
     begin();
     await wait(450);
