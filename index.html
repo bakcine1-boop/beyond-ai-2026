@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <title>Beyond AI 2026 · CTS 광역본부 AI 페스티벌</title>
-<meta name="description" content="AI를 넘어, 현장으로. 사람을 향해, 교회를 향해, 복음을 향해. 2026년 12월 7일(월) CTS 본사 11층 컨벤션홀. 주관 CTS 광역본부. 타 본부와 자회사 임직원은 사전 등록 후 참여.">
+<meta name="description" content="AI를 넘어, 현장으로. 사람 · 교회 · 복음을 향해. 2026년 12월 7일(월) 10:00 11층 컨벤션홀. 주관 CTS 광역본부. 타 본부와 자회사 임직원은 사전 등록 후 참여.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Beyond AI 2026 · AI를 넘어, 현장으로">
-<meta property="og:description" content="CTS 광역본부 AI 페스티벌 · 2026.12.07(월) 10:00~16:00 CTS 본사 11층 컨벤션홀 · 사전 등록">
+<meta property="og:description" content="CTS 광역본부 AI 페스티벌 · 2026.12.07(월) 10:00~16:00 11층 컨벤션홀 · 사전 등록">
 <meta property="og:image" content="https://bakcine1-boop.github.io/beyond-ai-2026/og.jpg">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta property="og:url" content="https://bakcine1-boop.github.io/beyond-ai-2026/">
@@ -80,6 +80,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .nav.hide{transform:translateY(-100%)}
 .nav .wrap{display:flex;align-items:center;gap:22px}
 .brand{display:flex;align-items:center;gap:14px;margin-right:auto}
+.brand{min-height:44px}
 .brand img{height:22px;width:auto}
 .brand span{font:500 11px/1 var(--mono);letter-spacing:.18em;color:rgba(243,240,233,.7);padding-left:14px;border-left:1px solid var(--lineD)}
 .menu{display:flex;align-items:center;gap:4px}
@@ -403,6 +404,13 @@ button,input,select,textarea{font:inherit;color:inherit}
 .wk-log i.h{border-color:rgba(240,184,40,.45);color:var(--gold)}
 .wk-split{display:grid;gap:6px;margin-top:16px;font-size:13.5px;line-height:1.6;color:rgba(243,240,233,.74)}
 .wk-split b{color:var(--paper);font-weight:600;margin-right:6px}
+.wk-log.s li{grid-template-columns:44px 1fr}
+.wk-sub{margin:clamp(34px,4vw,52px) 0 0;font:500 12px/1 var(--mono);letter-spacing:.16em;color:var(--mute);display:flex;align-items:center;gap:12px}
+.wk-sub::after{content:'';flex:1;height:1px;background:var(--lineD)}
+.works-grid.web{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:18px}
+.wk-media.w{aspect-ratio:16/10;cursor:pointer}
+.wk-link{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:15px;font-weight:600;color:var(--gold);border-bottom:1px solid rgba(240,184,40,.4);padding-bottom:3px}
+.wk-link::after{content:'↗';font-family:var(--mono)}
 .wk-note{margin-top:22px;font:500 12px/1.7 var(--mono);letter-spacing:.03em;color:var(--mute)}
 
 /* ===== 180초 요약 ===== */
@@ -419,7 +427,8 @@ button,input,select,textarea{font:inherit;color:inherit}
 .st-top{position:absolute;z-index:4;left:18px;right:8px;top:calc(24px + env(safe-area-inset-top));display:flex;justify-content:space-between;align-items:center}
 .st-top .cd{font:600 11.5px/1 var(--mono);letter-spacing:.14em;display:flex;align-items:baseline;gap:8px;color:rgba(255,255,255,.75)}
 .st-top .cd b{font:700 26px/1 var(--mono);color:var(--gold);letter-spacing:-.03em;min-width:50px;font-variant-numeric:tabular-nums}
-.st-x{width:48px;height:48px;border:0;background:none;color:#fff;font:300 30px/1 var(--sans);cursor:pointer}
+.st-x{width:48px;height:48px;border:0;background:none;color:#fff;font:300 30px/1 var(--sans);cursor:pointer;outline:0;border-radius:50%}
+.st-x:focus-visible{box-shadow:0 0 0 2px var(--gold) inset}
 .st-body{position:absolute;z-index:3;left:0;right:0;bottom:0;padding:0 clamp(22px,6vw,72px) calc(52px + env(safe-area-inset-bottom));max-width:900px;pointer-events:none}
 .st-k{font:500 12px/1 var(--mono);letter-spacing:.16em;color:var(--gold);margin-bottom:16px}
 .st-h{font-size:clamp(38px,9.6vw,76px);font-weight:800;letter-spacing:-.05em;line-height:1.1}
@@ -491,9 +500,9 @@ select.fi{background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.or
 .ticket .tf{padding:0 30px 26px;font-size:13px;color:var(--mute);line-height:1.6}
 
 /* ===== 07 VENUE ===== */
-.venue{position:relative;min-height:88vh;display:flex;align-items:flex-end;color:var(--paper);isolation:isolate;overflow:hidden}
+.venue{position:relative;min-height:70vh;display:flex;align-items:flex-end;color:var(--paper);isolation:isolate;overflow:hidden}
 .venue>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-.venue::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(11,12,14,.92) 0%,rgba(11,12,14,.6) 45%,rgba(11,12,14,.1) 80%),linear-gradient(0deg,rgba(11,12,14,.9),transparent 50%)}
+.venue::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(11,12,14,.95) 0%,rgba(11,12,14,.82) 52%,rgba(11,12,14,.3) 88%),linear-gradient(0deg,rgba(11,12,14,.9),transparent 50%)}
 .venue .wrap{padding-bottom:clamp(60px,9vw,120px)}
 .venue h2{font-size:clamp(40px,6vw,92px);font-weight:700;letter-spacing:-.05em;line-height:1.02;margin-bottom:34px}
 .venue h2 small{display:block;font:italic 300 .42em/1.2 var(--serif);letter-spacing:-.02em;color:var(--gold);margin-bottom:12px;font-variation-settings:'opsz' 144}
@@ -549,11 +558,15 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
   .venue::before{background:linear-gradient(0deg,rgba(11,12,14,.96) 30%,rgba(11,12,14,.35) 75%,rgba(11,12,14,.2))}
 }
 @media (max-width:900px){
-  .works-grid{grid-template-columns:1fr}
-  .wk.v .wk-media{max-height:none}
-  .join-grid.g3{grid-template-columns:1fr}
-  .join-grid.g3 .ev{min-height:0}
+  .works-grid,.works-grid.web,.talks,.join-grid.g3{display:flex;flex-direction:row;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin-left:calc(var(--pad)*-1);margin-right:calc(var(--pad)*-1);padding:0 var(--pad) 4px;scroll-padding:0 var(--pad);-webkit-overflow-scrolling:touch;scrollbar-width:none;align-items:stretch}
+  .works-grid::-webkit-scrollbar,.talks::-webkit-scrollbar,.join-grid.g3::-webkit-scrollbar{display:none}
+  .works-grid>.wk,.talks>.talk,.join-grid.g3>.ev{flex:0 0 86%;scroll-snap-align:start}
+  .wk.v .wk-media{aspect-ratio:4/5;max-height:none}
+  .join-grid.g3 .ev{min-height:300px}
   .join-grid.g3 .ev h4{margin-top:24px}
+  .talk{min-height:330px}
+  .wk-link{min-height:44px}
+  .meta dt,.rs-info dt,.vinfo dt,.wk-log i,.talk .live,.ticket .tb dt{font-size:11px}
   .dirs,.tracks{display:flex;flex-direction:row;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin-left:calc(var(--pad)*-1);margin-right:calc(var(--pad)*-1);padding:0 var(--pad) 4px;scroll-padding:0 var(--pad);-webkit-overflow-scrolling:touch;scrollbar-width:none}
   .dirs::-webkit-scrollbar,.tracks::-webkit-scrollbar{display:none}
   .dir,.dir.on,.trk{flex:0 0 84%;scroll-snap-align:start}
@@ -611,7 +624,7 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Beyond AI 2026 처음으로"><img src="cts-w.png" alt="CTS 기독교TV"><span>BEYOND AI 2026</span></a>
     <nav class="menu" aria-label="주요 메뉴">
-      <a href="#" data-story>180초 요약</a><a href="#play">30초 테스트</a><a href="#works">결과물</a><a href="#program">프로그램</a><a href="#voices">전원 발표</a><a href="#venue">오시는 길</a>
+      <a href="#" data-story>180초 요약</a><a href="#play">30초 테스트</a><a href="#works">결과물</a><a href="#program">프로그램</a><a href="#voices">전원 발표</a><a href="#venue">장소·문의</a>
       <a class="room" href="survey.html" title="광역본부 직원 전용"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>직원 설문</a>
     </nav>
     <a class="btn gold sm" href="#rsvp">사전 등록</a>
@@ -619,7 +632,7 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
   </div>
 </header>
 <nav class="mnav" id="mnav" aria-label="모바일 메뉴">
-  <a href="#play">30초 테스트<small>01</small></a><a href="#join">얻어 가는 것<small>02</small></a><a href="#works">실제 결과물<small>03</small></a><a href="#program">프로그램<small>04</small></a><a href="#voices">전원 발표<small>05</small></a><a href="#direction">네 개의 방향<small>06</small></a><a href="#about">소개<small>07</small></a><a href="#venue">오시는 길<small>09</small></a><a href="survey.html">광역본부 직원 설문<small>직원 전용</small></a>
+  <a href="#play">30초 테스트<small>01</small></a><a href="#join">얻어 가는 것<small>02</small></a><a href="#works">실제 결과물<small>03</small></a><a href="#program">프로그램<small>04</small></a><a href="#voices">전원 발표<small>05</small></a><a href="#direction">네 개의 방향<small>06</small></a><a href="#about">소개<small>07</small></a><a href="#venue">장소·문의<small>09</small></a><a href="survey.html">광역본부 직원 설문<small>직원 전용</small></a>
   <a class="btn gold" href="#rsvp">사전 등록하기</a>
 </nav>
 
@@ -649,7 +662,7 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
       </div>
       <dl class="meta fx d3">
         <div><dt>DATE</dt><dd>2026. 12. 7. 월<small>10:00~16:00</small></dd></div>
-        <div><dt>VENUE</dt><dd>CTS 본사 11층 컨벤션홀</dd></div>
+        <div><dt>VENUE</dt><dd>11층 컨벤션홀</dd></div>
         <div class="mh"><dt>HOST</dt><dd>CTS 광역본부</dd></div>
         <div class="mh"><dt>ENTRY</dt><dd>CTS 임직원 사전 등록</dd></div>
         <div><dt>COUNTDOWN</dt><dd class="dd" id="dday">D-00</dd></div>
@@ -692,6 +705,7 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
       <article class="ev rv d1"><span class="lbl">SESSION 2<i>02</i></span><h4>동료 40여 명의<br>실제 사례</h4><p>한 사람이 180초씩, 걸리던 시간과 지금 걸리는 시간을 숫자로 발표합니다. 업무, 교회, 세상과의 소통 세 영역으로 나눠 듣습니다.</p><span class="when">13:30 · 라이트닝 토크</span></article>
       <article class="ev rv d2"><span class="lbl">AFTER<i>03</i></span><h4>부서 교육 문의와<br>스터디 요청</h4><p>우리 부서에서도 해 보고 싶다면 사전 등록 때 표시해 주세요. 콘텐츠지원국 행정팀이 요청을 모아 행사 뒤에 일정을 안내해 드립니다.</p><span class="when">담당 이정민 팀장 · 여이슬 과장</span></article>
     </div>
+    <p class="swipe" aria-hidden="true">옆으로 넘겨 보세요</p>
       </div>
 </section>
 
@@ -700,7 +714,7 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
   <div class="wrap">
     <div class="dir-head" style="margin-bottom:0">
       <div><p class="eyebrow rv"><span class="n">03</span>실제 결과물</p><h2 class="h2 rv d1">말로 시켜서,<br><em>여기까지 만들었습니다.</em></h2></div>
-      <p class="lead rv d2" style="color:rgba(243,240,233,.78)">광역본부가 AI와 함께 만든 결과물 두 편입니다. 사람이 보고 고칠 곳을 말하면 AI가 다시 만드는 과정을, 작업 기록 그대로 공개합니다.</p>
+      <p class="lead rv d2" style="color:rgba(243,240,233,.78)">AI와 함께 만든 결과물입니다. 첫 결과물은 AI가 빠르게 만들고, 사람이 보고 듣고 다듬어 완성했습니다.</p>
     </div>
     <div class="works-grid">
       <article class="wk rv">
@@ -709,16 +723,13 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
           <span class="wk-k">MINI DOCUMENTARY · CTS WEEK</span>
           <h3>후원자 이야기 「아까운 거 없어」</h3>
           <p class="ds">아이폰으로 찍은 촬영 원본에서 시작해, 내레이션과 자막, 음악, 색 보정까지 마친 미니 다큐입니다.</p>
-          <div class="wk-num"><div><b>11<small>시간</small>39<small>분</small></b><span>소재 분석부터 완성까지</span></div><div><b>8<small>번째 판</small></b><span>보고 듣고 고치기를 반복</span></div></div>
-          <ol class="wk-log">
-            <li><time>0:00</time><i>AI</i>촬영 소재를 분석하고 방향을 제안</li>
-            <li><time>5:27</time><i>AI</i>2판 완성, 내레이션 두 가지</li>
-            <li><time>5:40</time><i class="h">사람</i>보고 고칠 곳을 지적</li>
-            <li><time>7:42</time><i>AI</i>4판, 자막과 음악을 다시 구성</li>
-            <li><time>11:20</time><i class="h">사람</i>개 짖는 소리가 들린다고 지적</li>
-            <li><time>11:39</time><i>AI</i>8판 완성, 잡음 제거</li>
+          <div class="wk-num"><div><b>3<small>시간</small></b><span>촬영 소재를 받고 첫 완성본까지</span></div><div><b>27<small>개</small></b><span>아이폰 촬영 원본, 22분 40초</span></div></div>
+          <ol class="wk-log s">
+            <li><i>AI</i>촬영 원본을 분석하고 구성을 제안</li>
+            <li><i>AI</i>내레이션을 넣어 첫 완성본 제작</li>
+            <li><i class="h">사람</i>보고 듣고 고칠 곳을 지적</li>
+            <li><i>AI</i>지적한 곳을 고쳐 완성</li>
           </ol>
-          <div class="wk-split"><p><b>AI가 한 일</b>내레이션(AI 성우), 자막, 색 보정, 음량 맞추기, 잡음 제거</p><p><b>사람이 한 일</b>촬영, 기획, 듣고 판단하기, 최종 확인</p></div>
         </div>
       </article>
       <article class="wk v rv d1">
@@ -727,18 +738,39 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
           <span class="wk-k">WEEKLY NEWS SHORTS</span>
           <h3>CTS 뉴스 네트워크 「전북 위클리」</h3>
           <p class="ds">한 주의 지역 교계 소식을 조사해 대본을 쓰고, 내레이션과 편집까지 이어서 만든 세로 영상입니다.</p>
-          <div class="wk-num"><div><b>93<small>분</small></b><span>요청부터 승인까지</span></div><div><b>3<small>번째 판</small></b><span>54초 요약과 2분 20초 본편</span></div></div>
-          <ol class="wk-log">
-            <li><time>0:00</time><i class="h">사람</i>전북 편 제작을 요청</li>
-            <li><time>0:40</time><i>AI</i>2판 완성</li>
-            <li><time>0:50</time><i class="h">사람</i>제목 순서와 내레이션 잡음을 지적</li>
-            <li><time>1:15</time><i>AI</i>3판 완성, 목소리 교체</li>
-            <li><time>1:33</time><i class="h">사람</i>시리즈 기준으로 승인</li>
+          <div class="wk-num"><div><b>35<small>분</small></b><span>요청하고 첫 결과물까지</span></div><div><b>2<small>편</small></b><span>54초 요약과 2분 20초 본편</span></div></div>
+          <ol class="wk-log s">
+            <li><i class="h">사람</i>전북 편 제작을 요청</li>
+            <li><i>AI</i>소식 조사, 대본, 내레이션, 편집으로 첫 결과물</li>
+            <li><i class="h">사람</i>제목 순서와 내레이션 잡음을 지적</li>
+            <li><i>AI</i>목소리를 바꿔 다시 만들어 완성</li>
           </ol>
-          <div class="wk-split"><p><b>AI가 한 일</b>소식 조사, 대본, 내레이션(AI 성우), 편집</p><p><b>사람이 한 일</b>방향 지시, 듣고 판단하기, 승인</p></div>
         </div>
       </article>
     </div>
+    <p class="swipe" aria-hidden="true">옆으로 넘겨 보세요</p>
+    <p class="wk-sub rv">홈페이지와 지도</p>
+    <div class="works-grid web">
+      <article class="wk rv">
+        <a class="wk-media w" href="https://rest.churchhistory.kr/#p=avison" target="_blank" rel="noopener" aria-label="내한선교사 묘소·유적 지도 열기"><video muted loop playsinline preload="none" poster="avison.jpg" data-loop src="avison.mp4"></video></a>
+        <div class="wk-body">
+          <span class="wk-k">INTERACTIVE MAP · 시범판</span>
+          <h3>내한선교사 묘소·유적 지도</h3>
+          <p class="ds">선교사 39명의 묘소와 유적을 한 지도에 모았습니다. 에비슨 선교사의 생애는 영국, 캐나다, 한국, 미국을 거쳐 다시 캐나다로 이어지는 여정으로 따라갈 수 있습니다.</p>
+          <a class="wk-link" href="https://rest.churchhistory.kr/#p=avison" target="_blank" rel="noopener">에비슨의 여정 열어 보기</a>
+        </div>
+      </article>
+      <article class="wk rv d1">
+        <a class="wk-media w" href="https://esther.churchhistory.kr/" target="_blank" rel="noopener" aria-label="박에스더 소개 페이지 열기"><img src="esther.jpg" alt="박에스더 소개 페이지 첫 화면" loading="lazy"></a>
+        <div class="wk-body">
+          <span class="wk-k">STORY PAGE</span>
+          <h3>박에스더, 조선 최초의 여의사</h3>
+          <p class="ds">1897년 원서에 실린 사진과 기록으로 엮은 인물 소개 페이지입니다. 3분 음성 안내와 영문판이 함께 있습니다.</p>
+          <a class="wk-link" href="https://esther.churchhistory.kr/" target="_blank" rel="noopener">박에스더 페이지 열어 보기</a>
+        </div>
+      </article>
+    </div>
+    <p class="swipe" aria-hidden="true">옆으로 넘겨 보세요</p>
     <p class="wk-note rv">* 시간은 작업 기록에 남은 시각으로 계산했습니다. 지금 보고 계신 이 홈페이지와 포스터, 직원 설문도 같은 방식으로 만들었습니다.</p>
   </div>
 </section>
@@ -762,6 +794,7 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
           <article class="talk"><span class="k">KEYNOTE 02</span><span class="live">LIVE DEMO</span><h4>제작의 문법이 바뀌었다</h4><p>말 한마디로 시작해 취재 자료 수집, 기사 작성, 업로드, 카톡 전송, 영상 편집까지 이어지는 과정을 무대에서 바로 보여 줍니다. 단신과 리포트, 미니 다큐, 홍보영상, 홈페이지 제작 사례도 함께 소개합니다.</p><div class="who"><b>박대훈</b><span>국장 · 콘텐츠지원국</span></div></article>
           <article class="talk"><span class="k">CASE STUDY</span><h4>현장에서 쓰는 AI</h4><p>뉴스 취재와 기사 작업에 AI를 어떻게 들였는지, 지역 현장의 실제 사례로 풀어 봅니다.</p><div class="who"><b>노찬영</b><span>총국장 · 호남총국</span></div></article>
         </div>
+        <p class="swipe" aria-hidden="true">옆으로 넘겨 보세요</p>
       </div>
     </div>
 
@@ -862,7 +895,7 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
       <dl class="rs-info rv d2">
         <div><dt>대상</dt><dd>CTS 타 본부와 자회사 임직원</dd></div>
         <div><dt>일시</dt><dd>2026년 12월 7일 월요일 10:00~16:00</dd></div>
-        <div><dt>장소</dt><dd>CTS 본사 11층 컨벤션홀</dd></div>
+        <div><dt>장소</dt><dd>11층 컨벤션홀</dd></div>
         <div><dt>입장</dt><dd>사전 등록자</dd></div>
         <div><dt>주관</dt><dd>CTS 광역본부</dd></div>
       </dl>
@@ -893,25 +926,25 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
         <div class="tt"><span class="mono">ADMIT ONE · 사전 등록 완료</span><h3>Beyond<b>AI</b></h3><p style="color:var(--mute);font-size:14px">CTS 광역본부 AI 페스티벌 2026</p></div>
         <div class="perf"></div>
         <dl class="tb"><div><dt>NAME</dt><dd id="tk-name">-</dd></div><div><dt>NO.</dt><dd class="no" id="tk-no">000</dd></div><div><dt>소속</dt><dd id="tk-org">-</dd></div><div><dt>DATE</dt><dd>2026.12.07 MON 10:00</dd></div><div style="grid-column:1/-1"><dt>순서</dt><dd id="tk-part">-</dd></div><div style="grid-column:1/-1" id="tk-typerow" hidden><dt>MY AI TYPE</dt><dd id="tk-type">-</dd></div></dl>
-        <div class="tk-cal"><button class="btn line sm" type="button" id="tk-img">입장권 저장</button><a class="btn gold sm" id="tk-ics" href="#" download="beyond-ai-2026.ics">캘린더에 추가</a><a class="btn line sm" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Beyond%20AI%202026%20%C2%B7%20CTS%20%EA%B4%91%EC%97%AD%EB%B3%B8%EB%B6%80%20AI%20%ED%8E%98%EC%8A%A4%ED%8B%B0%EB%B2%8C&dates=20261207T010000Z/20261207T070000Z&location=CTS%20%EB%B3%B8%EC%82%AC%2011%EC%B8%B5%20%EC%BB%A8%EB%B2%A4%EC%85%98%ED%99%80%20(%EC%84%9C%EC%9A%B8%20%EB%8F%99%EC%9E%91%EA%B5%AC%20%EB%85%B8%EB%9F%89%EC%A7%84%EB%A1%9C%20100)">구글 캘린더</a></div>
+        <div class="tk-cal"><button class="btn line sm" type="button" id="tk-img">입장권 저장</button><a class="btn gold sm" id="tk-ics" href="#" download="beyond-ai-2026.ics">캘린더에 추가</a><a class="btn line sm" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Beyond%20AI%202026%20%C2%B7%20CTS%20%EA%B4%91%EC%97%AD%EB%B3%B8%EB%B6%80%20AI%20%ED%8E%98%EC%8A%A4%ED%8B%B0%EB%B2%8C&dates=20261207T010000Z/20261207T070000Z&location=CTS%2011%EC%B8%B5%20%EC%BB%A8%EB%B2%A4%EC%85%98%ED%99%80">구글 캘린더</a></div>
         <p class="tf">이 화면을 캡처해 두시면 입장 확인이 빨라집니다. 같은 이름·소속·부서로 다시 등록하면 내용이 바뀝니다.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 07 VENUE -->
+<!-- 09 VENUE -->
 <section class="venue" id="venue">
-  <img src="venue.jpg" alt="해 질 무렵의 CTS 본사 사옥" loading="lazy">
+  <img src="venue.jpg" alt="해 질 무렵의 CTS 사옥" loading="lazy">
   <div class="wrap">
-    <p class="eyebrow rv" style="color:rgba(243,240,233,.7)"><span class="n">09</span>오시는 길</p>
-    <h2 class="rv d1"><small>CTS Convention Hall · 11F</small>CTS 본사<br>11층 컨벤션홀</h2>
+    <p class="eyebrow rv" style="color:rgba(243,240,233,.7)"><span class="n">09</span>장소와 문의</p>
+    <h2 class="rv d1"><small>Convention Hall · 11F</small>11층<br>컨벤션홀</h2>
     <dl class="vinfo rv d2">
-      <div><dt>ADDRESS</dt><dd>서울특별시 동작구 노량진로 100<br>CTS기독교TV 본사 11층</dd></div>
-      <div><dt>SUBWAY</dt><dd>9호선 노량진역 6번 출구 도보 2분<br>1호선 노량진역 대방역 방면 1번 출구 도보 5분</dd></div>
-      <div><dt>CONTACT</dt><dd>CTS 광역본부 콘텐츠지원국 행정팀<br>이정민 팀장 · 여이슬 과장<br>대표전화 02-6333-1000</dd></div>
+      <div><dt>WHEN</dt><dd>12월 7일 월요일<br>10:00~16:00</dd></div>
+      <div><dt>CONTACT</dt><dd>광역본부 콘텐츠지원국 행정팀<br>이정민 팀장 · 여이슬 과장</dd></div>
+      <div><dt>ENTRY</dt><dd>타 본부·자회사 임직원<br>사전 등록 후 참여</dd></div>
     </dl>
-    <div class="vbtns rv d3"><a class="btn gold" href="https://map.naver.com/p/search/CTS%EA%B8%B0%EB%8F%85%EA%B5%90TV" target="_blank" rel="noopener">네이버 지도</a><a class="btn line" href="https://map.kakao.com/?q=CTS%EA%B8%B0%EB%8F%85%EA%B5%90TV" target="_blank" rel="noopener">카카오맵</a></div>
+    <div class="vbtns rv d3"><a class="btn gold" href="#rsvp">사전 등록하기</a><a class="btn line" href="#" data-story>180초 요약</a></div>
   </div>
 </section>
 </main>
@@ -920,7 +953,7 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
   <div class="wrap">
     <div class="l"><img src="cts-w.png" alt="CTS 기독교TV"><p>Beyond AI 2026 · CTS 광역본부 AI 페스티벌<br>주관 CTS 광역본부 · 사전 등록자 입장</p></div>
     <a class="room" href="survey.html">광역본부 직원이신가요? 1차 설문 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    <div class="cr"><span>기획과 검수는 사람이, 제작은 AI와 함께 했습니다.</span><span>배경 영상과 사진은 모두 CTS 실제 현장 기록입니다.</span></div>
+    <div class="cr"><span>기획과 검수는 사람이, 제작은 AI와 함께 했습니다.</span><span>배경 영상과 현장 사진은 CTS 현장 기록입니다.</span></div>
   </div>
 </footer>
 
@@ -1178,7 +1211,7 @@ const playStats = fetch(RSVP_API + '?a=stats').then(r => r.json()).catch(() => (
     y += 60; x.fillStyle = '#f3f0e9'; x.font = `700 44px ${SANS}`; x.fillText(t.rt, P, y);
     y += 50; x.fillStyle = 'rgba(243,240,233,.7)'; x.font = `400 30px ${SANS}`; x.fillText(t.rk, P, y);
     x.fillStyle = '#f3f0e9'; x.font = `700 46px ${SANS}`; x.fillText('2026. 12. 7. 월 10:00', P, H - 132);
-    x.fillStyle = 'rgba(243,240,233,.8)'; x.font = `500 32px ${SANS}`; x.fillText('CTS 본사 11층 컨벤션홀', P, H - 82);
+    x.fillStyle = 'rgba(243,240,233,.8)'; x.font = `500 32px ${SANS}`; x.fillText('11층 컨벤션홀', P, H - 82);
     x.textAlign = 'right'; x.fillStyle = 'rgba(243,240,233,.55)'; x.font = `500 26px ${SANS}`; x.fillText('CTS 광역본부 AI 페스티벌', W - P, H - 82); x.textAlign = 'left';
     return c;
   };
@@ -1238,11 +1271,13 @@ const playStats = fetch(RSVP_API + '?a=stats').then(r => r.json()).catch(() => (
 })();
 
 /* ---------- 실제 결과물: 누르면 재생 ---------- */
-$$('.wk-media').forEach(b => b.addEventListener('click', () => {
+$$('.wk-media[data-yt],.wk-media[data-mp4]').forEach(b => b.addEventListener('click', () => {
   if (b.classList.contains('on')) return; b.classList.add('on');
   if (b.dataset.yt) b.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${b.dataset.yt}?autoplay=1&rel=0&playsinline=1" title="후원자 이야기 아까운 거 없어" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
   else { b.innerHTML = `<video src="${b.dataset.mp4}" controls playsinline autoplay></video>`; const v = $('video', b); if (v) v.play().catch(() => {}); }
 }));
+
+if ('IntersectionObserver' in window) { const lo = new IntersectionObserver(a => a.forEach(x => { if (x.isIntersecting) x.target.play().catch(() => {}); else x.target.pause(); }), { threshold: .35 }); $$('video[data-loop]').forEach(v => lo.observe(v)); }
 
 /* ---------- 180초 요약: 12장 × 15초 ---------- */
 (function story() {
@@ -1250,17 +1285,17 @@ $$('.wk-media').forEach(b => b.addEventListener('click', () => {
   const A = '';
   const S = [
     { bg: 'hero-poster.jpg', k: 'CTS 광역본부 AI 페스티벌', h: '<span class="en">Beyond AI</span>', p: '지금부터 180초, 열두 장으로 소개합니다. 12월 7일 발표자들에게 주어지는 시간과 같습니다.' },
-    { bg: 'venue.jpg', k: '언제, 어디서', h: '12월 7일 월요일<br><em>오전 10시</em>', p: 'CTS 본사 11층 컨벤션홀. 10시부터 16시까지 이어집니다.' },
-    { bg: 't3-world.jpg', pos: '62% 50%', k: '누가', h: '전국 12개 지사,<br><em>광역본부 40여 명.</em>', p: '취재, 제작, 편집, 행정을 맡은 동료들이 본사에 모입니다.' },
-    { bg: 't1-work.jpg', k: '무엇을', h: '한 달 동안<br><em>AI로 바꾼 일.</em>', p: '11월 9일 워크숍 뒤에 각자 직접 해 본 것을 그대로 가져옵니다.' },
+    { bg: 'venue.jpg', k: '언제, 어디서', h: '12월 7일 월요일<br><em>오전 10시</em>', p: '11층 컨벤션홀. 10시부터 16시까지 이어집니다.' },
+    { bg: 't3-world.jpg', pos: '62% 50%', k: '누가, 무엇을', h: '12개 지사 40여 명이<br><em>한 달 동안 AI로 바꾼 일.</em>', p: '11월 9일 워크숍 뒤에 각자 직접 해 본 것을 그대로 가져옵니다.' },
     { bg: 'd1-field.jpg', k: 'SESSION 1 · 10:00 키노트', h: '왜<br><em>Beyond AI인가</em>', p: '강경원 부사장. 광역본부가 AI로 무엇을 바꾸고 어디로 가려는지 이야기합니다.' },
     { bg: 'd3-church2.jpg', pos: '72% 50%', k: '실시간 시연', h: '말 한마디로,<br><em>기사와 영상까지.</em>', p: '박대훈 국장. 취재 자료 수집부터 기사 작성, 업로드, 영상 편집까지 무대에서 바로 보여 드립니다.' },
     { bg: 't2-church.jpg', k: '현장 사례', h: '현장에서<br><em>쓰는 AI</em>', p: '노찬영 총국장. 뉴스 취재와 기사 작업에 AI를 들인 실제 사례입니다.' },
-    { bg: 'd2-people.jpg', pos: '62% 40%', k: 'SESSION 2 · 13:30 라이트닝 토크', h: '한 사람<br><em>180초.</em>', p: '업무, 교회, 세상과의 소통. 걸리던 시간과 지금 걸리는 시간을 숫자로 발표합니다.' },
-    { bg: 'donor.jpg', pos: '88% 50%', k: '실제 결과물 01', h: '11시간 39분,<br><em>여덟 번째 판.</em>', p: '후원자 이야기 「아까운 거 없어」. 사람이 듣고 지적하면 AI가 다시 만들었습니다.' },
-    { bg: 'w-jeonbuk.jpg', pos: '50% 38%', dim: 1, k: '실제 결과물 02', h: '요청에서 승인까지<br><em>93분.</em>', p: 'CTS 뉴스 네트워크 전북 위클리. 조사, 대본, 내레이션, 편집을 AI와 함께 했습니다.' },
+    { bg: 't1-work.jpg', k: 'SESSION 2 · 13:30 라이트닝 토크', h: '한 사람<br><em>180초.</em>', p: '업무, 교회, 세상과의 소통. 걸리던 시간과 지금 걸리는 시간을 숫자로 발표합니다.' },
+    { bg: 'donor.jpg', pos: '88% 50%', k: '실제 결과물 01', h: '촬영 소재를 받고<br><em>3시간 만에 첫 완성본.</em>', p: '후원자 이야기 「아까운 거 없어」. 아이폰으로 찍은 원본 27개에서 시작했습니다.' },
+    { bg: 'w-jeonbuk.jpg', pos: '50% 38%', dim: 'blur(7px) brightness(.55)', k: '실제 결과물 02', h: '요청하고<br><em>35분 만에 첫 결과물.</em>', p: 'CTS 뉴스 네트워크 전북 위클리. 조사, 대본, 내레이션, 편집을 AI와 함께 했습니다.' },
+    { bg: 'avison.jpg', pos: '22% 92%', dim: 'brightness(.6)', k: '실제 결과물 03', h: '에비슨 선교사의 길,<br><em>지도 위에서 따라가기.</em>', p: '내한선교사 묘소·유적 지도와 박에스더 소개 페이지. 홈페이지와 지도도 같은 방식으로 만들었습니다.' },
     { bg: 'd4-gospel2.jpg', pos: '42% 50%', k: '오시면 얻어 가는 것', h: '부서 교육 문의,<br><em>스터디 요청.</em>', p: '사전 등록 때 표시해 주시면 콘텐츠지원국 행정팀이 행사 뒤에 안내해 드립니다.' },
-    { bg: 'hero-poster.jpg', k: '사전 등록', h: '12월 7일,<br><em>본사 11층에서 뵙겠습니다.</em>', act: '<a class="btn gold" href="#rsvp" data-close>사전 등록하기</a><a class="btn line" href="#play" data-close>30초 테스트</a>' }
+    { bg: 'hero-poster.jpg', k: '사전 등록', h: '12월 7일,<br><em>11층 컨벤션홀에서 뵙겠습니다.</em>', act: '<a class="btn gold" href="#rsvp" data-close>사전 등록하기</a><a class="btn line" href="#play" data-close>30초 테스트</a>' }
   ];
   const N = S.length, DUR = 15000;
   const bars = $('.st-bars', el), bg = $('.st-bg', el), body = $('.st-body', el), cd = $('.cd b', el), hint = $('.st-hint', el);
@@ -1269,12 +1304,12 @@ $$('.wk-media').forEach(b => b.addEventListener('click', () => {
   let i = 0, t0 = 0, open = false, done = false, raf = 0;
   const show = n => {
     i = Math.max(0, Math.min(N - 1, n)); t0 = performance.now(); done = false; const s = S[i];
-    bg.classList.remove('zoom'); bg.style.backgroundImage = `url(${A}${s.bg})`; bg.style.backgroundPosition = s.pos || 'center'; bg.style.filter = s.dim ? 'blur(7px) brightness(.55)' : ''; void bg.offsetWidth; bg.classList.add('zoom');
+    bg.classList.remove('zoom'); bg.style.backgroundImage = `url(${A}${s.bg})`; bg.style.backgroundPosition = s.pos || 'center'; bg.style.filter = s.dim || ''; void bg.offsetWidth; bg.classList.add('zoom');
     body.innerHTML = `<p class="st-k">${String(i + 1).padStart(2, '0')} / ${N} · ${s.k}</p><h3 class="st-h">${s.h}</h3>${s.p ? `<p class="st-p">${s.p}</p>` : ''}${s.act ? `<div class="st-act">${s.act}</div>` : ''}`;
     fills.forEach((b, k) => { b.style.width = k < i ? '100%' : '0'; });
     hint.textContent = i === N - 1 ? '' : '화면을 누르면 다음 장';
     if (S[i + 1]) { const im = new Image(); im.src = A + S[i + 1].bg; }
-    $$('[data-close]', body).forEach(a => a.addEventListener('click', () => close()));
+    $$('[data-close]', body).forEach(a => a.addEventListener('click', e => { e.preventDefault(); const h = a.getAttribute('href'); close(); setTimeout(() => { const t = $(h); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 160); }));
   };
   const tick = () => {
     if (!open) return;
@@ -1283,8 +1318,12 @@ $$('.wk-media').forEach(b => b.addEventListener('click', () => {
     if (e >= DUR && !done) { if (i < N - 1) show(i + 1); else done = true; }
     raf = requestAnimationFrame(tick);
   };
-  const openS = () => { if (open) return; open = true; el.classList.add('on'); document.documentElement.classList.add('lock'); show(0); raf = requestAnimationFrame(tick); };
-  const close = () => { open = false; cancelAnimationFrame(raf); el.classList.remove('on'); document.documentElement.classList.remove('lock'); };
+  let last = null, hid = 0;
+  const openS = () => { if (open) return; open = true; last = document.activeElement; el.classList.add('on'); document.documentElement.classList.add('lock'); show(0); raf = requestAnimationFrame(tick); try { history.pushState({ st: 1 }, ''); } catch (e) {} $('.st-x', el).focus({ preventScroll: true }); };
+  const hide = () => { if (!open) return; open = false; cancelAnimationFrame(raf); el.classList.remove('on'); document.documentElement.classList.remove('lock'); if (last && last.focus) last.focus({ preventScroll: true }); };
+  const close = () => { if (!open) return; hide(); try { if (history.state && history.state.st) history.back(); } catch (e) {} };
+  addEventListener('popstate', () => hide());
+  document.addEventListener('visibilitychange', () => { if (!open) return; if (document.hidden) hid = performance.now(); else if (hid) { t0 += performance.now() - hid; hid = 0; } });
   $('.st-next', el).addEventListener('click', () => { if (i < N - 1) show(i + 1); else close(); });
   $('.st-prev', el).addEventListener('click', () => show(i - 1));
   $('.st-x', el).addEventListener('click', close);
@@ -1315,7 +1354,7 @@ function ticketCanvas(o, no, k) {
   y += 62; x.fillStyle = 'rgba(243,240,233,.78)'; x.font = `500 36px ${SANS}`; x.fillText((o.org || '') + (o.dept ? ' · ' + o.dept : ''), P, y);
   if (TNAME[k]) { y += 70; x.fillStyle = col; x.font = `700 30px ${SANS}`; x.fillText('MY AI TYPE · ' + TNAME[k].toUpperCase(), P, y); }
   x.fillStyle = '#f3f0e9'; x.font = `700 46px ${SANS}`; x.fillText('2026. 12. 7. 월 10:00', P, H - 132);
-  x.fillStyle = 'rgba(243,240,233,.8)'; x.font = `500 32px ${SANS}`; x.fillText('CTS 본사 11층 컨벤션홀', P, H - 82);
+  x.fillStyle = 'rgba(243,240,233,.8)'; x.font = `500 32px ${SANS}`; x.fillText('11층 컨벤션홀', P, H - 82);
   x.textAlign = 'right'; x.fillStyle = 'rgba(243,240,233,.55)'; x.font = `500 26px ${SANS}`; x.fillText('CTS 광역본부 AI 페스티벌', W - P, H - 82); x.textAlign = 'left';
   return c;
 }
@@ -1339,7 +1378,7 @@ window.baiTicketCanvas = ticketCanvas;
     f.hidden = true; tk.classList.add('on');
   };
   $$('input[name=req]', f).forEach(c => c.addEventListener('change', () => { if (c.checked) $('#fmore').open = true; }));
-  const ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//CTS//Beyond AI 2026//KO', 'BEGIN:VEVENT', 'UID:beyond-ai-2026@cts', 'DTSTAMP:20261118T000000Z', 'DTSTART:20261207T010000Z', 'DTEND:20261207T070000Z', 'SUMMARY:Beyond AI 2026 · CTS 광역본부 AI 페스티벌', 'LOCATION:CTS 본사 11층 컨벤션홀 (서울 동작구 노량진로 100)', 'DESCRIPTION:SESSION 1 키노트 10:00 / SESSION 2 라이트닝 토크 13:30', 'BEGIN:VALARM', 'TRIGGER:-PT1H', 'ACTION:DISPLAY', 'DESCRIPTION:Beyond AI 2026', 'END:VALARM', 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
+  const ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//CTS//Beyond AI 2026//KO', 'BEGIN:VEVENT', 'UID:beyond-ai-2026@cts', 'DTSTAMP:20261118T000000Z', 'DTSTART:20261207T010000Z', 'DTEND:20261207T070000Z', 'SUMMARY:Beyond AI 2026 · CTS 광역본부 AI 페스티벌', 'LOCATION:CTS 11층 컨벤션홀', 'DESCRIPTION:SESSION 1 키노트 10:00 / SESSION 2 라이트닝 토크 13:30', 'BEGIN:VALARM', 'TRIGGER:-PT1H', 'ACTION:DISPLAY', 'DESCRIPTION:Beyond AI 2026', 'END:VALARM', 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
   $('#tk-ics').href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
   const saved = JSON.parse(localStorage.getItem('bai_b_rsvp') || 'null');
   if (saved) showTicket(saved, saved.no);
