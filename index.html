@@ -326,6 +326,21 @@ button,input,select,textarea{font:inherit;color:inherit}
 .r-rec span{font:500 11px/1 var(--mono);letter-spacing:.16em;color:var(--gold)}
 .r-rec b{display:block;font-size:20px;font-weight:700;letter-spacing:-.03em;margin:9px 0 4px}
 .r-rec p{font-size:14.5px;color:rgba(243,240,233,.74);line-height:1.6}
+.r-dist{margin-top:20px;border-top:1px solid var(--lineD);padding-top:18px}
+.r-dist:empty{display:none}
+.r-dist span{font:500 11px/1 var(--mono);letter-spacing:.14em;color:var(--mute)}
+.r-dist ul{list-style:none;margin-top:12px;display:grid;gap:9px}
+.r-dist li{display:grid;grid-template-columns:142px 1fr 42px;align-items:center;gap:10px;font-size:13.5px;color:rgba(243,240,233,.7)}
+.r-dist li em{font-style:normal;white-space:nowrap}
+.r-dist li i{height:6px;border-radius:3px;background:rgba(243,240,233,.12);overflow:hidden}
+.r-dist li i b{display:block;height:100%;background:rgba(243,240,233,.5);border-radius:3px;transition:width 1s var(--ease)}
+.r-dist li strong{font:600 12.5px var(--mono);text-align:right}
+.r-dist li.me{color:var(--paper)}
+.r-dist li.me em{font-weight:700;color:var(--gold)}
+.r-dist li.me i b{background:var(--gold)}
+.q-cnt{margin-top:auto;min-height:20px;font:500 12px/1.6 var(--mono);letter-spacing:.06em;color:var(--muteL)}
+.q-cnt+.q-start{margin-top:12px}
+.t-best em{display:block;font-style:normal;color:var(--gold);font-size:12px;letter-spacing:.02em}
 .r-act{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:24px}
 .r-note{font-size:12.5px;color:var(--mute);margin-top:14px;line-height:1.6}
 .r-act button.btn.line{background:transparent;font-family:inherit}
@@ -553,7 +568,7 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
         <p class="ds">라이트닝 토크 발표자는 180초 안에 발표를 마쳐야 합니다. 숫자가 가려진 뒤, 정확히 3.00초에 멈춰 보세요.</p>
         <div class="t-disp" id="tdisp">0.00<small>초</small></div>
         <p class="t-msg" id="tmsg">시작을 누르면 1초 뒤에 숫자가 가려집니다.</p>
-        <div class="t-act"><button class="t-btn" id="tbtn" type="button">시작</button><span class="t-best" id="tbest" hidden>내 최고 기록<b>-</b></span></div>
+        <div class="t-act"><button class="t-btn" id="tbtn" type="button">시작</button><span class="t-best" id="tbest" hidden>내 최고 기록<b>-</b><em></em></span></div>
       </article>
     </div>
   </div>
@@ -939,6 +954,11 @@ $('#vctl').addEventListener('click', () => {
   new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { el.classList.add('in'); o.disconnect(); } }), { threshold: .3 }).observe(el);
 })();
 
+/* ---------- play: 익명 집계 ---------- */
+const PID = (() => { let p = localStorage.getItem('bai_b_pid'); if (!/^p[a-z0-9]{8,24}$/.test(p || '')) { p = 'p' + (Math.random().toString(36).slice(2) + Date.now().toString(36)).slice(0, 14); localStorage.setItem('bai_b_pid', p); } return p; })();
+const playPost = (kind, v) => fetch(RSVP_API, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify({ action: 'play', data: { id: PID, kind, v } }) }).then(r => r.json());
+const playStats = fetch(RSVP_API + '?a=stats').then(r => r.json()).catch(() => ({}));
+
 /* ---------- play: type test ---------- */
 (function quiz() {
   const box = $('#quiz'); if (!box) return;
@@ -960,7 +980,8 @@ $('#vctl').addEventListener('click', () => {
   const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
   const intro = () => {
     box.classList.remove('done');
-    box.innerHTML = `<span class="lbl">TYPE TEST<i>다섯 문항 · 30초</i></span><div class="q-step"><h3>나는 AI와<br>어떤 사이일까</h3><p class="ds">다섯 번만 누르면 나의 AI 업무 유형과, 12월 7일에 들으면 좋을 순서를 알려 드립니다.</p><button class="btn ink q-start" type="button">시작하기</button></div>`;
+    box.innerHTML = `<span class="lbl">TYPE TEST<i>다섯 문항 · 30초</i></span><div class="q-step"><h3>나는 AI와<br>어떤 사이일까</h3><p class="ds">다섯 번만 누르면 나의 AI 업무 유형과, 12월 7일에 들으면 좋을 순서를 알려 드립니다.</p><p class="q-cnt" id="qcnt"></p><button class="btn ink q-start" type="button">시작하기</button></div>`;
+    playStats.then(j => { const e = $('#qcnt'); if (e && j.ok && j.tn >= 5) e.textContent = `지금까지 ${j.tn}명이 해 봤습니다.`; });
     $('.q-start', box).addEventListener('click', () => { score = { T: 0, F: 0, M: 0, C: 0 }; last = null; ask(0); });
   };
   const ask = i => {
@@ -1002,9 +1023,14 @@ $('#vctl').addEventListener('click', () => {
   const result = (k, fresh) => {
     const t = TYPES[k]; blob = null;
     box.classList.add('done');
-    box.innerHTML = `<span class="lbl">MY AI TYPE<i>BEYOND AI 2026</i></span><div class="q-step"><p class="r-en">${t.en.replace(' ', '<br>')}</p><p class="r-ko">${t.ko}</p><p class="r-d">${t.d}</p><div class="r-rec"><span>12월 7일 추천 순서</span><b>${t.rt}</b><p>${t.rk}. ${t.rd}</p></div><div class="r-act"><a class="btn gold" href="#rsvp">사전 등록하기</a><button class="btn line" type="button" id="rsave">결과 이미지 저장</button><button class="r-again" type="button">다시 하기</button></div><p class="r-note">사전 등록을 하시면 이 유형이 함께 기록되어, 행사 당일 참석자 유형 집계에 쓰입니다.</p></div>`;
+    box.innerHTML = `<span class="lbl">MY AI TYPE<i>BEYOND AI 2026</i></span><div class="q-step"><p class="r-en">${t.en.replace(' ', '<br>')}</p><p class="r-ko">${t.ko}</p><p class="r-d">${t.d}</p><div class="r-rec"><span>12월 7일 추천 순서</span><b>${t.rt}</b><p>${t.rk}. ${t.rd}</p></div><div class="r-dist" id="rdist"></div><div class="r-act"><a class="btn gold" href="#rsvp">사전 등록하기</a><button class="btn line" type="button" id="rsave">결과 이미지 저장</button><button class="r-again" type="button">다시 하기</button></div><p class="r-note">사전 등록을 하시면 이 유형이 함께 기록되어, 행사 당일 참석자 유형 집계에 쓰입니다.</p></div>`;
     if (fresh && box.getBoundingClientRect().top < 0) box.scrollIntoView({ behavior: 'smooth', block: 'start' });
     (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(() => { try { image(t).toBlob(b => { blob = b; }, 'image/png'); } catch (e) {} });
+    playPost('type', k).then(j => {
+      const e = $('#rdist'); if (!e || !j.ok || j.tn < 5) return;
+      e.innerHTML = `<span>지금까지 ${j.tn}명 참여 · 유형 분포</span><ul>${Object.keys(TYPES).map(x => { const p = Math.round(j.types[x] / j.tn * 100); return `<li class="${x === k ? 'me' : ''}"><em>${TYPES[x].ko}</em><i><b style="width:0" data-w="${p}"></b></i><strong>${p}%</strong></li>`; }).join('')}</ul>`;
+      requestAnimationFrame(() => requestAnimationFrame(() => $$('b[data-w]', e).forEach(b => { b.style.width = b.dataset.w + '%'; })));
+    }).catch(() => {});
     $('.r-again', box).addEventListener('click', () => { localStorage.removeItem(KEY); intro(); });
     $('#rsave').addEventListener('click', async () => {
       if (!blob) return;
@@ -1023,7 +1049,13 @@ $('#vctl').addEventListener('click', () => {
   const disp = $('#tdisp'), msg = $('#tmsg'), best = $('#tbest'), TARGET = 3, KEY = 'bai_b_best';
   let t0 = 0, run = false, raf = 0, lock = 0;
   const show = (v, hide) => { disp.classList.toggle('hide', !!hide); disp.innerHTML = (hide ? '?.??' : v.toFixed(2)) + '<small>초</small>'; };
-  const bestShow = () => { const b = parseFloat(localStorage.getItem(KEY)); if (!isNaN(b)) { best.hidden = false; $('b', best).textContent = b.toFixed(2) + '초 차이'; } };
+  const bestShow = () => {
+    const b = parseFloat(localStorage.getItem(KEY)); if (isNaN(b)) return;
+    best.hidden = false; $('b', best).textContent = b.toFixed(2) + '초 차이';
+    let r = null; try { r = JSON.parse(localStorage.getItem('bai_b_rank') || 'null'); } catch (e) {}
+    $('em', best).textContent = r && r.gn >= 5 ? `${r.gn}명 중 ${r.rank}위` : '';
+  };
+  const sendBest = v => playPost('time', v).then(j => { if (j.ok) { localStorage.setItem('bai_b_rank', JSON.stringify({ gn: j.gn, rank: j.rank })); bestShow(); } }).catch(() => {});
   const tick = () => { const s = (performance.now() - t0) / 1000; show(s, s >= 1); if (run) raf = requestAnimationFrame(tick); };
   const toggle = e => {
     if (e) e.preventDefault();
@@ -1034,7 +1066,8 @@ $('#vctl').addEventListener('click', () => {
     btn.textContent = '다시'; btn.classList.remove('run');
     const how = s < TARGET ? '빨랐습니다' : '늦었습니다';
     msg.innerHTML = d <= .03 ? `<b>${d.toFixed(2)}초 차이.</b> 발표 체질입니다. 180초를 맡겨도 되겠습니다.` : d <= .1 ? `<b>${d.toFixed(2)}초 차이.</b> 거의 정확합니다.` : d <= .3 ? `<b>${d.toFixed(2)}초</b> ${how}. 한 번 더 해 보세요.` : `<b>${d.toFixed(2)}초</b> ${how}. 생각보다 어렵습니다. 한 번 더 해 보세요.`;
-    const b = parseFloat(localStorage.getItem(KEY)); if (isNaN(b) || d < b) localStorage.setItem(KEY, d.toFixed(2)); bestShow();
+    const b = parseFloat(localStorage.getItem(KEY)), dd = Number(d.toFixed(2));
+    if (isNaN(b) || dd < b) { localStorage.setItem(KEY, dd.toFixed(2)); bestShow(); sendBest(dd); } else { bestShow(); if (!localStorage.getItem('bai_b_rank')) sendBest(b); }
   };
   btn.addEventListener('pointerdown', toggle);
   btn.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') toggle(e); });
