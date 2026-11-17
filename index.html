@@ -1152,7 +1152,7 @@ $('#vctl').addEventListener('click', () => {
 
 /* ---------- play: 익명 집계 ---------- */
 const PID = (() => { let p = localStorage.getItem('bai_b_pid'); if (!/^p[a-z0-9]{8,24}$/.test(p || '')) { p = 'p' + (Math.random().toString(36).slice(2) + Date.now().toString(36)).slice(0, 14); localStorage.setItem('bai_b_pid', p); } return p; })();
-const playPost = (kind, v) => fetch(RSVP_API, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify({ action: 'play', data: { id: PID, kind, v } }) }).then(r => r.json());
+const playPost = (kind, v) => /^(localhost|127\.)/.test(location.hostname) ? Promise.resolve({ ok: false }) : fetch(RSVP_API, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify({ action: 'play', data: { id: PID, kind, v } }) }).then(r => r.json());
 const playStats = fetch(RSVP_API + '?a=stats').then(r => r.json()).catch(() => ({}));
 
 /* ---------- play: type test ---------- */
