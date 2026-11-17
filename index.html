@@ -217,8 +217,8 @@ button,input,select,textarea{font:inherit;color:inherit}
 .road .pt.big{width:17px;height:17px;border-color:var(--paper)}
 .road .pt span{position:absolute;top:20px;left:50%;transform:translateX(-50%);white-space:nowrap;text-align:center;font:600 14px/1.35 var(--sans);letter-spacing:-.01em;color:var(--paper)}
 .road .pt span small{display:block;font:500 11px/1.4 var(--mono);letter-spacing:.1em;color:var(--mute)}
-.road .pt:first-of-type span{left:0;transform:none;text-align:left}
-.road .pt:last-of-type span{left:auto;right:0;transform:none;text-align:right}
+.road .pt.first span{left:0;transform:none;text-align:left}
+.road .pt.last span{left:auto;right:0;transform:none;text-align:right}
 .road .now{position:absolute;top:50%;width:13px;height:13px;border-radius:50%;background:var(--gold);transform:translate(-50%,-50%);box-shadow:0 0 0 7px rgba(240,184,40,.16)}
 .road .now span{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);font:700 11px var(--mono);color:var(--gold);letter-spacing:.1em;white-space:nowrap;background:var(--night);padding:0 6px}
 .part{display:grid;grid-template-columns:minmax(220px,.75fr) minmax(0,2fr);gap:clamp(24px,4vw,64px);padding:clamp(30px,3.6vw,48px) 0;border-top:1px solid var(--lineD)}
@@ -471,7 +471,7 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
         <div class="hero-cta fx d3"><a class="btn gold" href="#rsvp">사전 등록하기<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn line" href="#program">프로그램 보기</a></div>
       </div>
       <dl class="meta fx d3">
-        <div><dt>DATE</dt><dd>2026. 12. 7.<small>MON</small></dd></div>
+        <div><dt>DATE</dt><dd>2026. 12. 7. 오전 10시<small>MON</small></dd></div>
         <div><dt>VENUE</dt><dd>CTS 본사 11층 컨벤션홀</dd></div>
         <div><dt>ENTRY</dt><dd>사내 사전 등록자</dd></div>
         <div><dt>COUNTDOWN</dt><dd class="dd" id="dday">D-00</dd></div>
@@ -544,8 +544,8 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
       <div class="pr">
         <div class="talks">
           <article class="talk"><span class="k">KEYNOTE 01</span><h4>왜 Beyond AI인가</h4><p>AI First 엑소더스, 그다음 이야기. 광역본부가 AI로 무엇을 바꾸고 어디로 가려 하는지 큰 그림을 나눕니다.</p><div class="who"><b>강경원</b><span>부사장 · 광역본부장</span></div></article>
-          <article class="talk"><span class="k">KEYNOTE 02</span><span class="live">LIVE DEMO</span><h4>제작의 문법이 바뀌었다</h4><p>작가·성우·조연출 없이 만든 방송, 그리고 촬영부터 편집·음악·자막까지 이어지는 자동화를 무대에서 바로 보여 줍니다.</p><div class="who"><b>박대훈</b><span>국장 · 콘텐츠지원국</span></div></article>
-          <article class="talk"><span class="k">CASE STUDY</span><h4>현장에서 쓰는 AI</h4><p>뉴스 취재와 기사 작업에 AI를 어떻게 들였는지, 지역 현장의 실제 사례로 풀어 봅니다.</p><div class="who"><b>노찬영</b><span>총국장 · 호남총국</span></div></article>
+          <article class="talk"><span class="k">KEYNOTE 02</span><span class="live">LIVE DEMO</span><h4>제작의 문법이 바뀌었다</h4><p>작가·성우·조연출 없이 만든 방송, 그리고 촬영부터 편집·음악·자막까지 이어지는 자동화를 무대에서 바로 보여 줍니다.</p><div class="who"><b>박대훈</b><span>국장 · 콘텐츠지원국 · 예정</span></div></article>
+          <article class="talk"><span class="k">CASE STUDY</span><h4>현장에서 쓰는 AI</h4><p>뉴스 취재와 기사 작업에 AI를 어떻게 들였는지, 지역 현장의 실제 사례로 풀어 봅니다.</p><div class="who"><b>노찬영</b><span>총국장 · 호남총국 · 예정</span></div></article>
         </div>
       </div>
     </div>
@@ -570,7 +570,7 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
       <div class="pl"><span class="mono">CLOSING</span><h3>마치는 시간</h3><p>Closing</p></div>
       <div class="pr"><p>기도로 마칩니다. 이날 발표된 모든 사례는 행사 뒤 발표 준비실에 모아 함께 봅니다.</p></div>
     </div>
-    <p class="note">* 세부 시간과 발표 순서는 확정되는 대로 이곳에 공개합니다.</p>
+    <p class="note">* 오전 10시 시작. 세부 시간과 발표 순서는 확정되는 대로 이곳에 공개합니다.</p>
   </div>
 </section>
 
@@ -634,7 +634,7 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
       <h2 class="h2 rv d1">자리는<br><em>등록하신 분께만</em><br>열립니다.</h2>
       <dl class="rs-info rv d2">
         <div><dt>대상</dt><dd>CTS기독교TV와 계열사 임직원</dd></div>
-        <div><dt>일시</dt><dd>2026년 12월 7일 월요일</dd></div>
+        <div><dt>일시</dt><dd>2026년 12월 7일 월요일 오전 10시</dd></div>
         <div><dt>장소</dt><dd>CTS 본사 11층 컨벤션홀</dd></div>
         <div><dt>입장</dt><dd>사전 등록자 · 듣고 싶은 순서만 오셔도 됩니다</dd></div>
       </dl>
@@ -808,7 +808,7 @@ $('#vctl').addEventListener('click', () => {
   const rail = $('#rail');
   // 네 지점을 같은 간격으로 두고, 오늘 위치는 11/9~12/7 사이를 비례 배치
   const pts = [['11.09', '킥오프 워크숍', 0, KICK], ['매주', '총국별 줌 스터디', 100 / 3, new Date('2026-11-16T00:00:00+09:00')], ['12.07', 'Beyond AI', 200 / 3, EVENT], ['2027', '현장 파일럿', 100, new Date('2027-01-04T00:00:00+09:00')]];
-  pts.forEach(([a, b, p, t], i) => { const e = document.createElement('span'); e.className = 'pt' + (t <= now ? ' done' : '') + (i === 2 ? ' big' : ''); e.style.left = p + '%'; e.innerHTML = `<span><small>${a}</small>${b}</span>`; rail.appendChild(e); });
+  pts.forEach(([a, b, p, t], i) => { const e = document.createElement('span'); e.className = 'pt' + (t <= now ? ' done' : '') + (i === 2 ? ' big' : '') + (i === 0 ? ' first' : '') + (i === pts.length - 1 ? ' last' : ''); e.style.left = p + '%'; e.innerHTML = `<span><small>${a}</small>${b}</span>`; rail.appendChild(e); });
   const frac = Math.max(0, Math.min(1, (now - KICK) / (EVENT - KICK)));
   const npos = now > EVENT ? 200 / 3 + Math.min(1, (now - EVENT) / (30 * 864e5)) * 100 / 3 : frac * 200 / 3;
   const nw = document.createElement('span'); nw.className = 'now'; nw.style.left = npos + '%'; nw.innerHTML = `<span>TODAY ${now.getMonth() + 1}.${String(now.getDate()).padStart(2, '0')}</span>`; rail.appendChild(nw);
