@@ -296,6 +296,56 @@ button,input,select,textarea{font:inherit;color:inherit}
 .ev p{font-size:15px;line-height:1.7;color:var(--ink2)}
 .ev .when{margin-top:auto;padding-top:20px;font:500 11.5px/1 var(--mono);letter-spacing:.1em;color:var(--muteL)}
 
+/* ===== 01 PLAY ===== */
+.play-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:16px;margin-top:clamp(36px,5vw,64px)}
+.pc{position:relative;border-radius:6px;padding:clamp(24px,3vw,40px);min-height:540px;display:flex;flex-direction:column;overflow:hidden}
+.pc .lbl{font:600 11.5px/1 var(--mono);letter-spacing:.16em;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.pc h3{font-size:clamp(28px,3vw,40px);font-weight:700;letter-spacing:-.045em;line-height:1.16;margin:22px 0 14px}
+.pc .ds{font-size:16px;line-height:1.7}
+.quiz{background:#fff;border:1px solid var(--lineL);color:var(--ink);transition:background .5s,color .5s}
+.quiz .lbl{color:var(--muteL)}
+.quiz .lbl i{font-style:normal;color:var(--ink)}
+.quiz .ds{color:var(--ink2)}
+.q-step{display:flex;flex-direction:column;flex:1;animation:qin .5s var(--ease)}
+@keyframes qin{from{opacity:0;transform:translateY(14px)}}
+.q-start{margin-top:auto;align-self:flex-start}
+.q-bar{height:3px;background:rgba(21,21,21,.1);margin-top:18px;border-radius:2px;overflow:hidden}
+.q-bar i{display:block;height:100%;background:var(--ink);transition:width .5s var(--ease)}
+.q-q{font-size:clamp(22px,2.3vw,30px);font-weight:700;letter-spacing:-.04em;line-height:1.3;margin:26px 0 22px}
+.q-opts{display:grid;gap:10px;margin-top:auto}
+.q-opts button{text-align:left;min-height:56px;padding:14px 18px;border-radius:6px;border:1px solid rgba(21,21,21,.18);background:var(--paper);font-size:16px;font-weight:500;line-height:1.4;letter-spacing:-.02em;cursor:pointer;color:var(--ink);transition:background .2s,border-color .2s,transform .3s var(--ease);touch-action:manipulation}
+.q-opts button:hover{border-color:var(--ink)}
+.q-opts button:active{transform:scale(.985);background:var(--gold);border-color:var(--gold)}
+.quiz.done{background:var(--night) radial-gradient(120% 90% at 100% 0%,rgba(240,184,40,.26),transparent 55%);color:var(--paper);border-color:transparent}
+.quiz.done .lbl{color:var(--gold)}
+.quiz.done .lbl i{color:var(--mute)}
+.r-en{font-family:'Archivo',sans-serif;font-stretch:62%;font-weight:800;font-size:clamp(68px,9vw,116px);line-height:.88;text-transform:uppercase;margin:24px 0 16px}
+.r-ko{font-size:clamp(22px,2.2vw,28px);font-weight:700;letter-spacing:-.04em;color:var(--gold)}
+.r-d{font-size:16px;line-height:1.7;color:rgba(243,240,233,.84);margin-top:10px}
+.r-rec{margin-top:22px;border-top:1px solid var(--lineD);padding-top:18px}
+.r-rec span{font:500 11px/1 var(--mono);letter-spacing:.16em;color:var(--gold)}
+.r-rec b{display:block;font-size:20px;font-weight:700;letter-spacing:-.03em;margin:9px 0 4px}
+.r-rec p{font-size:14.5px;color:rgba(243,240,233,.74);line-height:1.6}
+.r-act{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:24px}
+.r-note{font-size:12.5px;color:var(--mute);margin-top:14px;line-height:1.6}
+.r-act button.btn.line{background:transparent;font-family:inherit}
+.r-again{background:none;border:0;color:var(--mute);font-size:14px;text-decoration:underline;text-underline-offset:4px;cursor:pointer;padding:12px 6px}
+.tgame{background:var(--night);color:var(--paper)}
+.tgame .lbl{color:var(--gold)}
+.tgame .lbl i{font-style:normal;color:var(--mute)}
+.tgame .ds{color:rgba(243,240,233,.78)}
+.t-disp{font:700 clamp(76px,9vw,116px)/1 var(--mono);letter-spacing:-.05em;margin:auto 0 8px;padding-top:26px;font-variant-numeric:tabular-nums}
+.t-disp small{font-size:.28em;color:var(--mute);margin-left:8px;letter-spacing:0}
+.t-disp.hide{color:rgba(243,240,233,.3)}
+.t-msg{min-height:52px;font-size:15.5px;line-height:1.6;color:rgba(243,240,233,.86)}
+.t-msg b{color:var(--gold)}
+.t-act{display:flex;align-items:center;gap:14px;margin-top:18px}
+.t-btn{flex:1;height:60px;border-radius:999px;border:0;background:var(--gold);color:var(--ink);font-size:18px;font-weight:700;cursor:pointer;transition:transform .2s,background .2s;touch-action:manipulation;user-select:none;-webkit-user-select:none}
+.t-btn:active{transform:scale(.97)}
+.t-btn.run{background:var(--paper)}
+.t-best{font:500 11.5px/1.5 var(--mono);letter-spacing:.08em;color:var(--mute);text-align:right;white-space:nowrap}
+.t-best b{display:block;color:var(--paper);font-size:15px;letter-spacing:0}
+
 /* ===== 06 RSVP ===== */
 .rsvp{background:var(--gold);color:var(--ink)}
 .rsvp .eyebrow{color:rgba(21,21,21,.6)}
@@ -390,6 +440,9 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
   .dir .bar{display:none}
   .part{grid-template-columns:1fr;gap:18px}
   .tracks{grid-template-columns:1fr}
+  .play-grid{grid-template-columns:1fr}
+  .pc{min-height:0}
+  .quiz{min-height:520px}
   .trk{min-height:340px}
   .rules{grid-template-columns:1fr}
   .rule{border-right:0;border-bottom:1px solid var(--lineD)}
@@ -417,6 +470,9 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
   .fg{grid-template-columns:1fr}
   .ticket .tt h3{font-size:44px}
   .scrollcue{display:none}
+  .meta .mh{display:none}
+  .r-act .btn{flex:1}
+  .r-again{width:100%;text-align:center}
   #ld .bl span:last-child{max-width:50%;text-align:right;font-size:10px}
   .road .pt span{font-size:12.5px}
   .road .pt span small{font-size:10px}
@@ -437,14 +493,14 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
   <div class="fr" id="ldf"><span class="res" id="ldr"><b>AI</b>72px</span></div>
   <div class="tl"><span>Beyond AI 2026</span><span>CTS 광역본부 AI 페스티벌</span></div>
   <p class="cap" id="ldcap"><span id="c1">AI를 넘어,</span> <span id="c2" class="g">현장으로.</span></p>
-  <div class="bl"><span class="num" id="ldn">000<i>%</i></span><span>12.07 Mon — CTS Convention Hall 11F</span></div>
+  <div class="bl"><span class="num" id="ldn">000<i>%</i></span><span>12.07 Mon · CTS Convention Hall 11F</span></div>
 </div>
 
 <header class="nav" id="nav">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Beyond AI 2026 처음으로"><img src="cts-w.png" alt="CTS 기독교TV"><span>BEYOND AI 2026</span></a>
     <nav class="menu" aria-label="주요 메뉴">
-      <a href="#about">소개</a><a href="#program">프로그램</a><a href="#voices">전원 발표</a><a href="#join">참여</a><a href="#venue">오시는 길</a>
+      <a href="#play">30초 테스트</a><a href="#program">프로그램</a><a href="#voices">전원 발표</a><a href="#about">소개</a><a href="#join">참여</a><a href="#venue">오시는 길</a>
       <a class="room" href="survey.html" title="광역본부 직원 전용"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>직원 설문</a>
     </nav>
     <a class="btn gold sm" href="#rsvp">사전 등록</a>
@@ -452,7 +508,7 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
   </div>
 </header>
 <nav class="mnav" id="mnav" aria-label="모바일 메뉴">
-  <a href="#about">소개<small>01</small></a><a href="#direction">네 개의 방향<small>02</small></a><a href="#program">프로그램<small>03</small></a><a href="#voices">전원 발표<small>04</small></a><a href="#join">참여<small>05</small></a><a href="#venue">오시는 길<small>07</small></a><a href="survey.html">광역본부 직원 설문<small>직원 전용</small></a>
+  <a href="#play">30초 테스트<small>01</small></a><a href="#program">프로그램<small>02</small></a><a href="#voices">전원 발표<small>03</small></a><a href="#direction">네 개의 방향<small>04</small></a><a href="#about">소개<small>05</small></a><a href="#join">참여<small>06</small></a><a href="#venue">오시는 길<small>08</small></a><a href="survey.html">광역본부 직원 설문<small>직원 전용</small></a>
   <a class="btn gold" href="#rsvp">사전 등록하기</a>
 </nav>
 
@@ -468,13 +524,13 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
         <p class="eyebrow-h fx d1">CTS 광역본부 AI 페스티벌</p>
         <h1 class="lockup" aria-label="Beyond AI"><span class="w"><span>Beyond</span></span><span class="w"><span class="ai">AI</span></span></h1>
         <p class="hero-ko fx d2"><b>AI를 넘어, 현장으로.</b><span>사람 · 교회 · 복음을 향해</span></p>
-        <div class="hero-cta fx d3"><a class="btn gold" href="#rsvp">사전 등록하기<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn line" href="#program">프로그램 보기</a></div>
+        <div class="hero-cta fx d3"><a class="btn gold" href="#rsvp">사전 등록하기<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn line" href="#play">30초 테스트</a></div>
       </div>
       <dl class="meta fx d3">
         <div><dt>DATE</dt><dd>2026. 12. 7. 월<small>10:00~16:00</small></dd></div>
         <div><dt>VENUE</dt><dd>CTS 본사 11층 컨벤션홀</dd></div>
-        <div><dt>HOST</dt><dd>CTS 광역본부</dd></div>
-        <div><dt>ENTRY</dt><dd>CTS 임직원 사전 등록</dd></div>
+        <div class="mh"><dt>HOST</dt><dd>CTS 광역본부</dd></div>
+        <div class="mh"><dt>ENTRY</dt><dd>CTS 임직원 사전 등록</dd></div>
         <div><dt>COUNTDOWN</dt><dd class="dd" id="dday">D-00</dd></div>
       </dl>
     </div>
@@ -482,44 +538,23 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
   <span class="scrollcue" aria-hidden="true"></span>
 </section>
 
-<!-- 01 MANIFESTO -->
-<section class="sec mf dark" id="about">
+<!-- 01 PLAY -->
+<section class="sec light play" id="play">
   <div class="wrap">
-    <p class="eyebrow rv"><span class="n">01</span>왜 Beyond AI인가</p>
-    <div class="mf-grid">
-      <div class="rv">
-        <span class="tag"><span class="px" aria-hidden="true"><i></i><i></i><i></i><i></i></span>AI가 하는 일</span>
-        <ol class="ai-list" id="ailist">
-          <li><span class="k">01</span><span class="t"><span>원고 초안을 씁니다</span></span><span class="ok">DONE</span></li>
-          <li><span class="k">02</span><span class="t"><span>내레이션 목소리를 입힙니다</span></span><span class="ok">DONE</span></li>
-          <li><span class="k">03</span><span class="t"><span>컷을 고르고 자막을 답니다</span></span><span class="ok">DONE</span></li>
-          <li><span class="k">04</span><span class="t"><span>음악을 깔고 길이를 맞춥니다</span></span><span class="ok">DONE</span></li>
-          <li><span class="k">05</span><span class="t"><span>설교 쇼츠와 홈페이지를 만듭니다</span></span><span class="ok">DONE</span></li>
-          <li><span class="k">06</span><span class="t"><span>기사와 보고서를 정리합니다</span></span><span class="ok">DONE</span></li>
-        </ol>
-      </div>
-      <div class="mf-h rv d2" id="mfh">
-        <span class="tag h">우리가 하는 일</span>
-        <h2>그래서 우리는<br><u>현장으로</u> 갑니다.</h2>
-        <p>예전에는 여러 사람이 며칠씩 나눠 하던 일을 이제 AI가 함께 맡습니다. <b>그렇게 아낀 시간으로 한 교회를 더 찾아가고, 한 사람의 이야기를 더 오래 듣습니다.</b> 무엇을 만들지 정하는 일과 마지막 확인은 여전히 사람이 합니다.</p>
-        <div class="mf-sign"><div>AI의 몫<b>속도와 반복</b></div><div>사람의 몫<b>기획 · 관계 · 검수</b></div><div>우리가 향하는 곳<b>현장 · 교회 · 복음</b></div></div>
-      </div>
+    <div class="dir-head" style="margin-bottom:0">
+      <div><p class="eyebrow rv"><span class="n">01</span>먼저 해 보기</p><h2 class="h2 rv d1">오시기 전에,<br><em>30초만.</em></h2></div>
+      <p class="lead rv d2">12월 7일에 무엇을 들으면 좋을지 미리 알아볼 수 있습니다. 이름을 적지 않고 바로 해 볼 수 있습니다.</p>
     </div>
-  </div>
-</section>
-
-<!-- 02 DIRECTIONS -->
-<section class="sec light" id="direction">
-  <div class="wrap">
-    <div class="dir-head">
-      <div><p class="eyebrow rv"><span class="n">02</span>네 개의 방향</p><h2 class="h2 rv d1">AI를 넘어,<br><em>우리가 향하는 곳</em></h2></div>
-      <p class="lead rv d2">도구가 바뀌어도 방향은 바뀌지 않습니다. 12월 7일의 모든 발표는 이 네 방향 가운데 하나를 가리킵니다.</p>
-    </div>
-    <div class="dirs rv d2" id="dirs">
-      <article class="dir on" tabindex="0" style="--img:url(d1-field.jpg)"><span class="n">01</span><span class="vt">현장으로</span><div class="body"><h3>현장으로</h3><p>AI가 편집실을 지키는 동안, 우리는 교회 앞마당에 섭니다. 책상에서 아낀 시간은 취재와 방문으로 돌아갑니다.</p></div><i class="bar"></i></article>
-      <article class="dir" tabindex="0" style="--img:url(d2-people.jpg);background-position:62% 40%"><span class="n">02</span><span class="vt">사람을 향해</span><div class="body"><h3>사람을 향해</h3><p>카메라 너머 한 사람의 얼굴을 기억하는 일은 여전히 우리 몫입니다. 조회수보다 한 사람의 이야기를 먼저 봅니다.</p></div><i class="bar"></i></article>
-      <article class="dir" tabindex="0" style="--img:url(d3-church.jpg)"><span class="n">03</span><span class="vt">교회를 향해</span><div class="body"><h3>교회를 향해</h3><p>지역 교회가 필요로 하는 콘텐츠를, 필요한 날에 만들어 드립니다. 교회에서 들은 이야기가 교회를 섬기는 결과물이 됩니다.</p></div><i class="bar"></i></article>
-      <article class="dir" tabindex="0" style="--img:url(d4-gospel.jpg);background-position:70% 50%"><span class="n">04</span><span class="vt">복음을 향해</span><div class="body"><h3>복음을 향해</h3><p>도구는 날마다 바뀌어도 우리가 전하는 이야기는 하나입니다. 모든 기술의 끝에서 붙드는 것은 복음입니다.</p></div><i class="bar"></i></article>
+    <div class="play-grid">
+      <article class="pc quiz rv" id="quiz" aria-live="polite"></article>
+      <article class="pc tgame rv d1" id="tgame">
+        <span class="lbl">180 SECONDS<i>시간 감각</i></span>
+        <h3>180초,<br>감으로 맞출 수 있을까</h3>
+        <p class="ds">라이트닝 토크 발표자는 180초 안에 발표를 마쳐야 합니다. 숫자가 가려진 뒤, 정확히 3.00초에 멈춰 보세요.</p>
+        <div class="t-disp" id="tdisp">0.00<small>초</small></div>
+        <p class="t-msg" id="tmsg">시작을 누르면 1초 뒤에 숫자가 가려집니다.</p>
+        <div class="t-act"><button class="t-btn" id="tbtn" type="button">시작</button><span class="t-best" id="tbest" hidden>내 최고 기록<b>-</b></span></div>
+      </article>
     </div>
   </div>
 </section>
@@ -528,7 +563,7 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
 <section class="sec dark" id="program">
   <div class="wrap">
     <div class="prog-top">
-      <div class="dir-head" style="margin-bottom:0"><div><p class="eyebrow rv"><span class="n">03</span>프로그램</p><h2 class="h2 rv d1">오전은 키노트,<br><em>오후는 라이트닝 토크.</em></h2></div><p class="lead rv d2">SESSION 1에서는 AI 전환 방향과 주요 사례를 발표하고, SESSION 2에서는 광역본부 전 직원이 한 사람 180초씩 AI 업무 적용 사례를 발표합니다.</p></div>
+      <div class="dir-head" style="margin-bottom:0"><div><p class="eyebrow rv"><span class="n">02</span>프로그램</p><h2 class="h2 rv d1">오전은 키노트,<br><em>오후는 라이트닝 토크.</em></h2></div><p class="lead rv d2">SESSION 1에서는 AI 전환 방향과 주요 사례를 발표하고, SESSION 2에서는 광역본부 전 직원이 한 사람 180초씩 AI 업무 적용 사례를 발표합니다.</p></div>
       <div class="road rv d2" id="road" aria-label="준비 일정">
         <div class="ttl"><span>ROAD TO 12.07</span><b id="roadD">D-00</b></div>
         <div class="rail" id="rail"><i id="railFill"></i></div>
@@ -566,7 +601,7 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
 <section class="sec dark voices" id="voices" style="padding-top:0">
   <div class="wrap v-grid">
     <div>
-      <p class="eyebrow rv"><span class="n">04</span>전원 발표</p>
+      <p class="eyebrow rv"><span class="n">03</span>전원 발표</p>
       <h2 class="h2 rv d1">12개 지사에서,<br><em>한 사람씩.</em></h2>
       <p class="lead rv d2" style="margin-top:28px">전국 12개 지사와 본부의 광역본부 직원이 본사에 모여 AI 활용 사례를 공유합니다. 우열을 가리기보다 서로의 경험에서 배우는 것이 목적입니다.</p>
       <div class="stats rv d3"><div><b>40+</b><span>발표자</span></div><div><b>12</b><span>지사</span></div><div><b>3</b><span>트랙</span></div><div><b>180</b><span>초 · 1인 발표</span></div></div>
@@ -590,11 +625,53 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
   </div>
 </section>
 
+<!-- 02 DIRECTIONS -->
+<section class="sec light" id="direction">
+  <div class="wrap">
+    <div class="dir-head">
+      <div><p class="eyebrow rv"><span class="n">04</span>네 개의 방향</p><h2 class="h2 rv d1">AI를 넘어,<br><em>우리가 향하는 곳</em></h2></div>
+      <p class="lead rv d2">도구가 바뀌어도 방향은 바뀌지 않습니다. 12월 7일의 모든 발표는 이 네 방향 가운데 하나를 가리킵니다.</p>
+    </div>
+    <div class="dirs rv d2" id="dirs">
+      <article class="dir on" tabindex="0" style="--img:url(d1-field.jpg)"><span class="n">01</span><span class="vt">현장으로</span><div class="body"><h3>현장으로</h3><p>AI가 편집실을 지키는 동안, 우리는 교회 앞마당에 섭니다. 책상에서 아낀 시간은 취재와 방문으로 돌아갑니다.</p></div><i class="bar"></i></article>
+      <article class="dir" tabindex="0" style="--img:url(d2-people.jpg);background-position:62% 40%"><span class="n">02</span><span class="vt">사람을 향해</span><div class="body"><h3>사람을 향해</h3><p>카메라 너머 한 사람의 얼굴을 기억하는 일은 여전히 우리 몫입니다. 조회수보다 한 사람의 이야기를 먼저 봅니다.</p></div><i class="bar"></i></article>
+      <article class="dir" tabindex="0" style="--img:url(d3-church.jpg)"><span class="n">03</span><span class="vt">교회를 향해</span><div class="body"><h3>교회를 향해</h3><p>지역 교회가 필요로 하는 콘텐츠를, 필요한 날에 만들어 드립니다. 교회에서 들은 이야기가 교회를 섬기는 결과물이 됩니다.</p></div><i class="bar"></i></article>
+      <article class="dir" tabindex="0" style="--img:url(d4-gospel.jpg);background-position:70% 50%"><span class="n">04</span><span class="vt">복음을 향해</span><div class="body"><h3>복음을 향해</h3><p>도구는 날마다 바뀌어도 우리가 전하는 이야기는 하나입니다. 모든 기술의 끝에서 붙드는 것은 복음입니다.</p></div><i class="bar"></i></article>
+    </div>
+  </div>
+</section>
+
+<!-- 01 MANIFESTO -->
+<section class="sec mf dark" id="about">
+  <div class="wrap">
+    <p class="eyebrow rv"><span class="n">05</span>왜 Beyond AI인가</p>
+    <div class="mf-grid">
+      <div class="rv">
+        <span class="tag"><span class="px" aria-hidden="true"><i></i><i></i><i></i><i></i></span>AI가 하는 일</span>
+        <ol class="ai-list" id="ailist">
+          <li><span class="k">01</span><span class="t"><span>원고 초안을 씁니다</span></span><span class="ok">DONE</span></li>
+          <li><span class="k">02</span><span class="t"><span>내레이션 목소리를 입힙니다</span></span><span class="ok">DONE</span></li>
+          <li><span class="k">03</span><span class="t"><span>컷을 고르고 자막을 답니다</span></span><span class="ok">DONE</span></li>
+          <li><span class="k">04</span><span class="t"><span>음악을 깔고 길이를 맞춥니다</span></span><span class="ok">DONE</span></li>
+          <li><span class="k">05</span><span class="t"><span>설교 쇼츠와 홈페이지를 만듭니다</span></span><span class="ok">DONE</span></li>
+          <li><span class="k">06</span><span class="t"><span>기사와 보고서를 정리합니다</span></span><span class="ok">DONE</span></li>
+        </ol>
+      </div>
+      <div class="mf-h rv d2" id="mfh">
+        <span class="tag h">우리가 하는 일</span>
+        <h2>그래서 우리는<br><u>현장으로</u> 갑니다.</h2>
+        <p>예전에는 여러 사람이 며칠씩 나눠 하던 일을 이제 AI가 함께 맡습니다. <b>그렇게 아낀 시간으로 한 교회를 더 찾아가고, 한 사람의 이야기를 더 오래 듣습니다.</b> 무엇을 만들지 정하는 일과 마지막 확인은 여전히 사람이 합니다.</p>
+        <div class="mf-sign"><div>AI의 몫<b>속도와 반복</b></div><div>사람의 몫<b>기획 · 관계 · 검수</b></div><div>우리가 향하는 곳<b>현장 · 교회 · 복음</b></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- 05 JOIN -->
 <section class="sec light" id="join">
   <div class="wrap">
     <div class="dir-head" style="margin-bottom:0">
-      <div><p class="eyebrow rv"><span class="n">05</span>참여</p><h2 class="h2 rv d1">참여<br><em>프로그램</em></h2></div>
+      <div><p class="eyebrow rv"><span class="n">06</span>참여</p><h2 class="h2 rv d1">참여<br><em>프로그램</em></h2></div>
       <p class="lead rv d2">본사와 자회사 임직원도 함께 참여할 수 있는 프로그램을 준비했습니다.</p>
     </div>
     <div class="join-grid">
@@ -618,7 +695,7 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
 <section class="sec rsvp" id="rsvp">
   <div class="wrap rs-grid">
     <div>
-      <p class="eyebrow rv"><span class="n">06</span>사전 등록</p>
+      <p class="eyebrow rv"><span class="n">07</span>사전 등록</p>
       <h2 class="h2 rv d1">사전 등록<br><em>안내</em></h2>
       <dl class="rs-info rv d2">
         <div><dt>대상</dt><dd>CTS 타 본부와 자회사 임직원</dd></div>
@@ -658,7 +735,7 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
 <section class="venue" id="venue">
   <img src="venue.jpg" alt="해 질 무렵의 CTS 본사 사옥" loading="lazy">
   <div class="wrap">
-    <p class="eyebrow rv" style="color:rgba(243,240,233,.7)"><span class="n">07</span>오시는 길</p>
+    <p class="eyebrow rv" style="color:rgba(243,240,233,.7)"><span class="n">08</span>오시는 길</p>
     <h2 class="rv d1"><small>CTS Convention Hall · 11F</small>CTS 본사<br>11층 컨벤션홀</h2>
     <dl class="vinfo rv d2">
       <div><dt>ADDRESS</dt><dd>서울특별시 동작구 노량진로 100<br>CTS기독교TV 본사 11층</dd></div>
@@ -751,17 +828,20 @@ $('#vctl').addEventListener('click', () => {
     await ready;
     size(); place();
     draw(cur);
-    await wait(260);
+    let skip = false; ld.addEventListener('pointerdown', () => { skip = true; });
+    await wait(180);
     for (let i = 0; i < steps.length; i++) {
+      if (skip) i = steps.length - 1;
       cur = steps[i]; draw(cur);
       const p = Math.round((i + 1) / steps.length * 100);
       num.innerHTML = String(p).padStart(3, '0') + '<i>%</i>';
       if (i === 5) { $('#c1').classList.add('on'); ld.classList.add('color'); }
       if (cur > 1) res.innerHTML = `<b>AI</b>${cur}px`;
       else { ld.classList.add('rl'); res.innerHTML = '<b>REAL</b>1:1'; $('#c2').classList.add('on'); }
-      await wait(i < 3 ? 170 : 125);
+      if (i === steps.length - 1) { $('#c1').classList.add('on'); ld.classList.add('color'); }
+      await wait(skip ? 0 : i < 3 ? 120 : 85);
     }
-    await wait(520);
+    await wait(skip ? 120 : 320);
     ld.classList.add('out');
     cw.style.transition = 'clip-path 1.1s cubic-bezier(.76,0,.24,1)';
     c.style.transition = 'transform 1.1s cubic-bezier(.76,0,.24,1), filter .9s ease';
@@ -859,6 +939,108 @@ $('#vctl').addEventListener('click', () => {
   new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { el.classList.add('in'); o.disconnect(); } }), { threshold: .3 }).observe(el);
 })();
 
+/* ---------- play: type test ---------- */
+(function quiz() {
+  const box = $('#quiz'); if (!box) return;
+  const TYPES = {
+    T: { en: 'Time Maker', ko: '시간을 버는 사람', d: '반복되는 일부터 AI에게 넘기고, 남은 시간을 더 중요한 일에 씁니다.', rk: 'SESSION 2 · 라이트닝 토크', rt: '업무 트랙', rd: '걸리던 시간이 얼마나 줄었는지, 전과 후를 숫자로 들을 수 있습니다.' },
+    F: { en: 'Field Goer', ko: '현장으로 가는 사람', d: '도구보다 사람이 먼저입니다. 아낀 시간으로 한 사람을 더 만나러 갑니다.', rk: 'SESSION 2 · 라이트닝 토크', rt: '교회 트랙', rd: '지역 교회를 위해 만든 결과물과 현장 이야기를 들을 수 있습니다.' },
+    M: { en: 'First Mover', ko: '먼저 해 보는 사람', d: '설명서보다 손이 먼저 갑니다. 일단 만들어 보고, 고치면서 배웁니다.', rk: 'SESSION 1 · 키노트', rt: '실시간 시연 (예정)', rd: '무대에서 바로 만들어 보이는 제작 자동화 시연을 볼 수 있습니다.' },
+    C: { en: 'Final Checker', ko: '끝까지 확인하는 사람', d: 'AI가 만든 것도 마지막에는 직접 확인합니다. 믿을 수 있어야 내보냅니다.', rk: 'SESSION 2 · 라이트닝 토크', rt: '사람이 확인한 것', rd: 'AI에게 맡긴 일과 사람이 직접 확인한 일을 나눠서 들을 수 있습니다.' }
+  };
+  const QS = [
+    ['AI에게 딱 한 가지만 맡길 수 있다면?', ['T', '매주 반복되는 문서 정리'], ['F', '인터뷰 녹취 풀기와 요약'], ['M', '머릿속 아이디어를 시안으로 만들기'], ['C', '내가 쓴 글의 오탈자와 사실 확인']],
+    ['새 도구가 나오면 나는?', ['T', '내 일이 몇 분 줄어드는지부터 본다'], ['F', '써 본 사람에게 먼저 물어본다'], ['M', '일단 설치해서 눌러 본다'], ['C', '믿을 만한지 며칠 지켜본다']],
+    ['AI가 한 시간을 벌어 준다면, 그 시간에?', ['T', '밀린 일을 하나 더 끝낸다'], ['F', '사람을 만나러 나간다'], ['M', '해 보고 싶던 것을 하나 더 만든다'], ['C', '결과물을 한 번 더 들여다본다']],
+    ['AI가 만든 결과물을 받으면?', ['T', '바로 쓸 수 있는지 본다'], ['F', '받는 사람이 어떻게 느낄지 생각한다'], ['M', '다르게 시켜서 하나 더 받아 본다'], ['C', '출처와 숫자부터 확인한다']],
+    ['12월 7일, 가장 궁금한 것은?', ['T', '걸리던 시간이 얼마나 줄었는지'], ['F', '교회와 현장에서 실제로 어떻게 썼는지'], ['M', '무대에서 바로 보여 주는 실시간 시연'], ['C', '어디까지 맡기고 어디부터 사람이 했는지']]
+  ];
+  const KEY = 'bai_b_type';
+  let score, last, blob = null;
+  const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  const intro = () => {
+    box.classList.remove('done');
+    box.innerHTML = `<span class="lbl">TYPE TEST<i>다섯 문항 · 30초</i></span><div class="q-step"><h3>나는 AI와<br>어떤 사이일까</h3><p class="ds">다섯 번만 누르면 나의 AI 업무 유형과, 12월 7일에 들으면 좋을 순서를 알려 드립니다.</p><button class="btn ink q-start" type="button">시작하기</button></div>`;
+    $('.q-start', box).addEventListener('click', () => { score = { T: 0, F: 0, M: 0, C: 0 }; last = null; ask(0); });
+  };
+  const ask = i => {
+    const q = QS[i];
+    box.innerHTML = `<span class="lbl">TYPE TEST<i>${i + 1} / ${QS.length}</i></span><div class="q-bar"><i style="width:${i / QS.length * 100}%"></i></div><div class="q-step"><p class="q-q">${q[0]}</p><div class="q-opts">${shuffle(q.slice(1)).map(o => `<button type="button" data-t="${o[0]}">${o[1]}</button>`).join('')}</div></div>`;
+    requestAnimationFrame(() => { const b = $('.q-bar i', box); if (b) b.style.width = (i + 1) / QS.length * 100 + '%'; });
+    $$('.q-opts button', box).forEach(b => b.addEventListener('click', () => {
+      score[b.dataset.t]++; last = b.dataset.t;
+      if (i + 1 < QS.length) ask(i + 1);
+      else { const mx = Math.max(...Object.values(score)); const tie = Object.keys(score).filter(k => score[k] === mx); const k = tie.includes(last) ? last : tie[0]; localStorage.setItem(KEY, k); result(k, true); }
+    }));
+  };
+  const wrap = (x, t, w) => { const out = []; let line = ''; t.split(' ').forEach(s => { const n = line ? line + ' ' + s : s; if (x.measureText(n).width > w && line) { out.push(line); line = s; } else line = n; }); if (line) out.push(line); return out; };
+  const image = t => {
+    const W = 1080, H = 1350, P = 84, c = document.createElement('canvas'); c.width = W; c.height = H; const x = c.getContext('2d');
+    const SANS = "'Pretendard Variable', Pretendard, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif";
+    x.fillStyle = '#0b0c0e'; x.fillRect(0, 0, W, H);
+    const g = x.createRadialGradient(W, 0, 0, W, 0, 980); g.addColorStop(0, 'rgba(240,184,40,.36)'); g.addColorStop(1, 'rgba(240,184,40,0)'); x.fillStyle = g; x.fillRect(0, 0, W, H);
+    x.textBaseline = 'alphabetic';
+    x.fillStyle = '#f0b828'; x.font = `700 30px ${SANS}`; x.fillText('BEYOND AI 2026', P, 128);
+    x.fillStyle = 'rgba(243,240,233,.6)'; x.textAlign = 'right'; x.fillText('나의 AI 업무 유형', W - P, 128); x.textAlign = 'left';
+    const words = t.en.toUpperCase().split(' '); let fs = 280;
+    const setF = s => { x.font = `800 ${s}px Archivo, ${SANS}`; if ('fontStretch' in x) x.fontStretch = 'extra-condensed'; };
+    setF(fs); const mw = Math.max(...words.map(w => x.measureText(w).width)); if (mw > W - P * 2) fs = Math.floor(fs * (W - P * 2) / mw);
+    setF(fs); x.fillStyle = '#f3f0e9'; let y = 190 + fs * .78; words.forEach(w => { x.fillText(w, P - 4, y); y += fs * .86; });
+    if ('fontStretch' in x) x.fontStretch = 'normal';
+    y = y - fs * .86 + 96; x.fillStyle = '#f0b828'; x.font = `700 62px ${SANS}`; x.fillText(t.ko, P, y);
+    y += 70; x.fillStyle = 'rgba(243,240,233,.86)'; x.font = `400 36px ${SANS}`; wrap(x, t.d, W - P * 2).forEach(l => { x.fillText(l, P, y); y += 54; });
+    y += 22; x.fillStyle = 'rgba(243,240,233,.22)'; x.fillRect(P, y, W - P * 2, 2);
+    y += 62; x.fillStyle = '#f0b828'; x.font = `700 26px ${SANS}`; x.fillText('12월 7일 추천 순서', P, y);
+    y += 60; x.fillStyle = '#f3f0e9'; x.font = `700 44px ${SANS}`; x.fillText(t.rt, P, y);
+    y += 50; x.fillStyle = 'rgba(243,240,233,.7)'; x.font = `400 30px ${SANS}`; x.fillText(t.rk, P, y);
+    x.fillStyle = '#f3f0e9'; x.font = `700 46px ${SANS}`; x.fillText('2026. 12. 7. 월 10:00', P, H - 132);
+    x.fillStyle = 'rgba(243,240,233,.8)'; x.font = `500 32px ${SANS}`; x.fillText('CTS 본사 11층 컨벤션홀', P, H - 82);
+    x.textAlign = 'right'; x.fillStyle = 'rgba(243,240,233,.55)'; x.font = `500 26px ${SANS}`; x.fillText('CTS 광역본부 AI 페스티벌', W - P, H - 82); x.textAlign = 'left';
+    return c;
+  };
+  window.baiTypeCanvas = k => image(TYPES[k]);
+  const result = (k, fresh) => {
+    const t = TYPES[k]; blob = null;
+    box.classList.add('done');
+    box.innerHTML = `<span class="lbl">MY AI TYPE<i>BEYOND AI 2026</i></span><div class="q-step"><p class="r-en">${t.en.replace(' ', '<br>')}</p><p class="r-ko">${t.ko}</p><p class="r-d">${t.d}</p><div class="r-rec"><span>12월 7일 추천 순서</span><b>${t.rt}</b><p>${t.rk}. ${t.rd}</p></div><div class="r-act"><a class="btn gold" href="#rsvp">사전 등록하기</a><button class="btn line" type="button" id="rsave">결과 이미지 저장</button><button class="r-again" type="button">다시 하기</button></div><p class="r-note">사전 등록을 하시면 이 유형이 함께 기록되어, 행사 당일 참석자 유형 집계에 쓰입니다.</p></div>`;
+    if (fresh && box.getBoundingClientRect().top < 0) box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(() => { try { image(t).toBlob(b => { blob = b; }, 'image/png'); } catch (e) {} });
+    $('.r-again', box).addEventListener('click', () => { localStorage.removeItem(KEY); intro(); });
+    $('#rsave').addEventListener('click', async () => {
+      if (!blob) return;
+      const f = new File([blob], 'beyond-ai-my-type.png', { type: 'image/png' });
+      try { if (navigator.canShare && navigator.canShare({ files: [f] })) { await navigator.share({ files: [f], title: 'Beyond AI 2026', text: '나의 AI 업무 유형: ' + t.ko }); return; } } catch (e) { if (e && e.name === 'AbortError') return; }
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = f.name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+    });
+  };
+  const saved = localStorage.getItem(KEY);
+  if (saved && TYPES[saved]) result(saved, false); else intro();
+})();
+
+/* ---------- play: 180 seconds ---------- */
+(function timing() {
+  const btn = $('#tbtn'); if (!btn) return;
+  const disp = $('#tdisp'), msg = $('#tmsg'), best = $('#tbest'), TARGET = 3, KEY = 'bai_b_best';
+  let t0 = 0, run = false, raf = 0, lock = 0;
+  const show = (v, hide) => { disp.classList.toggle('hide', !!hide); disp.innerHTML = (hide ? '?.??' : v.toFixed(2)) + '<small>초</small>'; };
+  const bestShow = () => { const b = parseFloat(localStorage.getItem(KEY)); if (!isNaN(b)) { best.hidden = false; $('b', best).textContent = b.toFixed(2) + '초 차이'; } };
+  const tick = () => { const s = (performance.now() - t0) / 1000; show(s, s >= 1); if (run) raf = requestAnimationFrame(tick); };
+  const toggle = e => {
+    if (e) e.preventDefault();
+    const now = performance.now(); if (now < lock) return;
+    if (!run) { run = true; t0 = now; btn.textContent = '멈춤'; btn.classList.add('run'); msg.textContent = '지금이다 싶을 때 누르세요.'; raf = requestAnimationFrame(tick); return; }
+    run = false; cancelAnimationFrame(raf); lock = now + 500;
+    const s = (now - t0) / 1000, d = Math.abs(s - TARGET); show(s, false);
+    btn.textContent = '다시'; btn.classList.remove('run');
+    const how = s < TARGET ? '빨랐습니다' : '늦었습니다';
+    msg.innerHTML = d <= .03 ? `<b>${d.toFixed(2)}초 차이.</b> 발표 체질입니다. 180초를 맡겨도 되겠습니다.` : d <= .1 ? `<b>${d.toFixed(2)}초 차이.</b> 거의 정확합니다.` : d <= .3 ? `<b>${d.toFixed(2)}초</b> ${how}. 한 번 더 해 보세요.` : `<b>${d.toFixed(2)}초</b> ${how}. 생각보다 어렵습니다. 한 번 더 해 보세요.`;
+    const b = parseFloat(localStorage.getItem(KEY)); if (isNaN(b) || d < b) localStorage.setItem(KEY, d.toFixed(2)); bestShow();
+  };
+  btn.addEventListener('pointerdown', toggle);
+  btn.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') toggle(e); });
+  bestShow();
+})();
+
 /* ---------- RSVP ---------- */
 (function rsvp() {
   const f = $('#rform'), b = $('#rbtn'), err = $('#rerr'), tk = $('#ticket');
@@ -885,6 +1067,7 @@ $('#vctl').addEventListener('click', () => {
     if (!RSVP_API) { err.textContent = '등록 접수는 곧 열립니다.'; return; }
     b.disabled = true; b.style.opacity = .6;
     try {
+      const ty = localStorage.getItem('bai_b_type'); if (ty) o.wish = ('[유형 ' + ({ T: 'Time Maker', F: 'Field Goer', M: 'First Mover', C: 'Final Checker' }[ty] || ty) + '] ' + o.wish).trim();
       o.ua = navigator.userAgent.slice(0, 110);
       const r = await fetch(RSVP_API, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify({ action: 'rsvp', data: o }) });
       const j = await r.json(); if (!j.ok) throw new Error(j.error || '등록하지 못했습니다.');
