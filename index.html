@@ -190,7 +190,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 /* ===== 02 DIRECTIONS ===== */
 .dir-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;margin-bottom:clamp(40px,5vw,64px)}
 .dirs{display:flex;gap:10px;height:clamp(520px,70vh,700px)}
-.dir{position:relative;flex:1;min-width:0;border-radius:4px;overflow:hidden;cursor:pointer;color:var(--paper);background:#222 var(--img) center/cover no-repeat;transition:flex 1s var(--ease);outline:none}
+.dir{position:relative;flex:1;min-width:0;border-radius:4px;overflow:hidden;cursor:pointer;color:var(--paper);background:#222 var(--img,none) center/cover no-repeat;transition:flex 1s var(--ease);outline:none}
 .dir::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,12,14,.15) 0%,rgba(11,12,14,.25) 45%,rgba(11,12,14,.88) 100%);transition:background .6s}
 .dir:not(.on)::before{background:linear-gradient(180deg,rgba(11,12,14,.55),rgba(11,12,14,.82))}
 .dir.on{flex:3.4}
@@ -361,6 +361,19 @@ button,input,select,textarea{font:inherit;color:inherit}
 .t-best{font:500 11.5px/1.5 var(--mono);letter-spacing:.08em;color:var(--mute);text-align:right;white-space:nowrap}
 .t-best b{display:block;color:var(--paper);font-size:15px;letter-spacing:0}
 
+.join-grid.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.join-grid.g3 .ev{min-height:290px}
+.join-grid.g3 .ev h4{margin-top:34px}
+.made{margin-top:28px;font:500 12.5px/1.7 var(--mono);letter-spacing:.04em;color:var(--muteL)}
+.swipe{display:none}
+.more summary{cursor:pointer;font-size:14px;font-weight:600;color:var(--ink2);padding:6px 0;list-style:none;display:flex;align-items:center;gap:6px}
+.more summary::-webkit-details-marker{display:none}
+.more summary::before{content:'+';font:600 16px/1 var(--mono)}
+.more[open] summary::before{content:'−'}
+.more summary small{font-weight:400;color:var(--muteL)}
+.more .in{display:grid;gap:16px;margin-top:12px}
+.tk-cal{display:flex;gap:8px;flex-wrap:wrap;padding:0 30px 18px}
+
 /* ===== 06 RSVP ===== */
 .rsvp{background:var(--gold);color:var(--ink)}
 .rsvp .eyebrow{color:rgba(21,21,21,.6)}
@@ -467,6 +480,19 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
   .vinfo{grid-template-columns:1fr}
   .venue::before{background:linear-gradient(0deg,rgba(11,12,14,.96) 30%,rgba(11,12,14,.35) 75%,rgba(11,12,14,.2))}
 }
+@media (max-width:900px){
+  .join-grid.g3{grid-template-columns:1fr}
+  .join-grid.g3 .ev{min-height:0}
+  .join-grid.g3 .ev h4{margin-top:24px}
+  .dirs,.tracks{display:flex;flex-direction:row;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin-left:calc(var(--pad)*-1);margin-right:calc(var(--pad)*-1);padding:0 var(--pad) 4px;scroll-padding:0 var(--pad);-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .dirs::-webkit-scrollbar,.tracks::-webkit-scrollbar{display:none}
+  .dir,.dir.on,.trk{flex:0 0 84%;scroll-snap-align:start}
+  .dir,.dir.on{height:min(104vw,460px)}
+  .trk{min-height:400px}
+  .swipe{display:block;margin-top:14px;font:500 11px/1 var(--mono);letter-spacing:.12em;color:var(--muteL)}
+  .dark .swipe{color:var(--mute)}
+  .swipe::after{content:' →'}
+}
 @media (max-width:620px){
   body{font-size:15.5px}
   .nav{height:60px}
@@ -515,7 +541,7 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Beyond AI 2026 처음으로"><img src="cts-w.png" alt="CTS 기독교TV"><span>BEYOND AI 2026</span></a>
     <nav class="menu" aria-label="주요 메뉴">
-      <a href="#play">30초 테스트</a><a href="#program">프로그램</a><a href="#voices">전원 발표</a><a href="#about">소개</a><a href="#join">참여</a><a href="#venue">오시는 길</a>
+      <a href="#play">30초 테스트</a><a href="#join">얻어 가는 것</a><a href="#program">프로그램</a><a href="#voices">전원 발표</a><a href="#about">소개</a><a href="#venue">오시는 길</a>
       <a class="room" href="survey.html" title="광역본부 직원 전용"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>직원 설문</a>
     </nav>
     <a class="btn gold sm" href="#rsvp">사전 등록</a>
@@ -523,7 +549,7 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
   </div>
 </header>
 <nav class="mnav" id="mnav" aria-label="모바일 메뉴">
-  <a href="#play">30초 테스트<small>01</small></a><a href="#program">프로그램<small>02</small></a><a href="#voices">전원 발표<small>03</small></a><a href="#direction">네 개의 방향<small>04</small></a><a href="#about">소개<small>05</small></a><a href="#join">참여<small>06</small></a><a href="#venue">오시는 길<small>08</small></a><a href="survey.html">광역본부 직원 설문<small>직원 전용</small></a>
+  <a href="#play">30초 테스트<small>01</small></a><a href="#join">얻어 가는 것<small>02</small></a><a href="#program">프로그램<small>03</small></a><a href="#voices">전원 발표<small>04</small></a><a href="#direction">네 개의 방향<small>05</small></a><a href="#about">소개<small>06</small></a><a href="#venue">오시는 길<small>08</small></a><a href="survey.html">광역본부 직원 설문<small>직원 전용</small></a>
   <a class="btn gold" href="#rsvp">사전 등록하기</a>
 </nav>
 
@@ -574,11 +600,27 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
   </div>
 </section>
 
+<!-- 02 FOR YOU -->
+<section class="sec light foryou" id="join" style="padding-top:0">
+  <div class="wrap">
+    <div class="dir-head" style="margin-bottom:0">
+      <div><p class="eyebrow rv"><span class="n">02</span>본사·자회사 임직원께</p><h2 class="h2 rv d1">오시면<br><em>얻어 가는 것.</em></h2></div>
+      <p class="lead rv d2">광역본부 직원들이 한 달 동안 직접 해 본 것을 그대로 보여 드립니다. 듣고 끝나지 않도록, 행사 뒤에 이어 갈 방법도 함께 준비했습니다.</p>
+    </div>
+    <div class="join-grid g3">
+      <article class="ev rv"><span class="lbl">SESSION 1<i>01</i></span><h4>AI 전환 방향과<br>실시간 시연</h4><p>광역본부가 AI로 무엇을 바꾸고 있는지 듣고, 제작 과정이 어떻게 달라졌는지 무대에서 바로 확인합니다.</p><span class="when">10:00 · 키노트</span></article>
+      <article class="ev rv d1"><span class="lbl">SESSION 2<i>02</i></span><h4>동료 40여 명의<br>실제 사례</h4><p>한 사람이 180초씩, 걸리던 시간과 지금 걸리는 시간을 숫자로 발표합니다. 업무, 교회, 세상과의 소통 세 영역으로 나눠 듣습니다.</p><span class="when">13:30 · 라이트닝 토크</span></article>
+      <article class="ev rv d2"><span class="lbl">AFTER<i>03</i></span><h4>부서 교육 문의와<br>스터디 요청</h4><p>우리 부서에서도 해 보고 싶다면 사전 등록 때 표시해 주세요. 요청을 모아 행사 뒤에 일정을 안내해 드립니다.</p><span class="when">사전 등록 때 선택</span></article>
+    </div>
+    <p class="made rv">지금 보고 계신 이 홈페이지와 포스터, 직원 설문도 AI와 함께 만들었습니다.</p>
+  </div>
+</section>
+
 <!-- 03 PROGRAM -->
 <section class="sec dark" id="program">
   <div class="wrap">
     <div class="prog-top">
-      <div class="dir-head" style="margin-bottom:0"><div><p class="eyebrow rv"><span class="n">02</span>프로그램</p><h2 class="h2 rv d1">오전은 키노트,<br><em>오후는 라이트닝 토크.</em></h2></div><p class="lead rv d2">SESSION 1에서는 AI 전환 방향과 주요 사례를 발표하고, SESSION 2에서는 광역본부 전 직원이 한 사람 180초씩 AI 업무 적용 사례를 발표합니다.</p></div>
+      <div class="dir-head" style="margin-bottom:0"><div><p class="eyebrow rv"><span class="n">03</span>프로그램</p><h2 class="h2 rv d1">오전은 키노트,<br><em>오후는 라이트닝 토크.</em></h2></div><p class="lead rv d2">SESSION 1에서는 AI 전환 방향과 주요 사례를 발표하고, SESSION 2에서는 광역본부 전 직원이 한 사람 180초씩 AI 업무 적용 사례를 발표합니다.</p></div>
       <div class="road rv d2" id="road" aria-label="준비 일정">
         <div class="ttl"><span>ROAD TO 12.07</span><b id="roadD">D-00</b></div>
         <div class="rail" id="rail"><i id="railFill"></i></div>
@@ -590,8 +632,8 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
       <div class="pr">
         <div class="talks">
           <article class="talk"><span class="k">KEYNOTE 01</span><h4>왜 Beyond AI인가</h4><p>AI First 엑소더스, 그다음 이야기. 광역본부가 AI로 무엇을 바꾸고 어디로 가려 하는지 큰 그림을 나눕니다.</p><div class="who"><b>강경원</b><span>부사장 · 광역본부장 · 진행</span></div></article>
-          <article class="talk"><span class="k">KEYNOTE 02</span><span class="live">LIVE DEMO</span><h4>제작의 문법이 바뀌었다</h4><p>작가·성우·조연출 없이 만든 방송, 그리고 촬영부터 편집·음악·자막까지 이어지는 자동화를 무대에서 바로 보여 줍니다.</p><div class="who"><b>박대훈</b><span>국장 · 콘텐츠지원국 · 예정</span></div></article>
-          <article class="talk"><span class="k">CASE STUDY</span><h4>현장에서 쓰는 AI</h4><p>뉴스 취재와 기사 작업에 AI를 어떻게 들였는지, 지역 현장의 실제 사례로 풀어 봅니다.</p><div class="who"><b>노찬영</b><span>총국장 · 호남총국 · 예정</span></div></article>
+          <article class="talk"><span class="k">KEYNOTE 02</span><span class="live">LIVE DEMO</span><h4>제작의 문법이 바뀌었다</h4><p>작가·성우·조연출 없이 만든 방송, 그리고 촬영부터 편집·음악·자막까지 이어지는 자동화를 무대에서 바로 보여 줍니다.</p><div class="who"><b>박대훈</b><span>국장 · 콘텐츠지원국</span></div></article>
+          <article class="talk"><span class="k">CASE STUDY</span><h4>현장에서 쓰는 AI</h4><p>뉴스 취재와 기사 작업에 AI를 어떻게 들였는지, 지역 현장의 실제 사례로 풀어 봅니다.</p><div class="who"><b>노찬영</b><span>총국장 · 호남총국</span></div></article>
         </div>
       </div>
     </div>
@@ -608,7 +650,7 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
         <div class="chips"><span class="chip g">업무</span><span class="chip g">교회</span><span class="chip g">세상과의 소통</span><span class="chip">1인 180초</span><span class="chip">결과물 시연</span></div>
       </div>
     </div>
-    <p class="note">* 발표 제목과 순서는 확정되는 대로 이곳에 공개합니다.</p>
+    <p class="note">* 발표 제목은 가제입니다. 순서와 함께 확정되면 이곳에 공개합니다.</p>
   </div>
 </section>
 
@@ -616,7 +658,7 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
 <section class="sec dark voices" id="voices" style="padding-top:0">
   <div class="wrap v-grid">
     <div>
-      <p class="eyebrow rv"><span class="n">03</span>전원 발표</p>
+      <p class="eyebrow rv"><span class="n">04</span>전원 발표</p>
       <h2 class="h2 rv d1">12개 지사에서,<br><em>한 사람씩.</em></h2>
       <p class="lead rv d2" style="margin-top:28px">전국 12개 지사와 본부의 광역본부 직원이 본사에 모여 AI 활용 사례를 공유합니다. 우열을 가리기보다 서로의 경험에서 배우는 것이 목적입니다.</p>
       <div class="stats rv d3"><div><b>40+</b><span>발표자</span></div><div><b>12</b><span>지사</span></div><div><b>3</b><span>트랙</span></div><div><b>180</b><span>초 · 1인 발표</span></div></div>
@@ -632,6 +674,7 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
       <article class="trk rv d1"><img src="t2-church.jpg" alt="예배당에서 카메라를 운용하는 CTS 직원" loading="lazy"><span class="no">TRACK 02</span><h3><small>교회를 섬긴 이야기</small>교회</h3><p>설교 쇼츠, 교회 소식, 행사 홍보처럼 지역 교회가 바로 쓸 수 있게 만든 결과물.</p></article>
       <article class="trk rv d2"><img src="t3-world.jpg" alt="강을 건너 현장으로 가는 CTS 직원" loading="lazy" style="object-position:62% 50%"><span class="no">TRACK 03</span><h3><small>세상에 말을 건 이야기</small>세상과의 소통</h3><p>뉴스, SNS, 영상으로 교회 밖 사람들과 만난 새로운 방법.</p></article>
     </div>
+    <p class="swipe" aria-hidden="true">옆으로 넘겨 보세요</p>
     <div class="rules rv">
       <div class="rule"><span class="mono">RULE 01</span><h4>180초, 한 가지 사례</h4><p>여러 개를 나열하기보다 가장 효과가 컸던 한 가지를 구체적으로 발표합니다.</p></div>
       <div class="rule"><span class="mono">RULE 02</span><h4>전과 후를 숫자로</h4><p>걸리던 시간과 지금 걸리는 시간, 바뀐 결과를 숫자로 말합니다.</p></div>
@@ -644,22 +687,23 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
 <section class="sec light" id="direction">
   <div class="wrap">
     <div class="dir-head">
-      <div><p class="eyebrow rv"><span class="n">04</span>네 개의 방향</p><h2 class="h2 rv d1">AI를 넘어,<br><em>우리가 향하는 곳</em></h2></div>
+      <div><p class="eyebrow rv"><span class="n">05</span>네 개의 방향</p><h2 class="h2 rv d1">AI를 넘어,<br><em>우리가 향하는 곳</em></h2></div>
       <p class="lead rv d2">도구가 바뀌어도 방향은 바뀌지 않습니다. 12월 7일의 모든 발표는 이 네 방향 가운데 하나를 가리킵니다.</p>
     </div>
     <div class="dirs rv d2" id="dirs">
-      <article class="dir on" tabindex="0" style="--img:url(d1-field.jpg)"><span class="n">01</span><span class="vt">현장으로</span><div class="body"><h3>현장으로</h3><p>AI가 편집실을 지키는 동안, 우리는 교회 앞마당에 섭니다. 책상에서 아낀 시간은 취재와 방문으로 돌아갑니다.</p></div><i class="bar"></i></article>
-      <article class="dir" tabindex="0" style="--img:url(d2-people.jpg);background-position:62% 40%"><span class="n">02</span><span class="vt">사람을 향해</span><div class="body"><h3>사람을 향해</h3><p>카메라 너머 한 사람의 얼굴을 기억하는 일은 여전히 우리 몫입니다. 조회수보다 한 사람의 이야기를 먼저 봅니다.</p></div><i class="bar"></i></article>
-      <article class="dir" tabindex="0" style="--img:url(d3-church.jpg)"><span class="n">03</span><span class="vt">교회를 향해</span><div class="body"><h3>교회를 향해</h3><p>지역 교회가 필요로 하는 콘텐츠를, 필요한 날에 만들어 드립니다. 교회에서 들은 이야기가 교회를 섬기는 결과물이 됩니다.</p></div><i class="bar"></i></article>
-      <article class="dir" tabindex="0" style="--img:url(d4-gospel.jpg);background-position:70% 50%"><span class="n">04</span><span class="vt">복음을 향해</span><div class="body"><h3>복음을 향해</h3><p>도구는 날마다 바뀌어도 우리가 전하는 이야기는 하나입니다. 모든 기술의 끝에서 붙드는 것은 복음입니다.</p></div><i class="bar"></i></article>
+      <article class="dir on" tabindex="0" data-img="d1-field.jpg"><span class="n">01</span><span class="vt">현장으로</span><div class="body"><h3>현장으로</h3><p>AI가 편집실을 지키는 동안, 우리는 교회 앞마당에 섭니다. 책상에서 아낀 시간은 취재와 방문으로 돌아갑니다.</p></div><i class="bar"></i></article>
+      <article class="dir" tabindex="0" data-img="d2-people.jpg" style="background-position:62% 40%"><span class="n">02</span><span class="vt">사람을 향해</span><div class="body"><h3>사람을 향해</h3><p>카메라 너머 한 사람의 얼굴을 기억하는 일은 여전히 우리 몫입니다. 조회수보다 한 사람의 이야기를 먼저 봅니다.</p></div><i class="bar"></i></article>
+      <article class="dir" tabindex="0" data-img="d3-church2.jpg" style="background-position:72% 50%"><span class="n">03</span><span class="vt">교회를 향해</span><div class="body"><h3>교회를 향해</h3><p>지역 교회가 필요로 하는 콘텐츠를, 필요한 날에 만들어 드립니다. 교회에서 들은 이야기가 교회를 섬기는 결과물이 됩니다.</p></div><i class="bar"></i></article>
+      <article class="dir" tabindex="0" data-img="d4-gospel2.jpg" style="background-position:42% 50%"><span class="n">04</span><span class="vt">복음을 향해</span><div class="body"><h3>복음을 향해</h3><p>도구는 날마다 바뀌어도 우리가 전하는 이야기는 하나입니다. 모든 기술의 끝에서 붙드는 것은 복음입니다.</p></div><i class="bar"></i></article>
     </div>
+    <p class="swipe" aria-hidden="true">옆으로 넘겨 보세요</p>
   </div>
 </section>
 
 <!-- 01 MANIFESTO -->
 <section class="sec mf dark" id="about">
   <div class="wrap">
-    <p class="eyebrow rv"><span class="n">05</span>왜 Beyond AI인가</p>
+    <p class="eyebrow rv"><span class="n">06</span>왜 Beyond AI인가</p>
     <div class="mf-grid">
       <div class="rv">
         <span class="tag"><span class="px" aria-hidden="true"><i></i><i></i><i></i><i></i></span>AI가 하는 일</span>
@@ -678,30 +722,6 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
         <p>예전에는 여러 사람이 며칠씩 나눠 하던 일을 이제 AI가 함께 맡습니다. <b>그렇게 아낀 시간으로 한 교회를 더 찾아가고, 한 사람의 이야기를 더 오래 듣습니다.</b> 무엇을 만들지 정하는 일과 마지막 확인은 여전히 사람이 합니다.</p>
         <div class="mf-sign"><div>AI의 몫<b>속도와 반복</b></div><div>사람의 몫<b>기획 · 관계 · 검수</b></div><div>우리가 향하는 곳<b>현장 · 교회 · 복음</b></div></div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- 05 JOIN -->
-<section class="sec light" id="join">
-  <div class="wrap">
-    <div class="dir-head" style="margin-bottom:0">
-      <div><p class="eyebrow rv"><span class="n">06</span>참여</p><h2 class="h2 rv d1">참여<br><em>프로그램</em></h2></div>
-      <p class="lead rv d2">본사와 자회사 임직원도 함께 참여할 수 있는 프로그램을 준비했습니다.</p>
-    </div>
-    <div class="join-grid">
-      <article class="ev rv"><span class="lbl">LIVE CLINIC<i>01</i></span>
-        <svg class="ic" viewBox="0 0 56 56" fill="none"><rect x="1" y="1" width="54" height="54" rx="3" stroke="#151515" stroke-width="1.5"/><path d="M14 20h12M14 28h20M14 36h8" stroke="#151515" stroke-width="2"/><rect x="34" y="32" width="8" height="8" fill="#f0b828"/><rect x="42" y="24" width="6" height="6" fill="#f0b828"/></svg>
-        <h4>맡기고 싶은 일,<br>현장 시연</h4><p>사전 등록 때 적어 주신 '내 일 한 가지' 가운데 몇 가지를 골라, 그 자리에서 AI로 풀어 봅니다.</p><span class="when">SESSION 1 키노트 중</span></article>
-      <article class="ev rv d1"><span class="lbl">BEYOND PICK<i>02</i></span>
-        <svg class="ic" viewBox="0 0 56 56" fill="none"><rect x="1" y="1" width="54" height="54" rx="3" stroke="#151515" stroke-width="1.5"/><path d="M14 40V28M24 40V18M34 40V24M44 40V12" stroke="#151515" stroke-width="3"/><path d="M40 12h8" stroke="#f0b828" stroke-width="3"/></svg>
-        <h4>우리 교회에<br>바로 쓰고 싶은 발표</h4><p>라이트닝 토크를 보며 휴대폰으로 투표합니다. 많이 받은 사례는 맺음 시간에 다시 소개합니다.</p><span class="when">SESSION 2 라이트닝 토크</span></article>
-      <article class="ev rv d2"><span class="lbl">HUMAN OR AI<i>03</i></span>
-        <svg class="ic" viewBox="0 0 56 56" fill="none"><rect x="1" y="1" width="54" height="54" rx="3" stroke="#151515" stroke-width="1.5"/><circle cx="20" cy="26" r="7" stroke="#151515" stroke-width="2"/><path d="M10 42c2-6 6-8 10-8s8 2 10 8" stroke="#151515" stroke-width="2"/><rect x="34" y="20" width="4" height="4" fill="#f0b828"/><rect x="40" y="20" width="4" height="4" fill="#f0b828"/><rect x="34" y="26" width="4" height="4" fill="#f0b828"/><rect x="40" y="32" width="4" height="4" fill="#f0b828"/></svg>
-        <h4>사람이 했을까,<br>AI가 했을까</h4><p>실제 결과물을 보고 맞히는 블라인드 퀴즈. 정답보다 '어디서 알아봤는지'가 더 중요합니다.</p><span class="when">점심·쉬는 시간</span></article>
-      <article class="ev rv d3"><span class="lbl">AX LOUNGE<i>04</i></span>
-        <svg class="ic" viewBox="0 0 56 56" fill="none"><rect x="1" y="1" width="54" height="54" rx="3" stroke="#151515" stroke-width="1.5"/><path d="M12 22h24v10a8 8 0 0 1-8 8h-8a8 8 0 0 1-8-8V22Z" stroke="#151515" stroke-width="2"/><path d="M36 25h4a4 4 0 0 1 0 8h-4" stroke="#151515" stroke-width="2"/><rect x="18" y="12" width="4" height="4" fill="#f0b828"/><rect x="26" y="8" width="4" height="4" fill="#f0b828"/></svg>
-        <h4>내 일도 될까요?<br>1:1 상담</h4><p>쉬는 시간마다 로비에서 광역본부 직원이 내 업무에 맞는 AI 활용법을 함께 찾아 드립니다.</p><span class="when">로비 · 점심 시간</span></article>
     </div>
   </div>
 </section>
@@ -728,11 +748,17 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
           <div><label class="fl" for="f-org">소속</label><select class="fi" id="f-org" name="org" required><option value="">선택해 주세요</option><option>CTS기독교TV</option><option>CTSN</option><option>디멕스</option><option>CTS인터내셔널</option><option>CTS문화재단</option><option>조이앤컴</option><option>행복한출생든든한미래</option><option>기타</option></select></div>
           <div class="w"><label class="fl" for="f-dept">부서</label><input class="fi" id="f-dept" name="dept" required maxlength="40" placeholder="예) 방송본부 제작국"></div>
           <div class="w"><span class="fl">듣고 싶은 순서<small>여러 개 고를 수 있어요</small></span>
-            <div class="picks"><label><input type="checkbox" name="part" value="종일"><span>종일</span></label><label><input type="checkbox" name="part" value="SESSION 1 키노트"><span>SESSION 1 키노트 (10:00)</span></label><label><input type="checkbox" name="part" value="SESSION 2 라이트닝 토크"><span>SESSION 2 라이트닝 토크 (13:30)</span></label></div></div>
-          <div class="w"><label class="fl" for="f-wish">AI에게 맡기고 싶은 내 일 한 가지<small>선택 · 라이브 클리닉에서 골라 풀어 봅니다</small></label><textarea class="fi" id="f-wish" name="wish" maxlength="300" placeholder="예) 매주 회의록을 정리해 보고서로 바꾸는 일"></textarea></div>
-          <div class="w"><label class="fl" for="f-contact">연락처<small>선택 · 일정이 바뀔 때만 연락드립니다</small></label><input class="fi" id="f-contact" name="contact" maxlength="40" inputmode="tel" placeholder="010-0000-0000"></div>
+            <div class="picks"><label><input type="checkbox" name="part" value="종일"><span>종일</span></label><label><input type="checkbox" name="part" value="SESSION 1 키노트"><span>SESSION 1 키노트 (10:00)</span></label><label><input type="checkbox" name="part" value="SESSION 2 라이트닝 토크"><span>SESSION 2 라이트닝 토크 (13:30)</span></label><label><input type="checkbox" name="part" value="참석은 어렵고 문의만"><span>참석은 어렵고 문의만</span></label></div></div>
+          <div class="w"><span class="fl">행사 뒤에 이어 가고 싶다면<small>선택</small></span>
+            <div class="picks"><label><input type="checkbox" name="req" value="부서 교육 문의"><span>부서 교육 문의</span></label><label><input type="checkbox" name="req" value="스터디 요청"><span>스터디 요청</span></label></div></div>
+          <details class="w more" id="fmore"><summary>더 적기<small>선택</small></summary>
+            <div class="in">
+              <div><label class="fl" for="f-wish">배우고 싶은 것이나 AI로 해 보고 싶은 일</label><textarea class="fi" id="f-wish" name="wish" maxlength="300" placeholder="예) 매주 회의록을 정리해 보고서로 바꾸는 일"></textarea></div>
+              <div><label class="fl" for="f-contact">연락처<small>일정 변경이나 교육·스터디 안내에만 씁니다</small></label><input class="fi" id="f-contact" name="contact" maxlength="40" inputmode="tel" placeholder="010-0000-0000"></div>
+            </div>
+          </details>
           <input class="hp" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <label class="agree w"><input type="checkbox" name="agree" required><span>이름·소속·연락처는 이 행사 운영에만 쓰고, 행사 후 30일 안에 지웁니다. 동의합니다.</span></label>
+          <label class="agree w"><input type="checkbox" name="agree" required><span>이름·소속·연락처는 이 행사 운영과 교육·스터디 안내에만 쓰고, 행사 후 30일 안에 지웁니다. 동의합니다.</span></label>
         </div>
         <div class="f-act"><span class="err" id="rerr" role="alert"></span><button class="btn ink" type="submit" id="rbtn">등록하기<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
       </form>
@@ -740,6 +766,7 @@ footer .cr{width:100%;font:500 11.5px/1.6 var(--mono);letter-spacing:.06em;color
         <div class="tt"><span class="mono">ADMIT ONE · 사전 등록 완료</span><h3>Beyond<b>AI</b></h3><p style="color:var(--mute);font-size:14px">CTS 광역본부 AI 페스티벌 2026</p></div>
         <div class="perf"></div>
         <dl class="tb"><div><dt>NAME</dt><dd id="tk-name">-</dd></div><div><dt>NO.</dt><dd class="no" id="tk-no">000</dd></div><div><dt>소속</dt><dd id="tk-org">-</dd></div><div><dt>DATE</dt><dd>2026.12.07 MON 10:00</dd></div><div style="grid-column:1/-1"><dt>순서</dt><dd id="tk-part">-</dd></div></dl>
+        <div class="tk-cal"><a class="btn gold sm" id="tk-ics" href="#" download="beyond-ai-2026.ics">캘린더에 추가</a><a class="btn line sm" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Beyond%20AI%202026%20%C2%B7%20CTS%20%EA%B4%91%EC%97%AD%EB%B3%B8%EB%B6%80%20AI%20%ED%8E%98%EC%8A%A4%ED%8B%B0%EB%B2%8C&dates=20261207T010000Z/20261207T070000Z&location=CTS%20%EB%B3%B8%EC%82%AC%2011%EC%B8%B5%20%EC%BB%A8%EB%B2%A4%EC%85%98%ED%99%80%20(%EC%84%9C%EC%9A%B8%20%EB%8F%99%EC%9E%91%EA%B5%AC%20%EB%85%B8%EB%9F%89%EC%A7%84%EB%A1%9C%20100)">구글 캘린더</a></div>
         <p class="tf">이 화면을 캡처해 두시면 입장 확인이 빨라집니다. 같은 이름·소속·부서로 다시 등록하면 내용이 바뀝니다.</p>
       </div>
     </div>
@@ -915,6 +942,15 @@ $('#vctl').addEventListener('click', () => {
   io2.observe($('#ailist'));
 })();
 
+/* ---------- 뒤쪽 사진은 가까워지면 불러온다 ---------- */
+(function lazyBg() {
+  const els = $$('[data-img]'); if (!els.length) return;
+  const load = e => { e.style.setProperty('--img', `url(${e.dataset.img})`); };
+  if (!('IntersectionObserver' in window)) return els.forEach(load);
+  const io = new IntersectionObserver(a => a.forEach(x => { if (x.isIntersecting) { $$('[data-img]', x.target.parentNode).forEach(load); io.disconnect(); } }), { rootMargin: '1200px 0px' });
+  els.forEach(e => io.observe(e));
+})();
+
 /* ---------- directions accordion ---------- */
 (function dirs() {
   const ds = $$('#dirs .dir'); let i = 0, timer = null, user = false;
@@ -965,7 +1001,7 @@ const playStats = fetch(RSVP_API + '?a=stats').then(r => r.json()).catch(() => (
   const TYPES = {
     T: { en: 'Time Maker', ko: '시간을 버는 사람', d: '반복되는 일부터 AI에게 넘기고, 남은 시간을 더 중요한 일에 씁니다.', rk: 'SESSION 2 · 라이트닝 토크', rt: '업무 트랙', rd: '걸리던 시간이 얼마나 줄었는지, 전과 후를 숫자로 들을 수 있습니다.' },
     F: { en: 'Field Goer', ko: '현장으로 가는 사람', d: '도구보다 사람이 먼저입니다. 아낀 시간으로 한 사람을 더 만나러 갑니다.', rk: 'SESSION 2 · 라이트닝 토크', rt: '교회 트랙', rd: '지역 교회를 위해 만든 결과물과 현장 이야기를 들을 수 있습니다.' },
-    M: { en: 'First Mover', ko: '먼저 해 보는 사람', d: '설명서보다 손이 먼저 갑니다. 일단 만들어 보고, 고치면서 배웁니다.', rk: 'SESSION 1 · 키노트', rt: '실시간 시연 (예정)', rd: '무대에서 바로 만들어 보이는 제작 자동화 시연을 볼 수 있습니다.' },
+    M: { en: 'First Mover', ko: '먼저 해 보는 사람', d: '설명서보다 손이 먼저 갑니다. 일단 만들어 보고, 고치면서 배웁니다.', rk: 'SESSION 1 · 키노트', rt: '실시간 시연', rd: '무대에서 바로 만들어 보이는 제작 자동화 시연을 볼 수 있습니다.' },
     C: { en: 'Final Checker', ko: '끝까지 확인하는 사람', d: 'AI가 만든 것도 마지막에는 직접 확인합니다. 믿을 수 있어야 내보냅니다.', rk: 'SESSION 2 · 라이트닝 토크', rt: '사람이 확인한 것', rd: 'AI에게 맡긴 일과 사람이 직접 확인한 일을 나눠서 들을 수 있습니다.' }
   };
   const QS = [
@@ -1082,6 +1118,9 @@ const playStats = fetch(RSVP_API + '?a=stats').then(r => r.json()).catch(() => (
     $('#tk-part').textContent = o.part || '종일'; $('#tk-no').textContent = String(no || 0).padStart(3, '0');
     f.hidden = true; tk.classList.add('on');
   };
+  $$('input[name=req]', f).forEach(c => c.addEventListener('change', () => { if (c.checked) $('#fmore').open = true; }));
+  const ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//CTS//Beyond AI 2026//KO', 'BEGIN:VEVENT', 'UID:beyond-ai-2026@cts', 'DTSTAMP:20261118T000000Z', 'DTSTART:20261207T010000Z', 'DTEND:20261207T070000Z', 'SUMMARY:Beyond AI 2026 · CTS 광역본부 AI 페스티벌', 'LOCATION:CTS 본사 11층 컨벤션홀 (서울 동작구 노량진로 100)', 'DESCRIPTION:SESSION 1 키노트 10:00 / SESSION 2 라이트닝 토크 13:30', 'BEGIN:VALARM', 'TRIGGER:-PT1H', 'ACTION:DISPLAY', 'DESCRIPTION:Beyond AI 2026', 'END:VALARM', 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
+  $('#tk-ics').href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
   const saved = JSON.parse(localStorage.getItem('bai_b_rsvp') || 'null');
   if (saved) showTicket(saved, saved.no);
   const count = async () => {
@@ -1093,14 +1132,14 @@ const playStats = fetch(RSVP_API + '?a=stats').then(r => r.json()).catch(() => (
     e.preventDefault(); err.textContent = '';
     const fd = new FormData(f), o = {};
     ['name', 'org', 'dept', 'wish', 'contact', 'hp'].forEach(k => o[k] = String(fd.get(k) || '').trim());
-    o.part = fd.getAll('part').join(', ');
+    o.part = fd.getAll('part').join(', '); o.req = fd.getAll('req').join(', ');
     if (!o.name || !o.org || !o.dept) { err.textContent = '이름, 소속, 부서를 적어 주세요.'; return; }
     if (!o.part) { err.textContent = '듣고 싶은 순서를 하나 이상 골라 주세요.'; return; }
     if (!fd.get('agree')) { err.textContent = '개인정보 이용에 동의해 주세요.'; return; }
     if (!RSVP_API) { err.textContent = '등록 접수는 곧 열립니다.'; return; }
     b.disabled = true; b.style.opacity = .6;
     try {
-      const ty = localStorage.getItem('bai_b_type'); if (ty) o.wish = ('[유형 ' + ({ T: 'Time Maker', F: 'Field Goer', M: 'First Mover', C: 'Final Checker' }[ty] || ty) + '] ' + o.wish).trim();
+      o.type = ({ T: 'Time Maker', F: 'Field Goer', M: 'First Mover', C: 'Final Checker' })[localStorage.getItem('bai_b_type')] || '';
       o.ua = navigator.userAgent.slice(0, 110);
       const r = await fetch(RSVP_API, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify({ action: 'rsvp', data: o }) });
       const j = await r.json(); if (!j.ok) throw new Error(j.error || '등록하지 못했습니다.');
