@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
-<title>발표 준비실 · Beyond AI 2026</title>
+<title>발표 준비실 · AI 지식·활용 페스티벌</title>
 <meta name="theme-color" content="#0b0c0e">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0c0e'/%3E%3Crect x='14' y='5' width='4' height='22' fill='%23f0b828'/%3E%3Crect x='8' y='11' width='16' height='4' fill='%23f0b828'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -218,7 +218,7 @@ select.fi{background:var(--n2) url("data:image/svg+xml,%3Csvg xmlns='http://www.
         <div class="lc"><span class="l">도움 요청</span><ul class="feed" id="helpv" style="margin-top:10px"></ul></div>
       </div>
     </section>
-    <p class="foot">데이터는 엑소더스 랩 등록부(구글 시트)와 같은 곳에 저장됩니다. 카드 수정은 등록할 때 정한 숫자 4자리로 합니다. · Beyond AI 2026 · CTS 광역본부</p>
+    <p class="foot">데이터는 엑소더스 랩 등록부(구글 시트)와 같은 곳에 저장됩니다. 카드 수정은 등록할 때 정한 숫자 4자리로 합니다. · AI 지식·활용 페스티벌 · CTS 광역본부</p>
   </div>
 </main>
 
@@ -295,7 +295,7 @@ function render() {
   $('#feed').innerHTML = logs.length ? logs.map(l => `<li data-open="${esc(l.pid)}"><small>${esc(String(l.at).slice(5, 16))}</small><b>${esc(l.name)}</b> · ${esc(l.title)} → ${esc(l.stage || '')} ${l.progress ? esc(l.progress) + '%' : ''}</li>`).join('') : '<li>아직 움직임이 없습니다. 첫 카드를 올려 주세요.</li>';
   const today = DB.today || new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10);
   const sch = (DB.schedule || []).filter(s => String(s.date) >= today).sort((a, b) => String(a.date).localeCompare(String(b.date))).slice(0, 6);
-  $('#sched').innerHTML = sch.length ? sch.map(s => `<li><span>${esc(String(s.date).slice(5).replace('-', '.'))}</span><div><b>${esc(s.title)}</b>${s.desc ? `<br><small style="color:var(--mute)">${esc(s.desc)}</small>` : ''}</div></li>`).join('') : '<li><span>12.07</span><div><b>Beyond AI 2026</b><br><small style="color:var(--mute)">CTS 본사 11층 컨벤션홀</small></div></li>';
+  $('#sched').innerHTML = sch.length ? sch.map(s => `<li><span>${esc(String(s.date).slice(5).replace('-', '.'))}</span><div><b>${esc(s.title)}</b>${s.desc ? `<br><small style="color:var(--mute)">${esc(s.desc)}</small>` : ''}</div></li>`).join('') : '<li><span>12.07</span><div><b>AI 지식·활용 페스티벌</b><br><small style="color:var(--mute)">CTS 본사 11층 컨벤션홀</small></div></li>';
   $('#helpv').innerHTML = hp.length ? hp.slice(-6).reverse().map(p => `<li data-open="${esc(p.id)}"><small>${esc(p.branch || p.hq || '')}</small><b>${esc(p.name)}</b> ${esc(String(p.help).slice(0, 70))}</li>`).join('') : '<li>막힌 점이 있으면 카드의 \'도움 요청\' 칸에 적어 주세요. 다른 지사가 먼저 풀었을 수 있습니다.</li>';
 }
 function drawCards() {

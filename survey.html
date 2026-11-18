@@ -23,7 +23,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .top .in{max-width:720px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;gap:12px}
 .top img{height:20px}
 .top b{font-family:Archivo,sans-serif;font-stretch:75%;font-weight:700;letter-spacing:.06em;font-size:15px}
-.top span{margin-left:auto;font-size:13px;color:#b9bcc3}
+.top span{margin-left:auto;font-size:13px;color:#e6ecf5}
 .bar{height:4px;background:rgba(255,255,255,.14)}
 .bar i{display:block;height:100%;width:0;background:var(--lime);transition:width .5s cubic-bezier(.2,.8,.2,1)}
 main{max-width:720px;margin:0 auto;padding:28px 20px 120px}
@@ -38,7 +38,7 @@ h2{font-size:clamp(24px,5.6vw,30px);line-height:1.3;letter-spacing:-.035em;font-
 .rounds li.now b{color:var(--ink)}.rounds li:not(.now){color:var(--mut)}
 .rounds strong{display:block;font-size:17px}
 .rounds small{font-size:14px}
-.rounds .tag{display:inline-block;font-size:12px;font-weight:700;background:var(--lime);color:var(--ink);padding:2px 8px;border-radius:99px;margin-left:8px;vertical-align:2px}
+.rounds .tag{display:inline-block;font-size:13px;font-weight:700;background:var(--lime);color:var(--ink);padding:2px 8px;border-radius:99px;margin-left:8px;vertical-align:2px}
 .who{list-style:none;margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:6px 16px}
 .who li{padding:10px 0;border-bottom:1px solid var(--line);font-size:14.5px;color:var(--ink2);line-height:1.5}
 .who li:last-child{border-bottom:0}
@@ -114,6 +114,7 @@ details textarea{margin-top:8px}
 .plan p{font-size:15px;margin-top:4px;line-height:1.55}
 .plan .tr{display:inline-block;font-size:12px;font-weight:700;padding:2px 8px;border-radius:99px;background:var(--y);margin-right:6px}
 @media (max-width:420px){.g2{grid-template-columns:1fr}.brow{grid-template-columns:150px 1fr 26px}}
+summary{min-height:44px;display:flex;align-items:center;gap:6px;cursor:pointer}
 </style>
 </head>
 <body>
@@ -140,7 +141,7 @@ details textarea{margin-top:8px}
   <p class="eyebrow">내 응답 불러오기</p>
   <h2>응답할 때 적은 이름과<br>숫자 4자리를 넣어 주세요.</h2>
   <div class="q"><label for="l-name">이름</label><input class="fi" id="l-name" autocomplete="name"></div>
-  <div class="q"><span class="ql">소속</span><div class="g2"><div class="f"><small>총국</small><select class="fi" id="l-hq"></select></div><div class="f"><small>지사·부서</small><select class="fi" id="l-branch"></select></div></div></div>
+  <div class="q"><span class="ql">소속</span><div class="g2"><div class="f"><small>총국</small><select class="fi" id="l-hq" aria-label="총국"></select></div><div class="f"><small>지사·부서</small><select class="fi" id="l-branch" aria-label="지사·부서"></select></div></div></div>
   <div class="q"><label for="l-pin">수정용 숫자 4자리</label><input class="fi" id="l-pin" inputmode="numeric" maxlength="4"></div>
   <p class="err" id="lerr" role="alert"></p>
   <div class="acts"><button class="btn" id="loadBtn">불러오기</button><button class="btn ghost" id="backBtn">처음으로</button></div>
@@ -151,7 +152,7 @@ details textarea{margin-top:8px}
   <section class="step" data-step="1">
     <p class="eyebrow">1 / 5 · 나</p><h2>먼저 누구신지 알려 주세요.</h2><p class="sub">글로 쓰는 건 이 화면의 이름과 숫자 4자리뿐입니다. 나머지는 눌러서 고릅니다.</p>
     <div class="q"><label for="f-name">이름</label><input class="fi" id="f-name" name="name" maxlength="20" autocomplete="name"></div>
-    <div class="q"><span class="ql">소속</span><div class="g2"><div class="f"><small>총국</small><select class="fi" name="hq" id="f-hq"></select></div><div class="f"><small>지사·부서</small><select class="fi" name="branch" id="f-branch"></select></div></div></div>
+    <div class="q"><span class="ql">소속</span><div class="g2"><div class="f"><small>총국</small><select class="fi" name="hq" id="f-hq" aria-label="총국"></select></div><div class="f"><small>지사·부서</small><select class="fi" name="branch" id="f-branch" aria-label="지사·부서"></select></div></div></div>
     <div class="q"><span class="ql">직무</span><div class="opts" data-g="role" data-t="radio"></div></div>
     <div class="q"><label for="f-pin">수정용 숫자 4자리<small class="h">직접 정해 주세요. 나중에 고치거나 2차·3차 설문에 들어올 때 씁니다.</small></label><input class="fi" id="f-pin" name="pin" inputmode="numeric" maxlength="4" placeholder="예) 휴대폰 뒷 4자리"></div>
   </section>
@@ -182,9 +183,9 @@ details textarea{margin-top:8px}
 
   <section class="step" data-step="4" hidden>
     <p class="eyebrow">4 / 5 · 계획</p><h2>AI로 무엇을 만들어 볼까요?</h2><p class="sub">세 영역에서 해 보고 싶은 것을 눌러 주세요. 하나만 골라도 됩니다. 글은 쓰지 않아도 됩니다.</p>
-    <div class="q area"><span class="k">AREA 01</span><h3>내 직무를 위해</h3><div class="opts" data-g="jobWhat" data-t="checkbox"></div><details><summary>한 줄 덧붙이기 (선택)</summary><textarea class="fi" name="jobHow" maxlength="300" placeholder="키보드의 마이크를 눌러 말로 적어도 됩니다"></textarea></details></div>
-    <div class="q area"><span class="k">AREA 02</span><h3>교회를 위해</h3><div class="opts" data-g="churchWhat" data-t="checkbox"></div><details><summary>한 줄 덧붙이기 (선택)</summary><textarea class="fi" name="churchHow" maxlength="300" placeholder="키보드의 마이크를 눌러 말로 적어도 됩니다"></textarea></details></div>
-    <div class="q area"><span class="k">AREA 03</span><h3>세상을 위해</h3><div class="opts" data-g="worldWhat" data-t="checkbox"></div><details><summary>한 줄 덧붙이기 (선택)</summary><textarea class="fi" name="worldHow" maxlength="300" placeholder="키보드의 마이크를 눌러 말로 적어도 됩니다"></textarea></details></div>
+    <div class="q area"><span class="k">AREA 01</span><h3>내 직무를 위해</h3><div class="opts" data-g="jobWhat" data-t="checkbox"></div><details><summary>한 줄 덧붙이기 (선택)</summary><textarea class="fi" name="jobHow" aria-label="내 직무를 위해 한 줄 덧붙이기" maxlength="300" placeholder="키보드의 마이크를 눌러 말로 적어도 됩니다"></textarea></details></div>
+    <div class="q area"><span class="k">AREA 02</span><h3>교회를 위해</h3><div class="opts" data-g="churchWhat" data-t="checkbox"></div><details><summary>한 줄 덧붙이기 (선택)</summary><textarea class="fi" name="churchHow" aria-label="교회를 위해 한 줄 덧붙이기" maxlength="300" placeholder="키보드의 마이크를 눌러 말로 적어도 됩니다"></textarea></details></div>
+    <div class="q area"><span class="k">AREA 03</span><h3>세상을 위해</h3><div class="opts" data-g="worldWhat" data-t="checkbox"></div><details><summary>한 줄 덧붙이기 (선택)</summary><textarea class="fi" name="worldHow" aria-label="세상을 위해 한 줄 덧붙이기" maxlength="300" placeholder="키보드의 마이크를 눌러 말로 적어도 됩니다"></textarea></details></div>
   </section>
 
   <section class="step" data-step="5" hidden>
@@ -204,7 +205,7 @@ details textarea{margin-top:8px}
   <h2 id="doneTitle">1차 응답이 저장됐습니다.</h2>
   <p class="lead">고맙습니다. 아래는 지금까지 모인 광역본부 전체 현황입니다. 2차 설문은 11월 23일(월)에 안내드립니다.</p>
   <div class="stat"><div class="st"><small>응답</small><b id="s-count">0<i>/ 39</i></b><div class="pb"><u id="s-pb"></u></div></div><div class="st"><small>시간이 가장 많이 드는 일에 한 달 동안 쓰는 시간</small><b id="s-hours">0<i>시간</i></b><small id="s-hoursN"></small></div></div>
-  <div class="sec"><h3>11월 9일 킥오프 워크숍에서 도움이 된 것 <span id="s-semavg" style="font-weight:500;color:var(--mut);font-size:14.5px"></span></h3><div id="s-semgood"></div></div>
+  <div class="sec" hidden><h3>11월 9일 킥오프 워크숍에서 도움이 된 것 <span id="s-semavg" style="font-weight:500;color:var(--mut);font-size:14.5px"></span></h3><div id="s-semgood"></div></div>
   <div class="sec"><h3>AI를 쓰는 데 걸리는 것</h3><div id="s-barrier"></div></div>
   <div class="sec"><h3>AI 사용 빈도</h3><div id="s-freq"></div></div>
   <div class="sec"><h3>발표 영역</h3><div id="s-track"></div></div>
