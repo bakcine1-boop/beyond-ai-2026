@@ -230,7 +230,7 @@ const API = 'https://script.google.com/macros/s/AKfycbwVR01k_PeOCcUMYkhKlFKtLYOP
 const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const TRACKS = ['업무', '교회', '세상과의 소통'];
-const HQ = { '호남총국': ['광주', '전남', '전북', '제주'], '중부총국': ['강원', '대전', '충북'], '영남총국': ['대구', '경북', '경남', '부산', '울산'], '본부': ['본부장실', '콘텐츠지원국', '설교관리국', '대외협력국', '다음세대지원센터'] };
+const HQ = { '호남총국': ['광주', '전남', '전북', '제주'], '중부총국': ['강원', '대전', '충북'], '영남총국': ['대구', '경북', '경남', '부산', '울산'], '본부': ['본부장실', '콘텐츠지원국', '대외협력국'] };
 const STAGES = ['아이디어', '설계', '시제품', '검증', '발표 준비', '완료'];
 let KEY = sessionStorage.getItem('room_k') || '', DB = null, F = { hq: '전체', track: '전체', q: '' };
 const toast = m => { const t = $('#toast'); t.textContent = m; t.classList.add('on'); clearTimeout(toast.t); toast.t = setTimeout(() => t.classList.remove('on'), 2600); };

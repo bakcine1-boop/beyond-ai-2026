@@ -219,7 +219,7 @@ details textarea{margin-top:8px}
 const API = 'https://script.google.com/macros/s/AKfycbxep8xjp6peJdDB0nEn_WpOF1vp-j4pCBCJfNOzbs3nmif9-w5n-CzkL-mSUVW_TRKJ/exec';
 const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const HQ = { '호남총국': ['광주', '전남', '전북', '제주'], '중부총국': ['강원', '대전', '충북'], '영남총국': ['대구', '경북', '경남', '부산', '울산'], '본부': ['본부장실', '콘텐츠지원국', '설교관리국', '대외협력국', '다음세대지원센터'] };
+const HQ = { '호남총국': ['광주', '전남', '전북', '제주'], '중부총국': ['강원', '대전', '충북'], '영남총국': ['대구', '경북', '경남', '부산', '울산'], '본부': ['본부장실', '콘텐츠지원국', '대외협력국'] };
 const G = {
   role: ['지사장·총국장', '기자', 'PD·영상', '편집·설교 관리', '중계·기술', '행정·후원 협력', '기타'],
   attended: ['참석했어요', '참석하지 못했어요'],
