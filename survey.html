@@ -116,6 +116,8 @@ details textarea{margin-top:8px}
 .plan .tr{display:inline-block;font-size:12px;font-weight:700;padding:2px 8px;border-radius:99px;background:var(--y);margin-right:6px}
 @media (max-width:420px){.g2{grid-template-columns:1fr}.brow{grid-template-columns:150px 1fr 26px}}
 summary{min-height:44px;display:flex;align-items:center;gap:6px;cursor:pointer}
+.ql2{display:block;font-weight:700;font-size:15px;margin:18px 0 10px}.ql2 small.h{display:block;font-weight:400;color:var(--mut);font-size:13.5px;margin-top:2px}
+label.own{display:block;font-size:14.5px;font-weight:700;margin:18px 0 8px}.area textarea.fi{min-height:64px}
 </style>
 </head>
 <body>
@@ -183,10 +185,10 @@ summary{min-height:44px;display:flex;align-items:center;gap:6px;cursor:pointer}
   </section>
 
   <section class="step" data-step="4" hidden>
-    <p class="eyebrow">4 / 5 · 계획</p><h2>AI로 무엇을 만들어 볼까요?</h2><p class="sub">세 영역에서 해 보고 싶은 것을 눌러 주세요. 하나만 골라도 됩니다. 글은 쓰지 않아도 됩니다.</p>
-    <div class="q area"><span class="k">AREA 01</span><h3>내 직무를 위해</h3><div class="opts" data-g="jobWhat" data-t="checkbox"></div><details><summary>한 줄 덧붙이기 (선택)</summary><textarea class="fi" name="jobHow" aria-label="내 직무를 위해 한 줄 덧붙이기" maxlength="300" placeholder="키보드의 마이크를 눌러 말로 적어도 됩니다"></textarea></details></div>
-    <div class="q area"><span class="k">AREA 02</span><h3>교회를 위해</h3><div class="opts" data-g="churchWhat" data-t="checkbox"></div><details><summary>한 줄 덧붙이기 (선택)</summary><textarea class="fi" name="churchHow" aria-label="교회를 위해 한 줄 덧붙이기" maxlength="300" placeholder="키보드의 마이크를 눌러 말로 적어도 됩니다"></textarea></details></div>
-    <div class="q area"><span class="k">AREA 03</span><h3>세상을 위해</h3><div class="opts" data-g="worldWhat" data-t="checkbox"></div><details><summary>한 줄 덧붙이기 (선택)</summary><textarea class="fi" name="worldHow" aria-label="세상을 위해 한 줄 덧붙이기" maxlength="300" placeholder="키보드의 마이크를 눌러 말로 적어도 됩니다"></textarea></details></div>
+    <p class="eyebrow">4 / 5 · 계획</p><h2>AI로 무엇을 만들어 볼까요?</h2><p class="sub">세 영역에서 해 보고 싶은 것을 눌러 주세요. 하나만 골라도 됩니다. 보기에 없으면 직접 적어 주세요.</p>
+    <div class="q area"><span class="k">AREA 01</span><h3>내 직무를 위해</h3><div class="opts" data-g="jobWhat" data-t="checkbox"></div><span class="ql2">쇼츠를 만든다면 어떤 쇼츠인가요?<small class="h">해당하는 것만 골라 주세요</small></span><div class="opts" data-g="jobShorts" data-n="jobWhat" data-t="checkbox"></div><label class="own" for="f-jobHow">보기에 없는 것은 직접 적어 주세요</label><textarea class="fi" id="f-jobHow" name="jobHow" maxlength="300" placeholder="예) 지역 뉴스 리포트 자동 편집"></textarea></div>
+    <div class="q area"><span class="k">AREA 02</span><h3>교회를 위해</h3><div class="opts" data-g="churchWhat" data-t="checkbox"></div><label class="own" for="f-churchHow">보기에 없는 것은 직접 적어 주세요</label><textarea class="fi" id="f-churchHow" name="churchHow" maxlength="300" placeholder="예) 우리 지역 교회 성탄 초청 영상"></textarea></div>
+    <div class="q area"><span class="k">AREA 03</span><h3>세상을 위해</h3><div class="opts" data-g="worldWhat" data-t="checkbox"></div><label class="own" for="f-worldHow">보기에 없는 것은 직접 적어 주세요</label><textarea class="fi" id="f-worldHow" name="worldHow" maxlength="300" placeholder="예) 전도용 숏폼 드라마"></textarea></div>
   </section>
 
   <section class="step" data-step="5" hidden>
@@ -233,13 +235,14 @@ const G = {
   freq: ['거의 안 씀', '가끔 (한 달에 몇 번)', '일주일에 몇 번', '거의 매일'],
   tools: ['어사이드', 'ChatGPT', 'Claude', 'Gemini', '캡컷', 'Canva', '기타', '아직 없음'],
   barrier: ['시간이 없다', '무엇에 써야 할지 모르겠다', '사용법이 어렵다', '구독료 등 비용', '결과물을 믿기 어렵다', '컴퓨터·장비 사정', '딱히 없다'],
-  tried: ['기사·원고 초안', '영상 편집', '쇼츠 제작', '자막', '썸네일·포스터', '홈페이지·웹페이지', '보고서·기안', '자료 조사', '아직 없음'],
+  tried: ['기사·원고 초안', '뉴스 제작', '프로그램 편집', '쇼츠 제작', '자막', '썸네일·포스터', '홈페이지·웹페이지', '보고서·기안', '자료 조사', '아직 없음'],
   task: ['기사·원고 쓰기', '촬영·취재', '영상 편집', '중계·녹화', '자막 작업', '교회 방문·섭외', '후원·회원 관리', '보고·행정', '기타'],
   taskMin: [['30분 이하', 30], ['1시간쯤', 60], ['2시간쯤', 120], ['반나절', 240], ['하루 이상', 480]],
   taskCount: [['한두 번', 2], ['주 1번', 4], ['주 2~3번', 10], ['거의 매일', 20]],
-  jobWhat: ['기사·원고 초안', '영상 편집', '자막', '썸네일·홍보물', '보고서·기안', '자료 조사', '일정·행정 정리', '아직 모르겠음'],
-  churchWhat: ['설교 쇼츠', '교회 소식 기사', '교회 홍보 영상', '교회 홈페이지·안내 페이지', '행사 포스터·순서지', '주보·자료 정리', '아직 모르겠음'],
-  worldWhat: ['지역 뉴스 쇼츠', 'SNS 카드뉴스', '블로그·기사 알리기', '선한 소식 영상', '웹툰·시트콤 같은 새 형식', '아직 모르겠음'],
+  jobWhat: ['기사·원고 초안', '뉴스 제작', '프로그램 편집', '쇼츠 제작', '자막', '썸네일·홍보물', '보고서·기안', '자료 조사', '일정·행정 정리', '아직 모르겠음'],
+  jobShorts: ['설교 쇼츠', '뉴스 쇼츠', '광고·홍보 쇼츠', '간증·인터뷰 쇼츠'],
+  churchWhat: ['설교 클립·요약 쇼츠', '절기 영상 (부활절·성탄·추수감사)', '전도·초청 영상', '행사 홍보 영상 (수련회·부흥회)', '교회 광고 영상', '교회 소개 영상', '임직·은퇴·취임 기록 영상', '창립 기념·교회 역사 영상', '새가족 교육 영상', '교회 유튜브 채널 관리', '교회 소식 기사', '교회 홈페이지', '아직 모르겠음'],
+  worldWhat: ['전도 쇼츠', '간증·인터뷰 영상', '교회의 섬김 이야기 다큐', '숏폼 드라마', '웹툰', '기독교 영화·드라마', '지역 뉴스 쇼츠', 'SNS 카드뉴스', '아직 모르겠음'],
   track: [['업무', '업무', '업무 자동화, 콘텐츠 생산'], ['교회', '교회', '교회에 돌려주는 콘텐츠'], ['세상과의 소통', '세상과의 소통', 'SNS, 이미지 제고']],
   stage: [['아이디어만 있어요', '아이디어'], ['만들어 보는 중이에요', '만드는 중'], ['보여 줄 결과물이 있어요', '결과물 있음'], ['아직 못 정했어요', '미정']],
   help: ['어사이드 사용법', '주제 잡기', '영상·편집', '발표 자료 만들기', '1:1 도움', '필요 없음']
@@ -248,7 +251,7 @@ const RADIO = ['role', 'attended', 'semSat', 'semLevel', 'freq', 'task', 'taskMi
 const MULTI = ['semGood', 'barrier', 'tools', 'tried', 'jobWhat', 'churchWhat', 'worldWhat', 'help'];
 const TEXT = ['name', 'pin', 'jobHow', 'churchHow', 'worldHow', 'title', 'note'];
 const f = $('#v-form'); let step = 1, editing = false;
-$$('[data-g]').forEach(el => { const g = el.dataset.g, t = el.dataset.t; el.innerHTML = G[g].map(v => { const [lab, val, sub] = Array.isArray(v) ? v : [v, v]; return `<label><input type="${t}" name="${g}" value="${esc(val)}"><span>${esc(lab)}${sub ? ` <em>${esc(sub)}</em>` : ''}</span></label>`; }).join(''); });
+$$('[data-g]').forEach(el => { const g = el.dataset.g, t = el.dataset.t, nm = el.dataset.n || g; el.innerHTML = G[g].map(v => { const [lab, val, sub] = Array.isArray(v) ? v : [v, v]; return `<label><input type="${t}" name="${nm}" value="${esc(val)}"><span>${esc(lab)}${sub ? ` <em>${esc(sub)}</em>` : ''}</span></label>`; }).join(''); });
 const fillHq = (hq, br, v1, v2) => { hq.innerHTML = '<option value="">선택</option>' + Object.keys(HQ).map(h => `<option ${h === v1 ? 'selected' : ''}>${h}</option>`).join(''); const fb = () => br.innerHTML = '<option value="">선택</option>' + (HQ[hq.value] || []).map(b => `<option ${b === v2 ? 'selected' : ''}>${b}</option>`).join(''); hq.onchange = () => { v2 = ''; fb(); save(); }; fb(); };
 fillHq($('#f-hq'), $('#f-branch')); fillHq($('#l-hq'), $('#l-branch'));
 
@@ -265,7 +268,7 @@ const check = n => { const o = read();
   if (n === 1) { if (!o.name) return '이름을 적어 주세요.'; if (!o.hq || !o.branch) return '총국과 지사·부서를 골라 주세요.'; if (!/^\d{4}$/.test(o.pin)) return '수정용 숫자 4자리를 정해 주세요.'; }
   if (n === 2 && !editing) { if (!o.attended) return '워크숍에 참석하셨는지 눌러 주세요.'; if (!/못/.test(o.attended) && !o.semSat) return '얼마나 도움이 됐는지 1~5 가운데 눌러 주세요.'; }
   if (n === 3) { if (!o.freq) return 'AI를 얼마나 자주 쓰는지 눌러 주세요.'; }
-  if (n === 4) { if (!o.jobWhat && !o.churchWhat && !o.worldWhat) return '세 영역 가운데 하나 이상 눌러 주세요.'; }
+  if (n === 4) { if (!o.jobWhat && !o.churchWhat && !o.worldWhat && !o.jobHow && !o.churchHow && !o.worldHow) return '세 영역 가운데 하나 이상 누르거나 적어 주세요.'; }
   if (n === 5) { if (!o.track) return '발표할 영역을 눌러 주세요.'; if (!o.stage) return '준비가 어디까지 왔는지 눌러 주세요.'; }
   return ''; };
 async function post(body) { const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(Object.assign({ round: 1 }, body)) }); return r.json(); }
