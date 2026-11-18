@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex,nofollow">
 <title>Beyond AI 2026 · 1차 설문 (광역본부)</title>
 <meta property="og:title" content="Beyond AI 2026 · 1차 설문">
-<meta property="og:description" content="12월 7일, 나는 무엇을 발표할까요? 3분이면 됩니다. 눌러서 고르는 설문입니다. (CTS 광역본부 직원용)">
+<meta property="og:description" content="12월 7일, 나는 무엇을 발표할까요? 눌러서 고르는 설문입니다. 1차 마감 11월 19일(목). (CTS 광역본부 직원용)">
 <meta property="og:image" content="https://beyond.churchhistory.kr/og.jpg">
 <meta name="theme-color" content="#0b0d10">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,6 +43,7 @@ h2{font-size:clamp(24px,5.6vw,30px);line-height:1.3;letter-spacing:-.035em;font-
 .who li{padding:10px 0;border-bottom:1px solid var(--line);font-size:14.5px;color:var(--ink2);line-height:1.5}
 .who li:last-child{border-bottom:0}
 .who b{display:block;font-size:13px;color:var(--mut);font-weight:700}
+.due{margin-top:16px;display:inline-flex;align-items:center;gap:10px;background:#141518;color:#fff;border-radius:999px;padding:9px 16px;font-size:15px;font-weight:700}.due b{color:#f5b82e;font-size:13px;font-weight:700}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:54px;padding:0 26px;border-radius:99px;border:1.5px solid var(--ink);background:var(--ink);color:var(--paper);font-weight:700;font-size:17px;cursor:pointer;transition:transform .2s}
 .btn:active{transform:scale(.97)}
 .btn.ghost{background:transparent;color:var(--ink)}
@@ -123,13 +124,14 @@ details textarea{margin-top:8px}
 <section id="v-intro">
   <p class="eyebrow">CTS 광역본부 직원 · 1차 설문</p>
   <h1>12월 7일,<br>나는 무엇을<br>발표할까요?</h1>
-  <p class="lead">광역본부 전 직원이 본사에서 한 사람 180초(3분)씩 AI 활용 사례를 발표합니다. 잘하는지를 보는 설문이 아닙니다. 각자 어디에 있는지 알아야 필요한 도움을 드릴 수 있어서 묻습니다. 이번은 1차이고 3분이면 됩니다. 이름만 적고 나머지는 눌러서 고릅니다.</p>
+  <p class="lead">광역본부 전 직원이 본사에서 한 사람 5분씩 AI 활용 사례를 발표합니다. 잘하는지를 보는 설문이 아닙니다. 각자 어디에 있는지 알아야 필요한 도움을 드릴 수 있어서 묻습니다. 이름만 적고 나머지는 눌러서 고릅니다.</p>
+  <p class="due"><b>1차 마감</b>11월 19일(목)까지</p>
   <ol class="rounds">
     <li class="now"><b>1차</b><div><strong>계획 <span class="tag">지금</span></strong><small>11월 9일 세미나 평가, 지금 AI를 어떻게 쓰는지, 무엇을 만들어 볼지</small></div></li>
-    <li><b>2차</b><div><strong>시제품</strong><small>11월 27~30일 · 만든 것, 걸린 시간, 막힌 점</small></div></li>
-    <li><b>3차</b><div><strong>결과</strong><small>12월 2~4일 · 전과 후의 숫자, 발표 자료</small></div></li>
+    <li><b>2차</b><div><strong>시제품</strong><small>11월 넷째 주 · 만든 것, 걸린 시간, 막힌 점</small></div></li>
+    <li><b>3차</b><div><strong>결과</strong><small>12월 첫째 주 · 전과 후의 숫자, 발표 자료</small></div></li>
   </ol>
-  <ul class="who"><li><b>동료에게 보이는 것</b>이름, 지사, 발표 영역, 만들어 보려는 것</li><li><b>합계로만 보이는 것</b>AI 사용 빈도, 걸리는 점, 필요한 도움</li><li><b>이름 없이 저장하는 것</b>11월 9일 세미나 평가</li></ul>
+  <ul class="who"><li><b>동료에게 보이는 것</b>이름, 지사, 발표 영역, 만들어 보려는 것</li><li><b>합계로만 보이는 것</b>AI 사용 빈도, 걸리는 점, 필요한 도움</li><li><b>이름 없이 저장하는 것</b>11월 9일 세미나 평가</li><li><b>총국장·지사장께 공유하는 것</b>지사별 응답 현황과 발표 준비 단계</li></ul>
   <div class="acts"><button class="btn" id="startBtn">시작하기</button><button class="btn ghost" id="editBtn">이미 응답했어요</button></div>
 </section>
 
@@ -186,7 +188,7 @@ details textarea{margin-top:8px}
   </section>
 
   <section class="step" data-step="5" hidden>
-    <p class="eyebrow">5 / 5 · 발표</p><h2>12월 7일, 180초 동안 무엇을 발표할까요?</h2><p class="sub">완성된 결과가 아니어도 됩니다. 해 보다 막힌 이야기도 좋은 발표입니다. 2차 설문에서 바꿀 수 있습니다.</p>
+    <p class="eyebrow">5 / 5 · 발표</p><h2>12월 7일, 5분 동안 무엇을 발표할까요?</h2><p class="sub">완성된 결과가 아니어도 됩니다. 해 보다 막힌 이야기도 좋은 발표입니다. 2차 설문에서 바꿀 수 있습니다.</p>
     <div class="q"><span class="ql">발표할 영역</span><div class="opts col" data-g="track" data-t="radio"></div></div>
     <div class="q"><span class="ql">지금 준비는 어디까지 왔나요?</span><div class="opts col" data-g="stage" data-t="radio"></div></div>
     <div class="q"><span class="ql">필요한 도움<small class="h">여러 개 고를 수 있어요</small></span><div class="opts" data-g="help" data-t="checkbox"></div></div>
@@ -200,8 +202,8 @@ details textarea{margin-top:8px}
 <section id="v-done" class="done" hidden>
   <div class="ck"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f5b82e" stroke-width="3"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
   <h2 id="doneTitle">1차 응답이 저장됐습니다.</h2>
-  <p class="lead">고맙습니다. 아래는 지금까지 모인 광역본부 전체 현황입니다. 2차 설문은 11월 27일에 안내드립니다.</p>
-  <div class="stat"><div class="st"><small>응답</small><b id="s-count">0<i>/ 46</i></b><div class="pb"><u id="s-pb"></u></div></div><div class="st"><small>시간이 가장 많이 드는 일에 한 달 동안 쓰는 시간</small><b id="s-hours">0<i>시간</i></b><small id="s-hoursN"></small></div></div>
+  <p class="lead">고맙습니다. 아래는 지금까지 모인 광역본부 전체 현황입니다. 2차 설문은 다음 주에 안내드립니다.</p>
+  <div class="stat"><div class="st"><small>응답</small><b id="s-count">0<i>/ 39</i></b><div class="pb"><u id="s-pb"></u></div></div><div class="st"><small>시간이 가장 많이 드는 일에 한 달 동안 쓰는 시간</small><b id="s-hours">0<i>시간</i></b><small id="s-hoursN"></small></div></div>
   <div class="sec"><h3>11월 9일 세미나에서 도움이 된 것 <span id="s-semavg" style="font-weight:500;color:var(--mut);font-size:14.5px"></span></h3><div id="s-semgood"></div></div>
   <div class="sec"><h3>AI를 쓰는 데 걸리는 것</h3><div id="s-barrier"></div></div>
   <div class="sec"><h3>AI 사용 빈도</h3><div id="s-freq"></div></div>
@@ -283,7 +285,7 @@ $('#refreshBtn').onclick = async () => { const me = JSON.parse(localStorage.getI
 
 function bars(el, map, order) { const keys = order ? order.filter(k => map[k]) .concat(Object.keys(map).filter(k => !order.includes(k))) : Object.keys(map).sort((a, b) => map[b] - map[a]); const mx = Math.max(1, ...keys.map(k => map[k])); el.innerHTML = keys.length ? keys.map(k => `<div class="brow"><span>${esc(k)}</span><div class="b"><u data-w="${map[k] / mx * 100}"></u></div><em>${map[k]}</em></div>`).join('') : '<p style="color:var(--mut);font-size:14.5px">아직 응답이 없습니다.</p>'; setTimeout(() => $$('u', el).forEach(u => u.style.width = u.dataset.w + '%'), 60); }
 function draw(s) { if (!s) return;
-  $('#s-count').innerHTML = `${s.count}<i>/ ${s.goal}</i>`; setTimeout(() => $('#s-pb').style.width = Math.min(100, s.count / s.goal * 100) + '%', 60);
+  const GOAL = 39; $('#s-count').innerHTML = `${s.count}<i>/ ${GOAL}</i>`; setTimeout(() => $('#s-pb').style.width = Math.min(100, s.count / GOAL * 100) + '%', 60);
   $('#s-hours').innerHTML = `${s.monthHours}<i>시간</i>`; $('#s-hoursN').textContent = s.monthHoursN ? `${s.monthHoursN}명이 적은 값의 합` : '아직 적은 사람이 없습니다';
   bars($('#s-freq'), s.freq, G.freq); bars($('#s-track'), s.track, ['업무', '교회', '세상과의 소통']); bars($('#s-help'), s.help);
   const sm = s.sem || { n: 0, good: {} }; $('#s-semavg').textContent = sm.n ? `도움 정도 평균 ${sm.avg} / 5 (${sm.n}명)` : ''; bars($('#s-semgood'), sm.good || {}); bars($('#s-barrier'), s.barrier || {});

@@ -187,7 +187,7 @@ select.fi{background:var(--n2) url("data:image/svg+xml,%3Csvg xmlns='http://www.
       <button class="btn gold" id="addBtn" style="height:46px;padding:0 20px">내 발표 등록하기</button>
     </section>
     <div class="kpis">
-      <div class="kpi"><span class="l">발표 등록</span><div class="v" id="k-reg">0<small>/ 46명</small></div><div class="b"><i id="k-regb" style="width:0"></i></div></div>
+      <div class="kpi"><span class="l">발표 등록</span><div class="v" id="k-reg">0<small>/ 39명</small></div><div class="b"><i id="k-regb" style="width:0"></i></div></div>
       <div class="kpi"><span class="l">트랙</span><div class="v" style="font-size:15px;line-height:1.9;font-family:var(--sans);letter-spacing:-.01em" id="k-trk">-</div></div>
       <div class="kpi"><span class="l">준비 단계</span><div class="b stack" id="k-stg" style="margin-top:14px;height:10px"></div><div class="lg" id="k-stgl"></div></div>
       <div class="kpi"><span class="l">도움 요청 · 7일 무소식</span><div class="v" id="k-help">0<small>건</small></div><div class="lg" id="k-stale"></div></div>
@@ -257,7 +257,7 @@ function open() { $('#gate').hidden = true; $('#dash').hidden = false; $('#addTo
 if (KEY) api('load').then(open).catch(() => {});
 
 function render() {
-  const ps = real(), conf = DB.conf || {}, goal = Number(conf['목표 인원']) || 46;
+  const ps = real(), conf = DB.conf || {}, goal = Number(conf['목표 인원']) || 39;
   const d = Math.ceil((new Date('2026-12-07T00:00:00+09:00') - new Date()) / 864e5);
   $('#dd').textContent = d > 0 ? 'D-' + d : d === 0 ? 'D-DAY' : '종료';
   const last = ps.map(p => p.updated || p.created).sort().slice(-1)[0];
