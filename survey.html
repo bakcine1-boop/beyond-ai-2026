@@ -298,9 +298,9 @@ $('#loadBtn').onclick = async () => { const b = $('#loadBtn'), e = $('#lerr'); e
   b.disabled = true; try { const j = await post(Object.assign({ action: 'load' }, q)); if (!j.ok) throw new Error(j.error); write(j.data); save(); localStorage.setItem('bai_sv_me', JSON.stringify(q)); editing = true; show('form'); go(1); } catch (x) { e.textContent = x.message || '불러오지 못했습니다.'; } finally { b.disabled = false; } };
 $('#nextBtn').onclick = async () => { const msg = check(step); if (msg) { $('#ferr').textContent = msg; return; } if (step < 5) return go(step + 1);
   for (let n = 1; n <= 5; n++) { const m = check(n); if (m) { go(n); $('#ferr').textContent = m; return; } }
-  const b = $('#nextBtn'), o = read(); o.ua = navigator.userAgent.slice(0, 110); b.disabled = true; b.textContent = '저장하는 중…';
+  const b = $('#nextBtn'), o = read(); o.ua = navigator.userAgent.slice(0, 110); [['jobWhat', 'jobHow'], ['churchWhat', 'churchHow'], ['worldWhat', 'worldHow']].forEach(([w, t]) => { if (!o[w] && o[t]) o[w] = '직접 적음'; }); b.disabled = true; b.textContent = '저장하는 중…';
   try { const j = await post({ action: 'save', data: o }); if (!j.ok) throw new Error(j.error); localStorage.setItem('bai_sv_me', JSON.stringify({ name: o.name, hq: o.hq, branch: o.branch, pin: o.pin })); localStorage.setItem('bai_sv1_done', '1'); $('#doneTitle').textContent = j.updated ? '고친 내용이 저장됐습니다.' : '1차 응답이 저장됐습니다.'; draw(j.summary); show('done'); $('#bar').style.width = '100%'; $('#stepLabel').textContent = '1차 설문 · 완료'; }
-  catch (x) { go(5); $('#ferr').textContent = x.message || '저장하지 못했습니다. 잠시 후 다시 눌러 주세요.'; } finally { b.disabled = false; } };
+  catch (x) { const m = x.message || '저장하지 못했습니다. 잠시 후 다시 눌러 주세요.'; go(5); $('#ferr').textContent = m; alert('아직 저장되지 않았습니다.\n\n' + m); } finally { b.disabled = false; } };
 $('#reeditBtn').onclick = () => { const d = JSON.parse(localStorage.getItem('bai_sv1') || 'null'); if (d) write(d); editing = true; show('form'); go(1); };
 $('#refreshBtn').onclick = async () => { const me = JSON.parse(localStorage.getItem('bai_sv_me') || 'null'); if (!me) return; const j = await post(Object.assign({ action: 'summary' }, me)); if (j.ok) draw(j.summary); };
 
