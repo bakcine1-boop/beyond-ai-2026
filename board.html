@@ -14,7 +14,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,600..800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
-:root{--ink:#111418;--ink2:#2a2d33;--paper:#f5f7fa;--card:#fff;--b:#0053a1;--y:#fbb315;--lime:#fbb315;--mut:#6c6f76;--line:rgba(11,13,16,.14);--ok:#1d7a4d;--err:#b3261e}
+:root{--ink:#111418;--ink2:#2a2d33;--paper:#f5f7fa;--card:#fff;--b:#0053a1;--y:#fbb315;--lime:#fbb315;--mut:#5c6067;--line:rgba(11,13,16,.14);--ok:#1d7a4d;--err:#b3261e}
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
 body{font-family:'Pretendard Variable',Pretendard,-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;background:var(--paper);color:var(--ink);font-size:16px;line-height:1.6;letter-spacing:-.01em;word-break:keep-all;overflow-wrap:anywhere;-webkit-font-smoothing:antialiased;min-height:100vh}
@@ -49,7 +49,7 @@ h2{font-size:clamp(24px,5.6vw,30px);line-height:1.3;letter-spacing:-.035em;font-
 .who li:last-child{border-bottom:0}
 .who b{display:block;font-size:13px;color:var(--mut);font-weight:700}
 .due{margin-top:16px;display:inline-flex;align-items:center;gap:10px;background:var(--b);color:#fff;border-radius:999px;padding:9px 16px;font-size:15px;font-weight:700}.due b{color:#ffd166;font-size:13px;font-weight:700}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:54px;padding:0 26px;border-radius:99px;border:1.5px solid var(--b);background:var(--b);color:#fff;font-weight:700;font-size:17px;cursor:pointer;transition:transform .2s}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:54px;padding:0 26px;border-radius:12px;border:1.5px solid var(--b);background:var(--b);color:#fff;font-weight:700;font-size:17px;cursor:pointer;transition:transform .2s}
 .btn:active{transform:scale(.97)}
 .btn.ghost{background:transparent;color:var(--b)}
 .btn.y{background:var(--b);border-color:var(--b);color:#fff}
@@ -142,8 +142,8 @@ details.area>summary::after{content:'+';position:absolute;right:0;top:4px;width:
 @media (max-width:480px){
 body{font-size:15px;line-height:1.55}
 main{padding:22px 16px 110px}
-.top .in{height:52px;padding:0 16px}.top img{height:18px}.top b{font-size:14px}.top span{font-size:12.5px}
-.eyebrow{font-size:12.5px;margin-bottom:10px}
+.top .in{height:52px;padding:0 16px}.top img{height:18px}.top b{font-size:14px}.top span{font-size:13px}
+.eyebrow{font-size:13px;margin-bottom:10px}
 h1{font-size:26px;line-height:1.25}
 h2{font-size:21px;line-height:1.32}
 .lead{font-size:15.5px;line-height:1.65;margin-top:12px}.lead.sub{font-size:14px}
@@ -183,7 +183,7 @@ a.btn{text-decoration:none}
 .rule{margin-top:14px;border-left:3px solid var(--y);padding:2px 0 2px 12px;font-size:14.5px;font-weight:600;line-height:1.55}
 .tabs{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin:18px 0 4px}
 .tabs button{min-height:48px;border-radius:10px;border:1.5px solid rgba(11,13,16,.18);background:#fff;font-weight:700;font-size:14.5px;line-height:1.2;padding:6px 4px;cursor:pointer}
-.tabs button small{display:block;font-size:12px;font-weight:600;color:var(--mut);margin-top:2px}
+.tabs button small{display:block;font-size:13px;font-weight:600;color:var(--mut);margin-top:2px}
 .tabs button[aria-selected=true]{background:var(--b);border-color:var(--b);color:#fff}.tabs button[aria-selected=true] small{color:#d6e4f3}
 .hq{font-size:22px;letter-spacing:-.03em;margin:30px 0 4px;padding-top:14px;border-top:2px solid var(--ink)}
 .hq small,.grp h3 small{font-size:13.5px;font-weight:600;color:var(--mut);margin-left:8px;letter-spacing:0}
@@ -199,15 +199,15 @@ a.btn{text-decoration:none}
 .s-due .th.ph{background:#fff6df;color:#6b4e00}.s-file .th.ph,.s-wait .th.ph{background:#e8f0f9;color:var(--b)}
 a.th.lk{cursor:pointer;color:var(--b);text-decoration:none;background:#e8f0f9}
 .cb{padding:12px 14px 12px;display:flex;flex-direction:column;gap:6px;flex:1}
-.nm{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 8px}.nm b{font-size:16px;letter-spacing:-.02em}.nm span{font-size:13px;color:var(--mut)}
-.am{font-style:normal;font-size:12px;font-weight:700;color:#3a2a00;background:var(--y);border-radius:6px;padding:1px 7px}
+.nm{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 8px}.nm b{font-size:16px;letter-spacing:-.02em}.nm span{font-size:13.5px;color:var(--mut)}
+.am{font-style:normal;font-size:13px;font-weight:700;color:#3a2a00;background:var(--y);border-radius:6px;padding:1px 7px}
 .tt{font-size:14.5px;font-weight:600;line-height:1.45;color:var(--ink);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .tt.mu{font-weight:500;color:var(--mut);font-size:13.5px}
 .meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:2px}
-.ch,.tr{font-size:12px;font-weight:700;border-radius:6px;padding:2px 8px;line-height:1.5}
+.ch,.tr{font-size:13px;font-weight:700;border-radius:6px;padding:2px 8px;line-height:1.5}
 .c-have{background:var(--b);color:#fff}.c-file,.c-wait{background:#e3edf8;color:var(--b)}.c-due{background:#fff1cc;color:#5c4300}.c-none{background:#eef0f3;color:var(--mut)}
 .tr{background:#fff;border:1px solid var(--line);color:var(--ink2);font-weight:600}
-.lk2{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13.5px}.lk2 a{color:var(--b);font-weight:700;text-decoration:none;min-height:30px;display:inline-flex;align-items:center}.lk2 a.up{color:var(--mut);font-weight:600;margin-left:auto}
+.lk2{display:flex;flex-wrap:wrap;align-items:center;gap:0 14px;font-size:14px}.lk2 a{color:var(--b);font-weight:700;text-decoration:none;min-height:44px;display:inline-flex;align-items:center}.lk2 a.up{color:var(--mut);font-weight:600;margin-left:auto;padding:0 10px;margin-right:-10px}.lk2 a.up.go{color:var(--b);font-weight:800}
 .amline{font-size:14px;color:var(--ink2);margin:0 0 8px;font-weight:600}
 .foot{margin-top:34px;font-size:13.5px;color:var(--mut);line-height:1.6;border-top:1px solid var(--line);padding-top:14px}
 .small{font-size:13.5px;color:var(--mut);margin-top:12px}
@@ -219,13 +219,13 @@ dialog#pl::backdrop{background:rgba(8,12,20,.84)}
 .pf iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .pi{display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap;color:#fff;margin-top:10px;font-size:14px}
 .pi b{font-size:16px}.pi .pt{color:#d6dbe3;flex:1;min-width:0}.pi a{color:var(--y);font-weight:700;text-decoration:none}
-.pi button{height:40px;padding:0 16px;border-radius:99px;border:1.5px solid #fff;background:transparent;color:#fff;font-weight:700;cursor:pointer}
+.pi button{height:44px;padding:0 16px;border-radius:10px;border:1.5px solid #fff;background:transparent;color:#fff;font-weight:700;cursor:pointer}
 @media (max-width:719px){
  .tabs{grid-template-columns:repeat(3,1fr)}
  .grid{grid-template-columns:1fr;gap:8px}
  .card{display:grid;grid-template-columns:124px 1fr;flex-direction:row}
  .card .th{aspect-ratio:auto;height:100%;min-height:96px}
- .card .th.ph{font-size:12.5px}
+ .card .th.ph{font-size:13.5px}
  .cb{padding:10px 12px;gap:4px}.nm b{font-size:15px}.tt{font-size:14px}
  .th .pl{width:38px;height:38px;margin:-19px 0 0 -19px}.th .pl::after{left:15px;top:11px;border-left-width:12px;border-top-width:8px;border-bottom-width:8px}
  .hq{font-size:19px;margin-top:24px}
@@ -256,7 +256,7 @@ dialog#up{border:0;padding:0;margin:auto;width:min(640px,96vw);max-width:none;ma
 dialog#up::backdrop{background:rgba(8,12,20,.6)}
 #up form{display:flex;flex-direction:column;max-height:92dvh}
 .uh{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--b);color:#fff;padding:0 16px;min-height:56px;flex:none}
-.uh b{font-size:17px}.uh button{height:40px;padding:0 14px;border-radius:99px;border:1.5px solid #fff;background:transparent;color:#fff;font-weight:700;cursor:pointer}
+.uh b{font-size:17px}.uh button{height:44px;padding:0 16px;border-radius:10px;border:1.5px solid #fff;background:transparent;color:#fff;font-weight:700;cursor:pointer}
 .ub{overflow:auto;padding:14px 16px 24px;-webkit-overflow-scrolling:touch}
 .ub .q:first-child{margin-top:0}
 .seg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
@@ -270,6 +270,12 @@ dialog#up::backdrop{background:rgba(8,12,20,.6)}
 .fileinfo{font-size:14px;margin-top:8px;color:var(--ink2);word-break:break-all}
 .prog{height:10px;background:rgba(11,13,16,.1);border-radius:9px;overflow:hidden;margin-top:10px}.prog i{display:block;height:100%;width:0;background:var(--b);transition:width .3s}
 @media (max-width:719px){dialog#up{width:100vw;max-height:100dvh;height:100dvh;border-radius:0;margin:0}#up form{max-height:100dvh;height:100dvh}}
+
+.th .vn{position:absolute;left:8px;top:8px;background:rgba(0,0,0,.68);color:#fff;font-size:13px;font-weight:700;border-radius:6px;padding:2px 8px;line-height:1.5}
+.pv{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.pv button{min-width:64px;height:44px;padding:0 12px;border-radius:10px;border:1.5px solid rgba(255,255,255,.7);background:transparent;color:#fff;font-weight:700;font-size:14px;cursor:pointer}.pv button[aria-current=true]{background:#fff;color:var(--b);border-color:#fff}
+details.more{margin-top:14px;border-top:1px solid var(--line);padding-top:4px}details.more>summary{color:var(--ink);font-weight:700;font-size:15px}details.more>summary small{font-weight:500;color:var(--mut);font-size:13.5px;margin-left:6px}
+.mlist{list-style:none;margin:6px 0 10px;padding:0}.mlist li{display:flex;align-items:center;gap:10px;min-height:48px;border-bottom:1px solid var(--line);font-size:14.5px}.mlist .mn{flex:none;font-weight:800;color:var(--b)}.mlist .mt{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--ink2)}.mlist li.bad .mt{color:var(--err)}.mlist button{flex:none;height:44px;padding:0 12px;border-radius:10px;border:1.5px solid rgba(11,13,16,.18);background:#fff;font-weight:700;font-size:14px;color:var(--ink2);cursor:pointer}.mlist button:disabled{opacity:.4}
+.madd{display:flex;gap:8px;margin-bottom:10px}.madd .fi{flex:1;min-width:0}.madd button{flex:none;min-width:72px;height:52px;border-radius:10px;border:1.5px solid var(--b);background:#fff;color:var(--b);font-weight:800;font-size:15.5px;cursor:pointer}
 </style>
 </head>
 <body>
@@ -277,10 +283,10 @@ dialog#up::backdrop{background:rgba(8,12,20,.6)}
 <main class="wide">
   <div class="bhead"><div><p class="eyebrow">광역본부 직원 · <span id="upd">불러오는 중</span></p><h1>제작물 보드</h1></div><button class="btn" type="button" id="upOpen">내 영상 올리기</button></div>
   <div class="sum" id="sum"></div>
-  <p class="rule">12월 7일 발표는 각자 만든 영상을 1분 정도 틀고, 슬라이드 1~2장으로 5분 안에 마칩니다. 내 칸의 "올리기"를 눌러 링크나 파일로 올려 주세요. 웹·앱 등은 원하시는 분만 더합니다.</p>
+  <p class="rule">12월 7일 발표는 각자 만든 영상을 1분 정도 틀고, 슬라이드 1~2장으로 5분 안에 마칩니다. <b>11월 26일(목)까지</b> 내 칸의 "올리기"를 눌러 대표 영상 한 편을 링크나 파일로 올려 주세요. 영상이 더 있으면 함께 올리고, 웹·앱 등은 원하시는 분만 더합니다.</p>
   <div class="tabs" id="tabs" role="tablist"></div>
   <div id="list"><p class="loading">명단을 불러오는 중입니다…</p></div>
-  <p class="foot">이 페이지는 광역본부 카톡방에만 공유합니다. 주소를 밖으로 보내지 말아 주세요. 올린 파일은 링크를 아는 사람만 볼 수 있게 구글 드라이브에 저장됩니다. <button type="button" id="refresh" class="btn ghost" style="height:40px;font-size:14px;margin-top:10px">새로 고침</button></p>
+  <p class="foot">이 페이지는 광역본부 카톡방에만 공유합니다. 주소를 밖으로 보내지 말아 주세요. 올린 파일은 링크를 아는 사람만 볼 수 있게 구글 드라이브에 저장되고, 행사가 끝나면 12월 31일에 공유를 끕니다. <button type="button" id="refresh" class="btn ghost" style="height:40px;font-size:14px;margin-top:10px">새로 고침</button></p>
 </main>
 
 <dialog id="up" aria-label="영상 올리기">
@@ -297,10 +303,16 @@ dialog#up::backdrop{background:rgba(8,12,20,.6)}
       <p class="hint" id="meMsg" aria-live="polite"></p>
     </div>
     <div class="q" id="qTitle"><label for="f-title">발표 제목<small class="h">가제여도 괜찮습니다.</small></label><input class="fi" id="f-title" maxlength="60" placeholder="예) 설교 한 편으로 쇼츠 세 편 만들기"></div>
-    <div class="q" id="qHow"><span class="ql">영상</span>
+    <div class="q" id="qHow"><span class="ql">대표 영상<small class="h">12월 7일 발표 때 1분 정도 틀 영상이에요.</small></span>
       <div class="seg"><label><input type="radio" name="how" value="link"><span>링크로 올리기</span></label><label><input type="radio" name="how" value="file"><span>파일로 올리기</span></label></div>
       <div id="linkBox" hidden><input class="fi" id="f-vLink" inputmode="url" maxlength="300" placeholder="https://youtu.be/..." aria-label="영상 링크"><p class="hint">유튜브 '일부 공개' 링크를 권합니다. 구글 드라이브 링크도 됩니다.</p></div>
       <div id="fileBox" hidden><label class="filebtn"><input type="file" id="f-file" accept="video/*,.mov,.mp4,.m4v">영상 파일 고르기</label><p class="fileinfo" id="fileInfo"></p><div class="prog" id="prog" hidden><i></i></div><p class="hint" id="fileMsg">휴대폰 영상도 그대로 올리면 됩니다. 600MB까지 올릴 수 있고, 올린 뒤 재생 준비에 몇 분 걸릴 수 있습니다.</p></div>
+      <details class="more" id="moreBox"><summary>영상이 더 있으면<small id="mCount">선택 · 5편까지</small></summary>
+        <ol class="mlist" id="mList"></ol>
+        <div class="madd"><input class="fi" id="f-mLink" inputmode="url" maxlength="300" placeholder="링크 https://" aria-label="더 올릴 영상 링크"><button type="button" id="mAdd">추가</button></div>
+        <label class="filebtn"><input type="file" id="f-mFile" accept="video/*,.mov,.mp4,.m4v" multiple>파일로 추가 (여러 개 한꺼번에)</label>
+        <p class="hint" id="mMsg">보드에서 대표 영상과 함께 넘겨 볼 수 있어요.</p>
+      </details>
     </div>
     <div class="q" id="qTrack"><span class="ql">발표 분야<small class="h">여러 개 고를 수 있어요. 발표는 그중 한 부에서 합니다.</small></span><div class="opts" id="trackOpts"></div></div>
     <details class="q" id="extraBox"><summary>웹·앱 등 더 만든 것 (선택)</summary>
@@ -315,7 +327,7 @@ dialog#up::backdrop{background:rgba(8,12,20,.6)}
   </div>
  </form>
 </dialog>
-<dialog id="pl" aria-label="영상 보기"><div class="pf"><iframe title="영상" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><div class="pi"><b class="pn"></b><span class="pt"></span><a target="_blank" rel="noopener">새 창에서 보기 ↗</a><button type="button" id="plx">닫기</button></div></dialog>
+<dialog id="pl" aria-label="영상 보기"><div class="pf"><iframe title="영상" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><div class="pv" id="plv" hidden></div><div class="pi"><b class="pn"></b><span class="pt"></span><a target="_blank" rel="noopener">새 창에서 보기 ↗</a><button type="button" id="plx">닫기</button></div></dialog>
 <script>
 const API = 'https://script.google.com/macros/s/AKfycbxep8xjp6peJdDB0nEn_WpOF1vp-j4pCBCJfNOzbs3nmif9-w5n-CzkL-mSUVW_TRKJ/exec';
 const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -347,18 +359,20 @@ const tracksOf = p => { const t = (p.r2 && p.r2.track) ? String(p.r2.track).spli
 const planOf = p => { const r = p.r1; if (!r) return ''; if (r.title) return r.title; const k = { '업무': 'job', '교회': 'church', '세상과의 소통': 'world' }[r.track]; const items = String((k && r[k]) || [r.job, r.church, r.world].filter(Boolean).join(', ')).split(',').map(x => x.trim()).filter(x => x && !/아직 모르겠음/.test(x)); return items.slice(0, 2).join(', '); };
 const order = (a, b) => (RANK[a.name] ?? 9) - (RANK[b.name] ?? 9) || seq(a) - seq(b) || ((b.role === '지사장·총국장') - (a.role === '지사장·총국장')) || a.name.localeCompare(b.name, 'ko');
 const keyOf = p => p.name + '|' + p.branch;
+const vidOf = u => { const L = link(u); if (!L) return null; const Y = yt(L); if (Y) return { k: 'yt', id: Y[0], s: Y[1] ? 1 : 0, h: L }; const G = gd(L); if (G) return { k: 'gd', id: G, h: `https://drive.google.com/file/d/${G}/view` }; return { k: 'web', h: L }; };
+const vidsOf = r => [r.vLink, ...String(r.vMore || '').split(/\s+/)].map(vidOf).filter(Boolean);
 const card = p => {
-  const s = state(p), r = p.r2 || {}, L = link(r.vLink), Y = L ? yt(L) : null, G = L ? gd(L) : '', am = AM[p.name], trs = tracksOf(p), t = r.title || '', plan = planOf(p), xs = xlinks(r);
+  const s = state(p), r = p.r2 || {}, L = link(r.vLink), Y = L ? yt(L) : null, G = L ? gd(L) : '', VL = s === 'have' ? vidsOf(r) : [], vlA = VL.length > 1 ? ` data-list="${esc(JSON.stringify(VL))}"` : '', vlB = VL.length > 1 ? `<span class="vn">영상 ${VL.length}편</span>` : '', am = AM[p.name], trs = tracksOf(p), t = r.title || '', plan = planOf(p), xs = xlinks(r);
   let th;
-  if (s === 'have' && Y) th = `<button class="th" type="button" data-kind="yt" data-id="${esc(Y[0])}" data-short="${Y[1] ? 1 : ''}" data-href="${esc(L)}" data-name="${esc(p.name)} · ${esc(p.branch)}" data-title="${esc(t)}" aria-label="${esc(p.name)} 영상 보기"><img src="https://i.ytimg.com/vi/${esc(Y[0])}/mqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><i class="pl"></i></button>`;
-  else if (s === 'have' && G) th = `<button class="th" type="button" data-kind="gd" data-id="${esc(G)}" data-href="https://drive.google.com/file/d/${esc(G)}/view" data-name="${esc(p.name)} · ${esc(p.branch)}" data-title="${esc(t)}" aria-label="${esc(p.name)} 영상 보기" style="background:#1d2633"><img src="https://drive.google.com/thumbnail?id=${esc(G)}&sz=w640" alt="" loading="lazy" onerror="this.remove()"><i class="pl"></i></button>`;
+  if (s === 'have' && Y) th = `<button class="th" type="button" data-kind="yt" data-id="${esc(Y[0])}" data-short="${Y[1] ? 1 : ''}" data-href="${esc(L)}" data-name="${esc(p.name)} · ${esc(p.branch)}" data-title="${esc(t)}" aria-label="${esc(p.name)} 영상 보기"${vlA}><img src="https://i.ytimg.com/vi/${esc(Y[0])}/mqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><i class="pl"></i>${vlB}</button>`;
+  else if (s === 'have' && G) th = `<button class="th" type="button" data-kind="gd" data-id="${esc(G)}" data-href="https://drive.google.com/file/d/${esc(G)}/view" data-name="${esc(p.name)} · ${esc(p.branch)}" data-title="${esc(t)}" aria-label="${esc(p.name)} 영상 보기" style="background:#1d2633"${vlA}><img src="https://drive.google.com/thumbnail?id=${esc(G)}&sz=w640" alt="" loading="lazy" onerror="this.remove()"><i class="pl"></i>${vlB}</button>`;
   else if (s === 'have') th = `<a class="th ph lk" href="${esc(L)}" target="_blank" rel="noopener">영상 열기 ↗</a>`;
   else th = `<div class="th ph">${esc(s === 'due' ? (r.vDue || '') + '\n완성 예정' : s === 'file' ? '영상 파일\n행정팀에 전달' : '준비 중')}</div>`;
   const chip = { have: G ? '영상 있음 · 파일' : '영상 있음', file: '파일 전달', due: (r.vDue || '') + ' 완성 예정', none: '아직 올리기 전' }[s];
   return `<article class="card s-${s}" data-k="${esc(keyOf(p))}">${th}<div class="cb"><div class="nm"><b>${esc(p.name)}</b><span>${esc(p.branch)}</span>${am ? `<em class="am">오전 발표</em>` : ''}</div>`
     + (t ? `<p class="tt">${esc(t)}</p>` : `<p class="tt mu">${plan ? '1차 계획 · ' + esc(plan) : '아직 응답 전'}</p>`)
     + `<div class="meta"><span class="ch c-${s}">${esc(chip)}</span>${am ? `<span class="tr">${esc(am)}</span>` : trs.map(x => `<span class="tr">${esc(x)}</span>`).join('')}</div>`
-    + `<div class="lk2">${xs.map(([a, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(a)} ↗</a>`).join('')}<a class="up" href="#" data-up="${esc(keyOf(p))}">${p.r2 && (L || r.vFile) ? '고치기' : '올리기'}</a></div></div></article>`;
+    + `<div class="lk2">${xs.map(([a, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(a)} ↗</a>`).join('')}<a class="up${p.r2 && (L || r.vFile) ? '' : ' go'}" href="#" data-up="${esc(keyOf(p))}">${p.r2 && (L || r.vFile) ? '고치기' : '올리기'}</a></div></div></article>`;
 };
 const cnt = list => ({ n: list.length, sub: list.filter(p => SUB(state(p))).length });
 const grp = (title, list, gdText) => { const c = cnt(list); return `<section class="grp"><h3>${esc(title)}<small>${c.n}명 중 ${c.sub}명 올림</small></h3>${gdText ? `<p class="gd">${esc(gdText)}</p>` : ''}<div class="grid">${list.map(card).join('')}</div></section>`; };
@@ -388,7 +402,11 @@ $('#tabs').addEventListener('click', e => { const b = e.target.closest('button[d
 $('#refresh').onclick = () => load();
 /* 재생 */
 const dlg = $('#pl'), ifr = $('#pl iframe');
-document.addEventListener('click', e => { const b = e.target.closest('button.th'); if (!b) return; if (!dlg.showModal) { window.open(b.dataset.href, '_blank', 'noopener'); return; } $('#pl .pf').classList.toggle('short', !!b.dataset.short); ifr.src = b.dataset.kind === 'gd' ? `https://drive.google.com/file/d/${encodeURIComponent(b.dataset.id)}/preview` : `https://www.youtube-nocookie.com/embed/${encodeURIComponent(b.dataset.id)}?autoplay=1&rel=0&playsinline=1`; $('#pl .pn').textContent = b.dataset.name; $('#pl .pt').textContent = b.dataset.title; $('#pl a').href = b.dataset.href; dlg.showModal(); });
+let PL = null;
+const srcOf = v => v.k === 'gd' ? `https://drive.google.com/file/d/${encodeURIComponent(v.id)}/preview` : `https://www.youtube-nocookie.com/embed/${encodeURIComponent(v.id)}?autoplay=1&rel=0&playsinline=1`;
+const playAt = i => { const v = PL.list[i]; if (!v) return; if (v.k === 'web') { window.open(v.h, '_blank', 'noopener'); return; } PL.i = i; $('#pl .pf').classList.toggle('short', !!v.s); ifr.src = srcOf(v); $('#pl a').href = v.h; $$('#plv button').forEach((x, j) => x.setAttribute('aria-current', j === i)); };
+document.addEventListener('click', e => { const b = e.target.closest('button.th'); if (!b) return; let list = []; try { list = b.dataset.list ? JSON.parse(b.dataset.list) : []; } catch (x) {} if (!list.length) list = [{ k: b.dataset.kind, id: b.dataset.id, s: b.dataset.short ? 1 : 0, h: b.dataset.href }]; if (!dlg.showModal) { window.open(list[0].h, '_blank', 'noopener'); return; } PL = { list, i: 0 }; const nav = $('#plv'); nav.hidden = list.length < 2; nav.innerHTML = list.length < 2 ? '' : list.map((v, j) => `<button type="button" data-pi="${j}">영상 ${j + 1}${v.k === 'web' ? ' ↗' : ''}</button>`).join(''); $('#pl .pn').textContent = b.dataset.name; $('#pl .pt').textContent = b.dataset.title; playAt(0); dlg.showModal(); });
+$('#plv').addEventListener('click', e => { const x = e.target.closest('button[data-pi]'); if (x && PL) playAt(+x.dataset.pi); });
 const closeP = () => { ifr.src = 'about:blank'; if (dlg.open) dlg.close(); };
 $('#plx').onclick = closeP; dlg.addEventListener('cancel', () => { ifr.src = 'about:blank'; }); dlg.addEventListener('click', e => { if (e.target === dlg) closeP(); });
 /* 올리기 */
@@ -405,7 +423,7 @@ const mb = n => (n / 1048576).toFixed(n < 10485760 ? 1 : 0) + 'MB';
 const setProg = (pct, t, k) => { $('#prog').hidden = false; $('#prog i').style.width = Math.max(0, Math.min(100, pct)) + '%'; const m = $('#fileMsg'); m.className = 'hint' + (k ? ' ' + k : ''); m.textContent = t; };
 const sync = () => { const h = val('how'); $('#linkBox').hidden = h !== 'link'; $('#fileBox').hidden = h !== 'file'; };
 const resetFile = () => { U.file = null; U.link = ''; U.prev = ''; $('#f-file').value = ''; $('#fileInfo').textContent = ''; $('#prog').hidden = true; $('#prog i').style.width = '0'; const m = $('#fileMsg'); m.className = 'hint'; m.textContent = '휴대폰 영상도 그대로 올리면 됩니다. 600MB까지 올릴 수 있고, 올린 뒤 재생 준비에 몇 분 걸릴 수 있습니다.'; };
-const clearForm = () => { $('#f-title').value = ''; setRadio('how', ''); setChecks('track', []); setChecks('extra', []); $('#f-vLink').value = ''; $('#f-extraLink').value = ''; $('#f-note').value = ''; $('#f-help').checked = false; $('#extraBox').open = false; $('#ferr').textContent = ''; editing = false; $('#saveBtn').textContent = '올리기'; if (!U.busy) resetFile(); sync(); };
+const clearForm = () => { $('#f-title').value = ''; setRadio('how', ''); setChecks('track', []); setChecks('extra', []); $('#f-vLink').value = ''; $('#f-extraLink').value = ''; $('#f-note').value = ''; $('#f-help').checked = false; $('#extraBox').open = false; if (!M.busy) { M.items = []; renderM(); $('#moreBox').open = false; mmsg('보드에서 대표 영상과 함께 넘겨 볼 수 있어요.'); } $('#ferr').textContent = ''; editing = false; $('#saveBtn').textContent = '올리기'; if (!U.busy) resetFile(); sync(); };
 const fillHq = (v1, v2) => { const hq = $('#f-hq'), br = $('#f-branch'); hq.innerHTML = '<option value="">선택</option>' + HQS.map(h => `<option ${h === v1 ? 'selected' : ''}>${h}</option>`).join(''); const fb = () => br.innerHTML = '<option value="">선택</option>' + (BR[hq.value] || []).map(b => `<option ${b === v2 ? 'selected' : ''}>${b}</option>`).join(''); hq.onchange = () => { v2 = ''; fb(); fillNames(); }; br.onchange = fillNames; fb(); fillNames(); };
 const fillNames = () => { const hq = $('#f-hq').value, br = $('#f-branch').value; const ps = ((DATA && DATA.people) || []).filter(p => p.hq === hq && p.branch === br).map(p => p.name).sort((a, b) => a.localeCompare(b, 'ko')); $('#f-pick').innerHTML = '<option value="">' + (br ? '선택' : '지사를 먼저 골라 주세요') + '</option>' + ps.map(n => `<option>${esc(n)}</option>`).join('') + (br ? '<option value="__new">명단에 없어요 (직접 적기)</option>' : ''); $('#f-name').hidden = true; $('#f-name').value = ''; if (who) { who = null; loadedKey = ''; clearForm(); msg(''); } };
 $('#f-pick').onchange = () => { const v = $('#f-pick').value; $('#f-name').hidden = v !== '__new'; if (v === '__new') { setWho(null); $('#f-name').focus(); return; } setWho(v ? { name: v, hq: $('#f-hq').value, branch: $('#f-branch').value } : null); };
@@ -414,7 +432,7 @@ const setWho = w => { const k = w ? keyOf(w) : ''; if (k !== loadedKey) clearFor
 const fixWho = w => { who = w; $('#whoName').textContent = w.name; $('#whoBr').textContent = w.branch; $('#fixedBox').hidden = false; $('#pickBox').hidden = true; };
 $('#changeWho').onclick = () => { who = null; loadedKey = ''; clearForm(); msg('내 총국, 지사, 이름을 골라 주세요.'); $('#fixedBox').hidden = true; $('#pickBox').hidden = false; fillHq(); };
 const planText = r => { const k = { '업무': 'job', '교회': 'church', '세상과의 소통': 'world' }[r.track]; const items = String((k && r[k]) || '').split(',').map(x => x.trim()).filter(x => x && !/아직 모르겠음/.test(x)); return [TR1[r.track], r.title || items.slice(0, 2).join(', ')].filter(Boolean).join(' · '); };
-const fillFrom2 = r => { $('#f-title').value = r.title || ''; setChecks('track', String(r.track || '').split(/\s*,\s*/)); const L = link(r.vLink); if (L && gd(L)) { setRadio('how', 'file'); U.prev = L; $('#fileInfo').textContent = '올려 둔 파일이 있습니다. 바꾸려면 새 파일을 고르세요.'; } else if (L) { setRadio('how', 'link'); $('#f-vLink').value = L; } const ex = String(r.extra || '').split(/\s*,\s*/); setChecks('extra', ex); $('#f-extraLink').value = r.extraLink || ''; $('#f-note').value = r.note || ''; $('#f-help').checked = !!(r.help && r.help !== '필요 없음'); if (r.extra || r.extraLink || r.note) $('#extraBox').open = true; sync(); };
+const fillFrom2 = r => { $('#f-title').value = r.title || ''; setChecks('track', String(r.track || '').split(/\s*,\s*/)); const L = link(r.vLink); if (L && gd(L)) { setRadio('how', 'file'); U.prev = L; $('#fileInfo').textContent = '올려 둔 파일이 있습니다. 바꾸려면 새 파일을 고르세요.'; } else if (L) { setRadio('how', 'link'); $('#f-vLink').value = L; } const ex = String(r.extra || '').split(/\s*,\s*/); setChecks('extra', ex); $('#f-extraLink').value = r.extraLink || ''; $('#f-note').value = r.note || ''; M.items = String(r.vMore || '').split(/\s+/).filter(Boolean).map(u => ({ url: u, name: '', st: 'ok' })); renderM(); if (M.items.length) $('#moreBox').open = true; $('#f-help').checked = !!(r.help && r.help !== '필요 없음'); if (r.extra || r.extraLink || r.note) $('#extraBox').open = true; sync(); };
 async function identify() { if (!who) return; const key = keyOf(who); if (key === loadedKey) return; loadedKey = key; msg('불러오는 중…');
   try { const j = await post({ action: 'load', name: who.name, branch: who.branch }); if (key !== loadedKey) return; if (!j.ok) throw new Error(j.error);
     editing = !!j.r2;
@@ -429,19 +447,33 @@ f.addEventListener('change', e => { if (e.target.name === 'how') sync(); $('#fer
 const okVideo = fl => /^video\//.test(fl.type) || /\.(mov|mp4|m4v|webm|avi|mkv|3gp)$/i.test(fl.name);
 $('#f-file').addEventListener('change', () => { const fl = $('#f-file').files[0]; if (!fl) return; if (!okVideo(fl)) { resetFile(); setProg(0, '영상 파일만 올릴 수 있습니다.', 'bad'); return; } if (fl.size > 600 * 1048576) { resetFile(); setProg(0, `파일이 너무 큽니다(${mb(fl.size)}). 600MB까지 올릴 수 있습니다. 유튜브 링크로 올리거나 영상을 줄여 주세요.`, 'bad'); return; }
   U.file = fl; U.link = ''; $('#fileInfo').textContent = `${fl.name} · ${mb(fl.size)}`; if (!who) { setProg(0, '이름을 먼저 고르시면 바로 올라갑니다.'); return; } startUpload(); });
-const putDirect = (url, fl) => new Promise((res, rej) => { const x = new XMLHttpRequest(); x.open('PUT', url); x.upload.onprogress = e => { if (e.lengthComputable) setProg(e.loaded / e.total * 100, `올리는 중 ${Math.floor(e.loaded / e.total * 100)}% · ${mb(e.loaded)} / ${mb(e.total)}`); }; x.onload = () => { if (x.status === 200 || x.status === 201) { let id = ''; try { id = JSON.parse(x.responseText).id; } catch (e) {} res({ id }); } else rej(new Error('direct ' + x.status)); }; x.onerror = () => rej(new Error('direct network')); x.send(fl); });
+const putDirect = (url, fl, P = setProg) => new Promise((res, rej) => { const x = new XMLHttpRequest(); x.open('PUT', url); x.upload.onprogress = e => { if (e.lengthComputable) P(e.loaded / e.total * 100, `올리는 중 ${Math.floor(e.loaded / e.total * 100)}% · ${mb(e.loaded)} / ${mb(e.total)}`); }; x.onload = () => { if (x.status === 200 || x.status === 201) { let id = ''; try { id = JSON.parse(x.responseText).id; } catch (e) {} res({ id }); } else rej(new Error('direct ' + x.status)); }; x.onerror = () => rej(new Error('direct network')); x.send(fl); });
 const toB64 = blob => new Promise((res, rej) => { const r = new FileReader(); r.onload = () => res(String(r.result).split(',')[1] || ''); r.onerror = rej; r.readAsDataURL(blob); });
-async function putProxy(url, fl) { const CH = 4 * 1024 * 1024; let start = 0;
-  while (start < fl.size) { const end = Math.min(start + CH, fl.size); const b64 = await toB64(fl.slice(start, end)); const r = await post({ action: 'upChunk', url, start, total: fl.size, b64 }); if (!r.ok) throw new Error(r.error); setProg(end / fl.size * 100, `올리는 중 ${Math.floor(end / fl.size * 100)}% · ${mb(end)} / ${mb(fl.size)}`); if (r.link) return { id: r.id, link: r.link }; start = r.next != null && r.next > start ? r.next : end; }
+async function putProxy(url, fl, P = setProg) { const CH = 4 * 1024 * 1024; let start = 0;
+  while (start < fl.size) { const end = Math.min(start + CH, fl.size); const b64 = await toB64(fl.slice(start, end)); const r = await post({ action: 'upChunk', url, start, total: fl.size, b64 }); if (!r.ok) throw new Error(r.error); P(end / fl.size * 100, `올리는 중 ${Math.floor(end / fl.size * 100)}% · ${mb(end)} / ${mb(fl.size)}`); if (r.link) return { id: r.id, link: r.link }; start = r.next != null && r.next > start ? r.next : end; }
   return { id: '' }; }
+async function uploadOne(fl, P) { const s = await post({ action: 'upStart', name: who.name, branch: who.branch, fileName: fl.name, size: fl.size, mime: fl.type }); if (!s.ok) throw new Error(s.error);
+  let r; try { r = await putDirect(s.url, fl, P); } catch (e) { P(0, '다른 방법으로 다시 올리는 중…'); r = await putProxy(s.url, fl, P); }
+  let L = r.link; if (!L) { const d = await post({ action: 'upDone', id: r.id || '', url: s.url, size: fl.size }); if (!d.ok) throw new Error(d.error); L = d.link; } return L; }
 async function startUpload() { const fl = U.file; if (!fl || !who || U.busy) return; U.busy = true; U.link = ''; const sb = $('#saveBtn'); sb.disabled = true; setProg(0, '올릴 준비 중…');
-  try { const s = await post({ action: 'upStart', name: who.name, branch: who.branch, fileName: fl.name, size: fl.size, mime: fl.type }); if (!s.ok) throw new Error(s.error);
-    let r; try { r = await putDirect(s.url, fl); } catch (e) { setProg(0, '다른 방법으로 다시 올리는 중…'); r = await putProxy(s.url, fl); }
-    let L = r.link; if (!L) { const d = await post({ action: 'upDone', id: r.id || '', url: s.url, size: fl.size }); if (!d.ok) throw new Error(d.error); L = d.link; }
-    U.link = L; setProg(100, '파일이 올라갔습니다. 아래 "올리기"를 눌러 마무리해 주세요. 재생 준비에 몇 분 걸릴 수 있습니다.', 'ok');
-  } catch (x) { U.link = ''; setProg(0, netmsg(x, '파일을 올리지 못했습니다. 연결을 확인하고 파일을 다시 골라 주세요.'), 'bad'); }
-  finally { U.busy = false; sb.disabled = false; } }
-const read = () => { const h = val('how'), w = who || {}; return { name: w.name || '', hq: w.hq || '', branch: w.branch || '', title: $('#f-title').value.trim(), how: h, vLink: h === 'link' ? $('#f-vLink').value.trim() : h === 'file' ? (U.link || U.prev || '') : '', vFile: '', track: vals('track').join(', '), extra: vals('extra').join(', '), extraLink: $('#f-extraLink').value.trim(), note: $('#f-note').value.trim(), help: $('#f-help').checked ? '도움 요청' : '', hp: $('#f-hp').value }; };
+  try { U.link = await uploadOne(fl, setProg); setProg(100, '파일이 올라갔습니다. 아래 "올리기"를 눌러 마무리해 주세요. 재생 준비에 몇 분 걸릴 수 있습니다.', 'ok'); }
+  catch (x) { U.link = ''; setProg(0, netmsg(x, '파일을 올리지 못했습니다. 연결을 확인하고 파일을 다시 골라 주세요.'), 'bad'); }
+  finally { U.busy = false; sb.disabled = !!M.busy; } }
+/* 영상이 더 있으면: 링크나 파일로 5편까지 */
+const M = { items: [], busy: 0 }, MMAX = 5;
+const mname = u => { const v = vidOf(u); return !v ? u : v.k === 'yt' ? (v.s ? '유튜브 쇼츠' : '유튜브 영상') : v.k === 'gd' ? '드라이브 영상' : u.replace(/^https?:\/\//, ''); };
+const mmsg = (t, k) => { const m = $('#mMsg'); m.className = 'hint' + (k ? ' ' + k : ''); m.textContent = t; };
+const renderM = () => { $('#mList').innerHTML = M.items.map((it, i) => `<li class="${it.st}"><span class="mn">영상 ${i + 2}</span><span class="mt">${esc(it.name || mname(it.url))}${it.st === 'up' ? ` · ${Math.floor(it.pct || 0)}%` : it.st === 'bad' ? ' · 올리지 못함' : ''}</span><button type="button" data-mx="${i}"${it.st === 'up' ? ' disabled' : ''}>빼기</button></li>`).join(''); $('#mCount').textContent = M.items.length ? `${M.items.length}편 · 5편까지` : '선택 · 5편까지'; };
+const addMLink = () => { const v = normLink($('#f-mLink').value); if (!$('#f-mLink').value.trim()) return; if (!v) { mmsg('링크 형식이 맞지 않습니다. 주소를 그대로 붙여 넣어 주세요.', 'bad'); return; } if (M.items.length >= MMAX) { mmsg('5편까지 더 올릴 수 있습니다.', 'bad'); return; } if (M.items.some(it => it.url === v)) { mmsg('이미 넣은 링크입니다.', 'bad'); return; } M.items.push({ url: v, name: '', st: 'ok' }); $('#f-mLink').value = ''; renderM(); mmsg('추가했습니다. 마지막에 "올리기"를 눌러야 저장됩니다.', 'ok'); };
+$('#mAdd').onclick = addMLink; $('#f-mLink').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); addMLink(); } });
+$('#mList').addEventListener('click', e => { const b = e.target.closest('button[data-mx]'); if (!b || b.disabled) return; M.items.splice(+b.dataset.mx, 1); renderM(); });
+$('#f-mFile').addEventListener('change', async () => { const files = [...$('#f-mFile').files]; $('#f-mFile').value = ''; if (!files.length) return; if (!who) { mmsg('이름을 먼저 골라 주세요.', 'bad'); return; }
+  for (const fl of files) { if (M.items.length >= MMAX) { mmsg('5편까지 더 올릴 수 있습니다.', 'bad'); break; } if (!okVideo(fl)) { mmsg(`${fl.name}: 영상 파일만 올릴 수 있습니다.`, 'bad'); continue; } if (fl.size > 600 * 1048576) { mmsg(`${fl.name}: 600MB까지 올릴 수 있습니다.`, 'bad'); continue; }
+    const it = { url: '', name: `${fl.name} · ${mb(fl.size)}`, st: 'up', pct: 0 }; M.items.push(it); renderM(); M.busy++; $('#saveBtn').disabled = true; let last = 0;
+    try { it.url = await uploadOne(fl, pct => { it.pct = pct; const now = Date.now(); if (now - last > 400) { last = now; renderM(); } }); it.st = 'ok'; mmsg('올라갔습니다. 마지막에 "올리기"를 눌러야 저장됩니다.', 'ok'); }
+    catch (x) { it.st = 'bad'; mmsg(netmsg(x, '파일을 올리지 못했습니다. 연결을 확인하고 다시 골라 주세요.'), 'bad'); }
+    finally { M.busy--; renderM(); if (!M.busy && !U.busy) $('#saveBtn').disabled = false; } } });
+const read = () => { const h = val('how'), w = who || {}; return { name: w.name || '', hq: w.hq || '', branch: w.branch || '', title: $('#f-title').value.trim(), how: h, vLink: h === 'link' ? $('#f-vLink').value.trim() : h === 'file' ? (U.link || U.prev || '') : '', vFile: '', track: vals('track').join(', '), extra: vals('extra').join(', '), extraLink: $('#f-extraLink').value.trim(), note: $('#f-note').value.trim(), help: $('#f-help').checked ? '도움 요청' : '', hp: $('#f-hp').value, vMore: M.items.filter(it => it.st === 'ok' && it.url).map(it => it.url) }; };
 const normLink = v => { v = String(v || '').trim(); if (!v) return ''; if (!/^https?:\/\//i.test(v)) v = 'https://' + v; return /^https?:\/\/[^\s]+\.[^\s]+$/i.test(v) ? v : null; };
 /* 추가 결과물 링크 여러 개(최대 3): "이름 링크 이름 링크". 서버 links_와 같은 규칙 */
 const LRE = '(https?:\\/\\/[^\\s]+|[a-z0-9-]+(?:\\.[a-z0-9-]+)*\\.[a-z]{2,}(?:\\/[^\\s]*)?)';
@@ -455,6 +487,8 @@ const check = o => {
   if (!o.how) return ['영상을 링크로 올릴지, 파일로 올릴지 골라 주세요.', 'qHow'];
   if (o.how === 'link') { if (!o.vLink) return ['영상 링크를 붙여 넣어 주세요.', 'qHow']; if (normLink(o.vLink) === null) return ['영상 링크 형식이 맞지 않습니다. 주소를 그대로 붙여 넣어 주세요.', 'qHow']; }
   if (o.how === 'file') { if (U.busy) return ['파일이 아직 올라가는 중입니다. 다 올라간 뒤 다시 눌러 주세요.', 'qHow']; if (!o.vLink) return [U.file ? '파일을 올리지 못했습니다. 파일을 다시 골라 주세요.' : '영상 파일을 골라 주세요.', 'qHow']; }
+  if (M.busy) return ['더 올리는 영상이 아직 올라가는 중입니다. 다 올라간 뒤 다시 눌러 주세요.', 'moreBox'];
+  if (M.items.some(it => it.st === 'bad')) return ['올리지 못한 영상이 있습니다. "빼기"를 누르거나 다시 올려 주세요.', 'moreBox'];
   if (!o.track) return ['발표 분야를 하나 이상 골라 주세요.', 'qTrack'];
   if (o.extraLink && normLinks(o.extraLink) === null) return ['추가 결과물 링크 형식이 맞지 않습니다.', 'extraBox'];
   return null; };
@@ -470,8 +504,8 @@ const openUp = w => { if (!up.showModal) { alert('이 브라우저에서는 올�
   up.showModal(); $('.ub').scrollTop = 0; };
 $('#upOpen').onclick = () => openUp(null);
 document.addEventListener('click', e => { const a = e.target.closest('a[data-up]'); if (!a) return; e.preventDefault(); const p = DATA && DATA.people.find(x => keyOf(x) === a.dataset.up); if (p) openUp({ name: p.name, hq: p.hq, branch: p.branch }); });
-const closeUp = () => { if (U.busy && !confirm('파일을 올리는 중입니다. 닫으면 올리기가 멈춥니다. 닫을까요?')) return; up.close(); };
-$('#upx').onclick = closeUp; up.addEventListener('cancel', e => { if (U.busy) { e.preventDefault(); closeUp(); } });
+const closeUp = () => { if ((U.busy || M.busy) && !confirm('파일을 올리는 중입니다. 닫으면 올리기가 멈춥니다. 닫을까요?')) return; up.close(); };
+$('#upx').onclick = closeUp; up.addEventListener('cancel', e => { if (U.busy || M.busy) { e.preventDefault(); closeUp(); } });
 (async () => { const h = decodeURIComponent(location.hash.slice(1)); if (TABS.some(([k]) => k === h)) TAB = h; const q = new URLSearchParams(location.search);
   await load(); const n = q.get('n'); if (n) openUp({ name: n, hq: q.get('h') || '', branch: q.get('b') || '' }); else if (q.get('up')) openUp(null); })();
 </script>
