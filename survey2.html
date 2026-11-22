@@ -177,16 +177,17 @@ h2{font-size:21px;line-height:1.32}
   <h1>12월 7일,<br>어떤 영상을<br>보여 주실까요?</h1>
   <p class="lead">각자 만든 영상을 받아 발표 순서를 짜고, 아직 어려운 분은 먼저 돕습니다. 네 화면이고, 대부분 눌러서 고르면 됩니다.</p>
   <p class="whyh">발표 기준</p>
-  <ul class="why"><li>모든 분이 영상 한 편을 준비합니다.</li><li>웹·앱 등 다른 콘텐츠는 원하시는 분만 더합니다.</li><li>아직 영상이 없어도 괜찮습니다. 완성할 날짜만 정해 주세요.</li></ul>
+  <ul class="why"><li>모든 분이 영상 한 편을 준비합니다. 발표 때는 1분 정도 틀고, 슬라이드 1~2장과 함께 5분 안에 마칩니다.</li><li>웹·앱 등 다른 콘텐츠는 원하시는 분만 더합니다.</li><li>아직 영상이 없어도 괜찮습니다. 완성할 날짜만 정해 주세요.</li></ul>
   <p class="due"><b>2차 마감</b>11월 26일(목)까지</p>
   <ol class="rounds">
     <li class="done"><b>1차</b><div><strong>계획</strong><small>발표 분야, 만들어 볼 것</small></div></li>
     <li class="now"><b>2차</b><div><strong>영상 점검 <span class="tag">지금</span></strong><small>11월 23일(월)~26일(목) · 영상과 발표 제목</small></div></li>
     <li><b>3차</b><div><strong>최종 제출</strong><small>11월 30일(월)~12월 3일(목) · 완성 영상과 발표 슬라이드 1~2장</small></div></li>
   </ol>
-  <ul class="who"><li><b>동료에게 보이는 것</b>이름, 지사, 발표 제목</li><li><b>행정팀만 보는 것</b>영상 링크</li><li><b>총국장·지사장께 공유하는 것</b>지사별 영상 준비 상태</li></ul>
+  <ul class="who"><li><b>동료와 함께 보는 것 (제작물 보드)</b>이름, 지사, 발표 제목, 영상 준비 상태, 영상·결과물 링크. 직원 공통 코드로만 열립니다.</li><li><b>보드에 나오지 않는 것</b>숫자 4자리, AI를 쓴 곳과 걸린 시간, 필요한 도움, 준비 점수, 하고 싶은 말</li></ul>
   <div class="acts"><button class="btn" id="startBtn">시작하기</button></div>
   <p class="lead sub" style="color:var(--mut)">이미 응답하셨다면 같은 이름과 숫자 4자리로 들어오시면 내 응답이 그대로 열립니다.</p>
+  <p class="lead sub"><a href="board.html" style="color:var(--b);font-weight:700;text-decoration:none">제작물 보드에서 동료들 영상 보기 →</a></p>
 </section>
 
 <form id="v-form" hidden novalidate>
@@ -206,10 +207,10 @@ h2{font-size:21px;line-height:1.32}
   </section>
 
   <section class="step" data-step="3" hidden>
-    <p class="eyebrow">3 / 4 · 영상</p><h2>영상은 어디까지 왔나요?</h2><p class="sub">지금 상태 그대로 알려 주세요. 완성되지 않아도 괜찮습니다.</p>
+    <p class="eyebrow">3 / 4 · 영상</p><h2>영상은 어디까지 왔나요?</h2><p class="sub">지금 상태 그대로 알려 주세요. 발표 때는 1분 정도 상영하니, 길면 틀 부분을 미리 정해 두세요.</p>
     <div class="q"><div class="opts col" data-g="vStatus" data-t="radio"></div></div>
     <div id="vHave" hidden>
-      <div class="q"><label for="f-vLink">영상 링크<small class="h">유튜브(일부 공개), 구글 드라이브, 네이버 MYBOX 등. 행정팀만 봅니다.</small></label><input class="fi" id="f-vLink" name="vLink" inputmode="url" maxlength="300" placeholder="https://">
+      <div class="q"><label for="f-vLink">영상 링크<small class="h">유튜브 '일부 공개'를 권합니다. 제작물 보드에서 동료들과 함께 봅니다.</small></label><input class="fi" id="f-vLink" name="vLink" inputmode="url" maxlength="300" placeholder="https://">
         <label class="chk"><input type="checkbox" name="vFile" value="예"><span>링크 만들기가 어려우면: 영상 파일을 행정팀 카톡으로 보내겠습니다</span></label></div>
     </div>
     <div id="vNot" hidden>
@@ -244,7 +245,7 @@ h2{font-size:21px;line-height:1.32}
   <div class="sec"><h3>영상 준비 상태</h3><div id="s-vst"></div></div>
   <div class="sec"><h3>발표 분야</h3><div id="s-track"></div></div>
   <div class="sec"><h3>동료들의 발표 제목</h3><div id="s-plans"></div></div>
-  <div class="acts"><button class="btn ghost" id="reeditBtn">내 응답 고치기</button><button class="btn ghost" id="refreshBtn">현황 새로 고침</button></div>
+  <div class="acts"><a class="btn" href="board.html">제작물 보드 보기</a><button class="btn ghost" id="reeditBtn">내 응답 고치기</button><button class="btn ghost" id="refreshBtn">현황 새로 고침</button></div>
 </section>
 </main>
 <div class="nav" id="nav" hidden><div class="in"><button class="btn ghost" type="button" id="prevBtn">이전</button><button class="btn" type="button" id="nextBtn">다음</button></div></div>
@@ -323,6 +324,7 @@ const draw = s => { if (!s) return; $('#s-count').innerHTML = `${s.count}<i>/ ${
   const by = {}; (s.plans || []).forEach(p => (by[p.track] = by[p.track] || []).push(p)); $('#s-plans').innerHTML = ['업무 혁신', '교회 섬김', '세상 소통'].filter(t => by[t]).map(t => `<h4 style="margin:14px 0 4px;font-size:15px;color:var(--b)">${t} · ${by[t].length}명</h4>` + by[t].map(p => `<div class="plan"><div class="t"><b>${esc(p.name)}</b><span>${esc(p.branch)}</span></div><p>${esc(p.title)}</p></div>`).join('')).join(''); };
 $('#reeditBtn').onclick = () => { show('form'); go(1); };
 $('#refreshBtn').onclick = async () => { const me = JSON.parse(localStorage.getItem('bai_sv2_me') || 'null'); if (!me) return; try { const j = await post(Object.assign({ action: 'summary' }, me)); if (j.ok) draw(j.summary); } catch (e) {} };
+(() => { const q = new URLSearchParams(location.search), n = q.get('n'); if (!n) return; const h = q.get('h') || '', b = q.get('b') || ''; $('#f-name').value = n; fillHq(h, b); let me = null; try { me = JSON.parse(localStorage.getItem('bai_sv2_me') || localStorage.getItem('bai_sv_me') || 'null'); } catch (e) {} if (me && me.name === n && me.branch === b) $('#f-pin').value = me.pin || ''; show('form'); go(1); setTimeout(() => { if (!$('#f-pin').value) $('#f-pin').focus(); }, 300); })();
 </script>
 </body>
 </html>
