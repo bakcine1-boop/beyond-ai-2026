@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex,nofollow">
 <title>제작물 보드 · 광역본부 AI 지식·활용 페스티벌</title>
 <meta property="og:title" content="제작물 보드 · 광역본부 AI 지식·활용 페스티벌">
-<meta property="og:description" content="12월 7일 발표할 영상을 총국별로 함께 봅니다. 광역본부 직원 전용, 직원 공통 코드로 열립니다.">
+<meta property="og:description" content="12월 7일 발표할 영상을 올리고, 총국별로 함께 봅니다. 내 칸에서 링크나 파일로 올리면 됩니다. (광역본부 직원용)">
 <meta property="og:image" content="https://beyond.churchhistory.kr/og-1118b.jpg">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="theme-color" content="#0053a1">
@@ -231,28 +231,91 @@ dialog#pl::backdrop{background:rgba(8,12,20,.84)}
  .hq{font-size:19px;margin-top:24px}
  .sum b{font-size:34px}
 }
+.hint{font-size:13.5px;color:var(--mut);margin-top:10px;line-height:1.55}.hint.ok{color:var(--b);font-weight:600}.hint.bad{color:var(--err);font-weight:600}
+.g2+.g2{margin-top:10px}.g2 .f small{display:block}
+.how{margin-top:2px}
+.sub2{margin-top:12px}
+#linkBox,#dueBox,#fileMsg{margin-top:12px}
+.q.flash{box-shadow:0 0 0 3px rgba(179,38,30,.35)}
+.q.chkq{display:flex;gap:12px;align-items:flex-start;cursor:pointer;font-size:15px;line-height:1.5}.q.chkq input{width:22px;height:22px;flex:none;margin-top:2px;accent-color:var(--b)}.q.chkq small{display:block;color:var(--mut);font-size:13px}
+.save{width:100%;margin-top:18px}
+.seen{font-size:13px;color:var(--mut);margin-top:14px;line-height:1.6}
+details.q summary{font-size:15px;font-weight:700;color:var(--ink)}
+details.q[open] summary{margin-bottom:10px}
+.lead a,.seen a{color:var(--b);font-weight:700;text-decoration:none}
+#qMe .g2{grid-template-columns:1fr 1fr;gap:8px}#qMe .fi{min-width:0}
+#qMe .f small,#qMe label.sl small.h{display:block;font-size:13.5px;color:var(--mut);margin-bottom:5px;font-weight:600}#qMe label.sl{display:block;font-weight:600;font-size:14px;margin-bottom:6px}
+.who1{font-size:15px;color:var(--mut);display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}.who1 b{font-size:20px;color:var(--ink);letter-spacing:-.02em}
+.lnk{background:none;border:0;color:var(--b);font-weight:700;font-size:14px;padding:0;min-height:40px;cursor:pointer}
+
+.loading{padding:40px 0;color:var(--mut);font-size:15px}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 18px;border-radius:12px;font-size:14.5px;font-weight:600;z-index:50;box-shadow:0 6px 20px rgba(0,0,0,.25);max-width:92vw}
+.card.flash{box-shadow:0 0 0 3px var(--y)}
+.trs{display:flex;flex-wrap:wrap;gap:4px}
+dialog#up{border:0;padding:0;margin:auto;width:min(640px,96vw);max-width:none;max-height:92dvh;border-radius:16px;background:var(--paper);overflow:hidden}
+dialog#up::backdrop{background:rgba(8,12,20,.6)}
+#up form{display:flex;flex-direction:column;max-height:92dvh}
+.uh{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--b);color:#fff;padding:0 16px;min-height:56px;flex:none}
+.uh b{font-size:17px}.uh button{height:40px;padding:0 14px;border-radius:99px;border:1.5px solid #fff;background:transparent;color:#fff;font-weight:700;cursor:pointer}
+.ub{overflow:auto;padding:14px 16px 24px;-webkit-overflow-scrolling:touch}
+.ub .q:first-child{margin-top:0}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.seg label{position:relative;cursor:pointer}.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg span{display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:12px;border:1.5px solid rgba(11,13,16,.2);background:#fff;font-weight:700;font-size:15.5px;text-align:center;padding:6px}
+.seg input:checked+span{background:var(--b);border-color:var(--b);color:#fff}
+.seg input:focus-visible+span{box-shadow:0 0 0 3px rgba(245,184,46,.55)}
+#fileBox,#linkBox{margin-top:12px}
+.filebtn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:52px;border-radius:12px;border:1.5px dashed var(--b);background:#f2f6fb;color:var(--b);font-weight:700;font-size:15.5px;cursor:pointer;position:relative}
+.filebtn input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.fileinfo{font-size:14px;margin-top:8px;color:var(--ink2);word-break:break-all}
+.prog{height:10px;background:rgba(11,13,16,.1);border-radius:9px;overflow:hidden;margin-top:10px}.prog i{display:block;height:100%;width:0;background:var(--b);transition:width .3s}
+@media (max-width:719px){dialog#up{width:100vw;max-height:100dvh;height:100dvh;border-radius:0;margin:0}#up form{max-height:100dvh;height:100dvh}}
 </style>
 </head>
 <body>
 <header class="top"><div class="in"><img src="cts-w.png" alt="CTS"><b>AI 지식·활용 페스티벌</b><span>제작물 보드</span></div></header>
 <main class="wide">
-<section id="v-lock" hidden>
-  <p class="eyebrow">광역본부 직원 전용</p>
-  <h1>제작물 보드</h1>
-  <p class="lead">12월 7일 발표할 영상을 총국별로 모아 봅니다. 누가 무엇을 만들었는지 서로 보고 배워요.</p>
-  <div class="q"><label for="code">직원 공통 코드</label><input class="fi" id="code" inputmode="numeric" autocomplete="off" maxlength="12" placeholder="숫자 4자리"><p class="err" id="lerr" role="alert"></p><button class="btn" id="openBtn" type="button">보드 열기</button></div>
-  <p class="small">코드는 광역본부 단체 카톡방 공지에 있습니다. 한 번 열면 이 휴대폰에서는 다시 묻지 않습니다.</p>
-</section>
-<section id="v-board" hidden>
-  <div class="bhead"><div><p class="eyebrow">광역본부 직원 전용 · <span id="upd"></span></p><h1>제작물 보드</h1></div><a class="btn" href="survey2.html">내 영상 올리기</a></div>
+  <div class="bhead"><div><p class="eyebrow">광역본부 직원 · <span id="upd">불러오는 중</span></p><h1>제작물 보드</h1></div><button class="btn" type="button" id="upOpen">내 영상 올리기</button></div>
   <div class="sum" id="sum"></div>
-  <p class="rule">발표 때는 각자 만든 영상을 1분 정도 틀고, 슬라이드 1~2장으로 5분 안에 마칩니다. 웹·앱 등은 원하시는 분만 더합니다.</p>
+  <p class="rule">12월 7일 발표는 각자 만든 영상을 1분 정도 틀고, 슬라이드 1~2장으로 5분 안에 마칩니다. 내 칸의 "올리기"를 눌러 링크나 파일로 올려 주세요. 웹·앱 등은 원하시는 분만 더합니다.</p>
   <div class="tabs" id="tabs" role="tablist"></div>
-  <div id="list"></div>
-  <p class="foot">이 보드는 직원 공통 코드로만 열립니다. 주소와 코드를 밖으로 공유하지 말아 주세요. 영상은 유튜브 '일부 공개'로 올리시면 됩니다. 내 칸의 내용은 카드의 "올리기·고치기"에서 바꿀 수 있습니다. <button type="button" id="refresh" class="btn ghost" style="height:40px;font-size:14px;margin-top:10px">새로 고침</button></p>
-</section>
+  <div id="list"><p class="loading">명단을 불러오는 중입니다…</p></div>
+  <p class="foot">이 페이지는 광역본부 카톡방에만 공유합니다. 주소를 밖으로 보내지 말아 주세요. 올린 파일은 링크를 아는 사람만 볼 수 있게 구글 드라이브에 저장됩니다. <button type="button" id="refresh" class="btn ghost" style="height:40px;font-size:14px;margin-top:10px">새로 고침</button></p>
 </main>
-<dialog id="pl" aria-label="영상 보기"><div class="pf"><iframe title="영상" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><div class="pi"><b class="pn"></b><span class="pt"></span><a target="_blank" rel="noopener">유튜브에서 보기 ↗</a><button type="button" id="plx">닫기</button></div></dialog>
+
+<dialog id="up" aria-label="영상 올리기">
+ <form id="f" novalidate>
+  <div class="uh"><b>영상 올리기</b><button type="button" id="upx">닫기</button></div>
+  <div class="ub">
+    <div class="q" id="qMe"><span class="ql">나</span>
+      <div id="fixedBox" hidden><p class="who1"><b id="whoName"></b><span id="whoBr"></span></p><button type="button" class="lnk" id="changeWho">다른 사람으로 바꾸기</button></div>
+      <div id="pickBox" hidden>
+        <div class="g2"><div class="f"><small>총국</small><select class="fi" id="f-hq" aria-label="총국"></select></div><div class="f"><small>지사·부서</small><select class="fi" id="f-branch" aria-label="지사·부서"></select></div></div>
+        <div class="f" style="margin-top:10px"><small>이름</small><select class="fi" id="f-pick" aria-label="이름"></select></div>
+        <input class="fi" id="f-name" maxlength="20" placeholder="이름을 적어 주세요" aria-label="이름 직접 적기" hidden style="margin-top:8px">
+      </div>
+      <p class="hint" id="meMsg" aria-live="polite"></p>
+    </div>
+    <div class="q" id="qTitle"><label for="f-title">발표 제목<small class="h">가제여도 괜찮습니다.</small></label><input class="fi" id="f-title" maxlength="60" placeholder="예) 설교 한 편으로 쇼츠 세 편 만들기"></div>
+    <div class="q" id="qHow"><span class="ql">영상</span>
+      <div class="seg"><label><input type="radio" name="how" value="link"><span>링크로 올리기</span></label><label><input type="radio" name="how" value="file"><span>파일로 올리기</span></label></div>
+      <div id="linkBox" hidden><input class="fi" id="f-vLink" inputmode="url" maxlength="300" placeholder="https://youtu.be/..." aria-label="영상 링크"><p class="hint">유튜브 '일부 공개' 링크를 권합니다. 구글 드라이브 링크도 됩니다.</p></div>
+      <div id="fileBox" hidden><label class="filebtn"><input type="file" id="f-file" accept="video/*,.mov,.mp4,.m4v">영상 파일 고르기</label><p class="fileinfo" id="fileInfo"></p><div class="prog" id="prog" hidden><i></i></div><p class="hint" id="fileMsg">휴대폰 영상도 그대로 올리면 됩니다. 600MB까지 올릴 수 있고, 올린 뒤 재생 준비에 몇 분 걸릴 수 있습니다.</p></div>
+    </div>
+    <div class="q" id="qTrack"><span class="ql">발표 분야<small class="h">여러 개 고를 수 있어요. 발표는 그중 한 부에서 합니다.</small></span><div class="opts" id="trackOpts"></div></div>
+    <details class="q" id="extraBox"><summary>웹·앱 등 더 만든 것 (선택)</summary>
+      <div class="opts" id="extraOpts"></div>
+      <input class="fi sub2" id="f-extraLink" inputmode="url" maxlength="300" placeholder="링크 https://" aria-label="추가 결과물 링크">
+      <label class="ql2" for="f-note">한마디<small class="h">선택</small></label><textarea class="fi" id="f-note" maxlength="300"></textarea>
+    </details>
+    <label class="q chkq"><input type="checkbox" id="f-help"><span>도움이 필요해요<small>체크하시면 본부에서 먼저 연락드립니다. 보드에는 나오지 않습니다.</small></span></label>
+    <input class="hp" id="f-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <p class="err" id="ferr" role="alert"></p>
+    <button class="btn save" id="saveBtn" type="submit">올리기</button>
+  </div>
+ </form>
+</dialog>
+<dialog id="pl" aria-label="영상 보기"><div class="pf"><iframe title="영상" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div><div class="pi"><b class="pn"></b><span class="pt"></span><a target="_blank" rel="noopener">새 창에서 보기 ↗</a><button type="button" id="plx">닫기</button></div></dialog>
 <script>
 const API = 'https://script.google.com/macros/s/AKfycbxep8xjp6peJdDB0nEn_WpOF1vp-j4pCBCJfNOzbs3nmif9-w5n-CzkL-mSUVW_TRKJ/exec';
 const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -263,68 +326,144 @@ const MORNING = [['박대훈', '결과물 소개와 시연'], ['홍석진', '사
 const AM = Object.fromEntries(MORNING);
 const RANK = { '박대훈': 0, '하광희': 1, '이정민': 2, '여이슬': 3, '조다희': 4 };
 const TR1 = { '업무': '업무 혁신', '교회': '교회 섬김', '세상과의 소통': '세상 소통' };
+const TRACKS = [['업무 혁신', '지사 업무'], ['교회 섬김', '교회 필요'], ['세상 소통', '유튜브용']];
 const PARTS = [['업무 혁신', '오후 1부 · 13:30'], ['교회 섬김', '오후 2부 · 14:45'], ['세상 소통', '오후 3부 · 16:00']];
 const TABS = [['전체', '전체'], ['호남총국', '호남총국'], ['중부총국', '중부총국'], ['영남총국', '영남총국'], ['본부', '본부'], ['분야별', '발표 분야별']];
-let DATA = null, TAB = '전체', CODE = '';
-
+const EXTRA = ['웹페이지', '앱', '카드뉴스·디자인', '문서·보고서', '기타'];
+let DATA = null, TAB = '전체';
+async function post(body) { const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(Object.assign({ round: 2 }, body)) }); return r.json(); }
+const netmsg = (x, d) => x && x.message && !/fetch|network|JSON|Load failed|direct/i.test(x.message) ? x.message : (d || '연결이 원활하지 않습니다. 잠시 후 다시 해 주세요.');
+const toast = t => { const el = document.createElement('div'); el.className = 'toast'; el.textContent = t; document.body.appendChild(el); setTimeout(() => el.remove(), 3200); };
 const link = v => { v = String(v || '').trim(); if (!v) return ''; if (!/^https?:\/\//i.test(v)) v = 'https://' + v; return /^https?:\/\/[^\s"'<>]+\.[^\s"'<>]+$/i.test(v) ? v : ''; };
 const yt = u => { try { const x = new URL(u), h = x.hostname.replace(/^(www|m)\./, ''); if (h === 'youtu.be') { const id = x.pathname.slice(1).split('/')[0]; return /^[\w-]{6,}$/.test(id) ? [id, false] : null; } if (/(^|\.)youtube(-nocookie)?\.com$/.test(h)) { const v = x.searchParams.get('v'); if (v && /^[\w-]{6,}$/.test(v)) return [v, false]; const m = x.pathname.match(/^\/(shorts|live|embed)\/([\w-]{6,})/); if (m) return [m[2], m[1] === 'shorts']; } } catch (e) {} return null; };
-const state = p => { const r = p.r2; if (!r) return 'none'; if (link(r.vLink)) return 'have'; if (r.vFile) return 'file'; if (r.vStatus === '시작 전') return 'due'; return 'wait'; };
-const SUB = s => s === 'have' || s === 'file' || s === 'wait';
-const trackOf = p => (p.r2 && p.r2.track) || TR1[p.r1 && p.r1.track] || '';
+const gd = u => { const m = String(u || '').match(/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?id=)([\w-]{10,})/); return m ? m[1] : ''; };
+const state = p => { const r = p.r2; if (!r) return 'none'; if (link(r.vLink)) return 'have'; if (r.vFile) return 'file'; if (r.vStatus === '시작 전') return 'due'; return 'none'; };
+const SUB = s => s === 'have' || s === 'file';
+const tracksOf = p => { const t = (p.r2 && p.r2.track) ? String(p.r2.track).split(/\s*,\s*/).filter(Boolean) : (TR1[p.r1 && p.r1.track] ? [TR1[p.r1.track]] : []); return t; };
 const planOf = p => { const r = p.r1; if (!r) return ''; if (r.title) return r.title; const k = { '업무': 'job', '교회': 'church', '세상과의 소통': 'world' }[r.track]; const items = String((k && r[k]) || [r.job, r.church, r.world].filter(Boolean).join(', ')).split(',').map(x => x.trim()).filter(x => x && !/아직 모르겠음/.test(x)); return items.slice(0, 2).join(', '); };
 const order = (a, b) => (RANK[a.name] ?? 9) - (RANK[b.name] ?? 9) || ((b.role === '지사장·총국장') - (a.role === '지사장·총국장')) || a.name.localeCompare(b.name, 'ko');
-const PH = { file: '영상 파일\n행정팀에 전달', wait: '영상 링크\n준비 중', none: '준비 중' };
+const keyOf = p => p.name + '|' + p.branch;
 const card = p => {
-  const s = state(p), r = p.r2 || {}, L = link(r.vLink), Y = L ? yt(L) : null, am = AM[p.name], tr = trackOf(p), t = r.title || '', plan = planOf(p), xl = link(r.extraLink);
+  const s = state(p), r = p.r2 || {}, L = link(r.vLink), Y = L ? yt(L) : null, G = L ? gd(L) : '', am = AM[p.name], trs = tracksOf(p), t = r.title || '', plan = planOf(p), xl = link(r.extraLink);
   let th;
-  if (s === 'have' && Y) th = `<button class="th" type="button" data-id="${esc(Y[0])}" data-short="${Y[1] ? 1 : ''}" data-href="${esc(L)}" data-name="${esc(p.name)} · ${esc(p.branch)}" data-title="${esc(t)}" aria-label="${esc(p.name)} 영상 보기"><img src="https://i.ytimg.com/vi/${esc(Y[0])}/mqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><i class="pl"></i></button>`;
+  if (s === 'have' && Y) th = `<button class="th" type="button" data-kind="yt" data-id="${esc(Y[0])}" data-short="${Y[1] ? 1 : ''}" data-href="${esc(L)}" data-name="${esc(p.name)} · ${esc(p.branch)}" data-title="${esc(t)}" aria-label="${esc(p.name)} 영상 보기"><img src="https://i.ytimg.com/vi/${esc(Y[0])}/mqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><i class="pl"></i></button>`;
+  else if (s === 'have' && G) th = `<button class="th" type="button" data-kind="gd" data-id="${esc(G)}" data-href="https://drive.google.com/file/d/${esc(G)}/view" data-name="${esc(p.name)} · ${esc(p.branch)}" data-title="${esc(t)}" aria-label="${esc(p.name)} 영상 보기" style="background:#1d2633"><img src="https://drive.google.com/thumbnail?id=${esc(G)}&sz=w640" alt="" loading="lazy" onerror="this.remove()"><i class="pl"></i></button>`;
   else if (s === 'have') th = `<a class="th ph lk" href="${esc(L)}" target="_blank" rel="noopener">영상 열기 ↗</a>`;
-  else th = `<div class="th ph">${esc(s === 'due' ? (r.vDue || '') + '\n완성 예정' : PH[s])}</div>`;
-  const chip = { have: '영상 있음 · ' + (r.vStatus === '완성' ? '완성' : '만드는 중'), wait: '영상 링크 준비 중', file: '파일 전달', due: (r.vDue || '') + ' 완성 예정', none: '아직 올리기 전' }[s];
-  const up = `survey2.html?n=${encodeURIComponent(p.name)}&h=${encodeURIComponent(p.hq)}&b=${encodeURIComponent(p.branch)}`;
-  return `<article class="card s-${s}">${th}<div class="cb"><div class="nm"><b>${esc(p.name)}</b><span>${esc(p.branch)}</span>${am ? `<em class="am">오전 발표</em>` : ''}</div>`
+  else th = `<div class="th ph">${esc(s === 'due' ? (r.vDue || '') + '\n완성 예정' : s === 'file' ? '영상 파일\n행정팀에 전달' : '준비 중')}</div>`;
+  const chip = { have: G ? '영상 있음 · 파일' : '영상 있음', file: '파일 전달', due: (r.vDue || '') + ' 완성 예정', none: '아직 올리기 전' }[s];
+  return `<article class="card s-${s}" data-k="${esc(keyOf(p))}">${th}<div class="cb"><div class="nm"><b>${esc(p.name)}</b><span>${esc(p.branch)}</span>${am ? `<em class="am">오전 발표</em>` : ''}</div>`
     + (t ? `<p class="tt">${esc(t)}</p>` : `<p class="tt mu">${plan ? '1차 계획 · ' + esc(plan) : '아직 응답 전'}</p>`)
-    + `<div class="meta"><span class="ch c-${s}">${esc(chip)}</span>${am ? `<span class="tr">${esc(am)}</span>` : (tr ? `<span class="tr">${esc(tr)}</span>` : '')}</div>`
-    + `<div class="lk2">${xl ? `<a href="${esc(xl)}" target="_blank" rel="noopener">${esc(String(r.extra || '추가 결과물').split(',')[0].trim())} 보기 ↗</a>` : ''}<a class="up" href="${up}">${p.r2 ? '고치기' : '올리기'}</a></div></div></article>`;
+    + `<div class="meta"><span class="ch c-${s}">${esc(chip)}</span>${am ? `<span class="tr">${esc(am)}</span>` : trs.map(x => `<span class="tr">${esc(x)}</span>`).join('')}</div>`
+    + `<div class="lk2">${xl ? `<a href="${esc(xl)}" target="_blank" rel="noopener">${esc(String(r.extra || '추가 결과물').split(',')[0].trim())} 보기 ↗</a>` : ''}<a class="up" href="#" data-up="${esc(keyOf(p))}">${p.r2 && (L || r.vFile) ? '고치기' : '올리기'}</a></div></div></article>`;
 };
-const cnt = list => { const n = list.length, sub = list.filter(p => SUB(state(p))).length; return { n, sub }; };
-const grp = (title, list, gd) => { const c = cnt(list); return `<section class="grp"><h3>${esc(title)}<small>${c.n}명 중 ${c.sub}명 제출</small></h3>${gd ? `<p class="gd">${esc(gd)}</p>` : ''}<div class="grid">${list.map(card).join('')}</div></section>`; };
-const byHq = hq => { const P = DATA.people.filter(p => p.hq === hq); const brs = [...BR[hq] || [], ...new Set(P.map(p => p.branch).filter(b => !(BR[hq] || []).includes(b)))]; return brs.map(b => { const L = P.filter(p => p.branch === b).sort(order); return L.length ? grp(b, L) : ''; }).join(''); };
+const cnt = list => ({ n: list.length, sub: list.filter(p => SUB(state(p))).length });
+const grp = (title, list, gdText) => { const c = cnt(list); return `<section class="grp"><h3>${esc(title)}<small>${c.n}명 중 ${c.sub}명 올림</small></h3>${gdText ? `<p class="gd">${esc(gdText)}</p>` : ''}<div class="grid">${list.map(card).join('')}</div></section>`; };
+const byHq = hq => { const P = DATA.people.filter(p => p.hq === hq); const brs = [...(BR[hq] || []), ...new Set(P.map(p => p.branch).filter(b => !(BR[hq] || []).includes(b)))]; return brs.map(b => { const L = P.filter(p => p.branch === b).sort(order); return L.length ? grp(b, L) : ''; }).join(''); };
 function render() {
-  const P = DATA.people, all = cnt(P), st = k => P.filter(p => state(p) === k).length;
+  const P = DATA.people, all = cnt(P), st = k => P.filter(p => state(p) === k).length, gdN = P.filter(p => state(p) === 'have' && gd(p.r2.vLink)).length;
   $('#upd').textContent = (DATA.now || '').replace(/^\d{4}-(\d{2})-(\d{2}) (\d{1,2}:\d{2}).*/, (m, mo, d, t) => `${+mo}월 ${+d}일 ${t} 기준`);
-  $('#sum').innerHTML = `<div><small>영상 제출</small><b>${all.sub}<i>/ ${all.n}명</i></b></div><div class="pb"><u style="width:${all.n ? all.sub / all.n * 100 : 0}%"></u></div><div class="chips"><span>영상 있음 <b>${st('have')}</b></span><span>파일 전달 <b>${st('file') + st('wait')}</b></span><span>완성 예정 <b>${st('due')}</b></span><span>아직 <b>${st('none')}</b></span></div>`;
+  $('#sum').innerHTML = `<div><small>영상 올림</small><b>${all.sub}<i>/ ${all.n}명</i></b></div><div class="pb"><u style="width:${all.n ? all.sub / all.n * 100 : 0}%"></u></div><div class="chips"><span>링크 <b>${st('have') - gdN}</b></span><span>파일 <b>${gdN + st('file')}</b></span><span>아직 <b>${all.n - all.sub}</b></span></div>`;
   $('#tabs').innerHTML = TABS.map(([k, lab]) => { let sm = ''; if (HQS.includes(k)) { const c = cnt(P.filter(p => p.hq === k)); sm = `${c.sub} / ${c.n}`; } else if (k === '전체') sm = `${all.sub} / ${all.n}`; else sm = '오전 · 오후'; return `<button type="button" role="tab" aria-selected="${k === TAB}" data-k="${k}">${esc(lab)}<small>${sm}</small></button>`; }).join('');
   let h = '';
-  if (TAB === '전체') h = HQS.map(hq => { const c = cnt(P.filter(p => p.hq === hq)); return c.n ? `<h2 class="hq">${hq}<small>${c.n}명 중 ${c.sub}명 제출</small></h2>` + byHq(hq) : ''; }).join('');
+  if (TAB === '전체') h = HQS.map(hq => { const c = cnt(P.filter(p => p.hq === hq)); return c.n ? `<h2 class="hq">${hq}<small>${c.n}명 중 ${c.sub}명 올림</small></h2>` + byHq(hq) : ''; }).join('');
   else if (HQS.includes(TAB)) h = byHq(TAB);
   else {
     const am = MORNING.map(([n]) => P.find(p => p.name === n)).filter(Boolean);
     h += `<section class="grp"><h3>오전 발표<small>10:10 발제 강경원 부사장에 이어</small></h3><div class="grid">${am.map(card).join('')}</div></section>`;
     const pm = P.filter(p => !AM[p.name]);
-    PARTS.forEach(([t, lab]) => { const L = pm.filter(p => trackOf(p) === t).sort((a, b) => HQS.indexOf(a.hq) - HQS.indexOf(b.hq) || order(a, b)); h += grp(`${lab} · ${t}`, L, '한 사람 5분 · 영상 1분과 슬라이드 1~2장'); });
-    const un = pm.filter(p => !PARTS.some(([t]) => trackOf(p) === t)); if (un.length) h += grp('분야 미정', un);
-    h += `<p class="gd" style="margin-top:14px">발표 순서는 12월 4일(금)에 따로 알려 드립니다.</p>`;
+    PARTS.forEach(([t, lab]) => { const L = pm.filter(p => tracksOf(p).includes(t)).sort((a, b) => HQS.indexOf(a.hq) - HQS.indexOf(b.hq) || order(a, b)); const multi = L.filter(p => tracksOf(p).length > 1).length; h += grp(`${lab} · ${t}`, L, `한 사람 5분 · 영상 1분과 슬라이드 1~2장${multi ? ` · 이 중 ${multi}명은 다른 분야도 골랐습니다` : ''}`); });
+    const un = pm.filter(p => !tracksOf(p).length); if (un.length) h += grp('분야 미정', un);
+    h += `<p class="gd" style="margin-top:14px">여러 분야를 고른 분은 부마다 인원을 맞춰 한 부에 배정합니다. 발표 순서는 12월 4일(금)에 따로 알려 드립니다.</p>`;
   }
   $('#list').innerHTML = h;
 }
-const show = v => { $('#v-lock').hidden = v !== 'lock'; $('#v-board').hidden = v !== 'board'; };
-async function load(code, quiet) {
-  const b = $('#openBtn'); b.disabled = true; b.textContent = '여는 중…'; $('#lerr').textContent = '';
-  try { const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify({ action: 'board', code }) }); const j = await r.json(); if (!j.ok) throw new Error(j.error || '열지 못했습니다.');
-    CODE = code; try { localStorage.setItem('bai_board', code); } catch (e) {} DATA = j; show('board'); render(); return true; }
-  catch (x) { if (quiet) { try { localStorage.removeItem('bai_board'); } catch (e) {} show('lock'); } else $('#lerr').textContent = x.message && !/fetch|network|JSON/i.test(x.message) ? x.message : '연결이 원활하지 않습니다. 잠시 후 다시 눌러 주세요.'; return false; }
-  finally { b.disabled = false; b.textContent = '보드 열기'; } }
-$('#openBtn').onclick = () => { const c = $('#code').value.replace(/\s+/g, ''); if (!c) { $('#lerr').textContent = '코드를 넣어 주세요.'; return; } load(c); };
-$('#code').addEventListener('keydown', e => { if (e.key === 'Enter') $('#openBtn').click(); });
-$('#tabs').addEventListener('click', e => { const b = e.target.closest('button[data-k]'); if (!b) return; TAB = b.dataset.k; history.replaceState(null, '', '#' + encodeURIComponent(TAB)); render(); });
-$('#refresh').onclick = () => CODE && load(CODE, true);
+async function load(flashKey) {
+  try { const j = await post({ action: 'board' }); if (!j.ok) throw new Error(j.error); DATA = j; render(); if (flashKey) { const c = $(`.card[data-k="${CSS.escape(flashKey)}"]`); if (c) { c.scrollIntoView({ behavior: 'smooth', block: 'center' }); c.classList.add('flash'); setTimeout(() => c.classList.remove('flash'), 2500); } } return true; }
+  catch (x) { if (!DATA) $('#list').innerHTML = `<p class="loading">${esc(netmsg(x))} <button type="button" class="btn ghost" onclick="load()" style="height:40px;font-size:14px">다시 불러오기</button></p>`; return false; } }
+$('#tabs').addEventListener('click', e => { const b = e.target.closest('button[data-k]'); if (!b) return; TAB = b.dataset.k; history.replaceState(null, '', location.pathname + location.search + '#' + encodeURIComponent(TAB)); render(); });
+$('#refresh').onclick = () => load();
+/* 재생 */
 const dlg = $('#pl'), ifr = $('#pl iframe');
-document.addEventListener('click', e => { const b = e.target.closest('button.th'); if (!b) return; if (!dlg.showModal) { window.open(b.dataset.href, '_blank', 'noopener'); return; } $('#pl .pf').classList.toggle('short', !!b.dataset.short); ifr.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(b.dataset.id)}?autoplay=1&rel=0&playsinline=1`; $('#pl .pn').textContent = b.dataset.name; $('#pl .pt').textContent = b.dataset.title; $('#pl a').href = b.dataset.href; dlg.showModal(); });
+document.addEventListener('click', e => { const b = e.target.closest('button.th'); if (!b) return; if (!dlg.showModal) { window.open(b.dataset.href, '_blank', 'noopener'); return; } $('#pl .pf').classList.toggle('short', !!b.dataset.short); ifr.src = b.dataset.kind === 'gd' ? `https://drive.google.com/file/d/${encodeURIComponent(b.dataset.id)}/preview` : `https://www.youtube-nocookie.com/embed/${encodeURIComponent(b.dataset.id)}?autoplay=1&rel=0&playsinline=1`; $('#pl .pn').textContent = b.dataset.name; $('#pl .pt').textContent = b.dataset.title; $('#pl a').href = b.dataset.href; dlg.showModal(); });
 const closeP = () => { ifr.src = 'about:blank'; if (dlg.open) dlg.close(); };
 $('#plx').onclick = closeP; dlg.addEventListener('cancel', () => { ifr.src = 'about:blank'; }); dlg.addEventListener('click', e => { if (e.target === dlg) closeP(); });
-(() => { const h = decodeURIComponent(location.hash.slice(1)); if (TABS.some(([k]) => k === h)) TAB = h; let c = ''; try { c = localStorage.getItem('bai_board') || ''; } catch (e) {} if (c) { $('#code').value = c; load(c, true); } else show('lock'); })();
+/* 올리기 */
+const up = $('#up'), f = $('#f');
+$('#trackOpts').innerHTML = TRACKS.map(([t, s]) => `<label><input type="checkbox" name="track" value="${t}"><span>${t} <em>${s}</em></span></label>`).join('');
+$('#extraOpts').innerHTML = EXTRA.map(t => `<label><input type="checkbox" name="extra" value="${t}"><span>${t}</span></label>`).join('');
+let who = null, loadedKey = '', editing = false, tmr = 0; const U = { file: null, link: '', prev: '', busy: false };
+const val = n => (f.querySelector(`input[name=${n}]:checked`) || {}).value || '';
+const vals = n => $$(`input[name=${n}]:checked`, f).map(i => i.value);
+const setRadio = (n, v) => $$(`input[name=${n}]`, f).forEach(i => i.checked = i.value === v);
+const setChecks = (n, arr) => $$(`input[name=${n}]`, f).forEach(i => i.checked = arr.includes(i.value));
+const msg = (t, k) => { const m = $('#meMsg'); m.className = 'hint' + (k ? ' ' + k : ''); m.textContent = t; };
+const mb = n => (n / 1048576).toFixed(n < 10485760 ? 1 : 0) + 'MB';
+const setProg = (pct, t, k) => { $('#prog').hidden = false; $('#prog i').style.width = Math.max(0, Math.min(100, pct)) + '%'; const m = $('#fileMsg'); m.className = 'hint' + (k ? ' ' + k : ''); m.textContent = t; };
+const sync = () => { const h = val('how'); $('#linkBox').hidden = h !== 'link'; $('#fileBox').hidden = h !== 'file'; };
+const resetFile = () => { U.file = null; U.link = ''; U.prev = ''; $('#f-file').value = ''; $('#fileInfo').textContent = ''; $('#prog').hidden = true; $('#prog i').style.width = '0'; const m = $('#fileMsg'); m.className = 'hint'; m.textContent = '휴대폰 영상도 그대로 올리면 됩니다. 600MB까지 올릴 수 있고, 올린 뒤 재생 준비에 몇 분 걸릴 수 있습니다.'; };
+const clearForm = () => { $('#f-title').value = ''; setRadio('how', ''); setChecks('track', []); setChecks('extra', []); $('#f-vLink').value = ''; $('#f-extraLink').value = ''; $('#f-note').value = ''; $('#f-help').checked = false; $('#extraBox').open = false; $('#ferr').textContent = ''; editing = false; $('#saveBtn').textContent = '올리기'; if (!U.busy) resetFile(); sync(); };
+const fillHq = (v1, v2) => { const hq = $('#f-hq'), br = $('#f-branch'); hq.innerHTML = '<option value="">선택</option>' + HQS.map(h => `<option ${h === v1 ? 'selected' : ''}>${h}</option>`).join(''); const fb = () => br.innerHTML = '<option value="">선택</option>' + (BR[hq.value] || []).map(b => `<option ${b === v2 ? 'selected' : ''}>${b}</option>`).join(''); hq.onchange = () => { v2 = ''; fb(); fillNames(); }; br.onchange = fillNames; fb(); fillNames(); };
+const fillNames = () => { const hq = $('#f-hq').value, br = $('#f-branch').value; const ps = ((DATA && DATA.people) || []).filter(p => p.hq === hq && p.branch === br).map(p => p.name).sort((a, b) => a.localeCompare(b, 'ko')); $('#f-pick').innerHTML = '<option value="">' + (br ? '선택' : '지사를 먼저 골라 주세요') + '</option>' + ps.map(n => `<option>${esc(n)}</option>`).join('') + (br ? '<option value="__new">명단에 없어요 (직접 적기)</option>' : ''); $('#f-name').hidden = true; $('#f-name').value = ''; if (who) { who = null; loadedKey = ''; clearForm(); msg(''); } };
+$('#f-pick').onchange = () => { const v = $('#f-pick').value; $('#f-name').hidden = v !== '__new'; if (v === '__new') { setWho(null); $('#f-name').focus(); return; } setWho(v ? { name: v, hq: $('#f-hq').value, branch: $('#f-branch').value } : null); };
+$('#f-name').addEventListener('input', () => { clearTimeout(tmr); tmr = setTimeout(() => { const n = $('#f-name').value.trim(); setWho(n ? { name: n, hq: $('#f-hq').value, branch: $('#f-branch').value } : null); }, 600); });
+const setWho = w => { const k = w ? keyOf(w) : ''; if (k !== loadedKey) clearForm(); who = w; if (!w) { loadedKey = ''; msg(''); return; } identify(); };
+const fixWho = w => { who = w; $('#whoName').textContent = w.name; $('#whoBr').textContent = w.branch; $('#fixedBox').hidden = false; $('#pickBox').hidden = true; };
+$('#changeWho').onclick = () => { who = null; loadedKey = ''; clearForm(); msg('내 총국, 지사, 이름을 골라 주세요.'); $('#fixedBox').hidden = true; $('#pickBox').hidden = false; fillHq(); };
+const planText = r => { const k = { '업무': 'job', '교회': 'church', '세상과의 소통': 'world' }[r.track]; const items = String((k && r[k]) || '').split(',').map(x => x.trim()).filter(x => x && !/아직 모르겠음/.test(x)); return [TR1[r.track], r.title || items.slice(0, 2).join(', ')].filter(Boolean).join(' · '); };
+const fillFrom2 = r => { $('#f-title').value = r.title || ''; setChecks('track', String(r.track || '').split(/\s*,\s*/)); const L = link(r.vLink); if (L && gd(L)) { setRadio('how', 'file'); U.prev = L; $('#fileInfo').textContent = '올려 둔 파일이 있습니다. 바꾸려면 새 파일을 고르세요.'; } else if (L) { setRadio('how', 'link'); $('#f-vLink').value = L; } const ex = String(r.extra || '').split(/\s*,\s*/); setChecks('extra', ex); $('#f-extraLink').value = r.extraLink || ''; $('#f-note').value = r.note || ''; $('#f-help').checked = !!(r.help && r.help !== '필요 없음'); if (r.extra || r.extraLink || r.note) $('#extraBox').open = true; sync(); };
+async function identify() { if (!who) return; const key = keyOf(who); if (key === loadedKey) return; loadedKey = key; msg('불러오는 중…');
+  try { const j = await post({ action: 'load', name: who.name, branch: who.branch }); if (key !== loadedKey) return; if (!j.ok) throw new Error(j.error);
+    editing = !!j.r2;
+    if (j.r2) { fillFrom2(j.r2); msg(`${who.name} 님 칸에 이미 올라간 내용이 있습니다. 본인 칸이 맞는지 확인하고, 고칠 부분만 고쳐 주세요.`, 'ok'); }
+    else if (j.r1) { if (j.r1.title && !$('#f-title').value) $('#f-title').value = j.r1.title; const tr = TR1[j.r1.track]; if (tr && !vals('track').length) setChecks('track', [tr]); msg('1차 계획을 불러왔습니다. ' + planText(j.r1), 'ok'); }
+    else msg('1차 응답이 없어 새로 받습니다.', 'ok');
+    $('#saveBtn').textContent = editing ? '고친 내용 올리기' : '올리기';
+    if (U.file && !U.link && !U.busy) startUpload();
+  } catch (x) { loadedKey = ''; msg(netmsg(x), 'bad'); } }
+f.addEventListener('change', e => { if (e.target.name === 'how') sync(); $('#ferr').textContent = ''; });
+/* 파일 올리기: 브라우저에서 구글 드라이브로 바로 올리고, 막히면 서버를 거쳐 조각으로 올림 */
+const okVideo = fl => /^video\//.test(fl.type) || /\.(mov|mp4|m4v|webm|avi|mkv|3gp)$/i.test(fl.name);
+$('#f-file').addEventListener('change', () => { const fl = $('#f-file').files[0]; if (!fl) return; if (!okVideo(fl)) { resetFile(); setProg(0, '영상 파일만 올릴 수 있습니다.', 'bad'); return; } if (fl.size > 600 * 1048576) { resetFile(); setProg(0, `파일이 너무 큽니다(${mb(fl.size)}). 600MB까지 올릴 수 있습니다. 유튜브 링크로 올리거나 영상을 줄여 주세요.`, 'bad'); return; }
+  U.file = fl; U.link = ''; $('#fileInfo').textContent = `${fl.name} · ${mb(fl.size)}`; if (!who) { setProg(0, '이름을 먼저 고르시면 바로 올라갑니다.'); return; } startUpload(); });
+const putDirect = (url, fl) => new Promise((res, rej) => { const x = new XMLHttpRequest(); x.open('PUT', url); x.upload.onprogress = e => { if (e.lengthComputable) setProg(e.loaded / e.total * 100, `올리는 중 ${Math.floor(e.loaded / e.total * 100)}% · ${mb(e.loaded)} / ${mb(e.total)}`); }; x.onload = () => { if (x.status === 200 || x.status === 201) { let id = ''; try { id = JSON.parse(x.responseText).id; } catch (e) {} res({ id }); } else rej(new Error('direct ' + x.status)); }; x.onerror = () => rej(new Error('direct network')); x.send(fl); });
+const toB64 = blob => new Promise((res, rej) => { const r = new FileReader(); r.onload = () => res(String(r.result).split(',')[1] || ''); r.onerror = rej; r.readAsDataURL(blob); });
+async function putProxy(url, fl) { const CH = 4 * 1024 * 1024; let start = 0;
+  while (start < fl.size) { const end = Math.min(start + CH, fl.size); const b64 = await toB64(fl.slice(start, end)); const r = await post({ action: 'upChunk', url, start, total: fl.size, b64 }); if (!r.ok) throw new Error(r.error); setProg(end / fl.size * 100, `올리는 중 ${Math.floor(end / fl.size * 100)}% · ${mb(end)} / ${mb(fl.size)}`); if (r.link) return { id: r.id, link: r.link }; start = r.next != null && r.next > start ? r.next : end; }
+  return { id: '' }; }
+async function startUpload() { const fl = U.file; if (!fl || !who || U.busy) return; U.busy = true; U.link = ''; const sb = $('#saveBtn'); sb.disabled = true; setProg(0, '올릴 준비 중…');
+  try { const s = await post({ action: 'upStart', name: who.name, branch: who.branch, fileName: fl.name, size: fl.size, mime: fl.type }); if (!s.ok) throw new Error(s.error);
+    let r; try { r = await putDirect(s.url, fl); } catch (e) { setProg(0, '다른 방법으로 다시 올리는 중…'); r = await putProxy(s.url, fl); }
+    let L = r.link; if (!L) { const d = await post({ action: 'upDone', id: r.id || '', url: s.url, size: fl.size }); if (!d.ok) throw new Error(d.error); L = d.link; }
+    U.link = L; setProg(100, '파일이 올라갔습니다. 아래 "올리기"를 눌러 마무리해 주세요. 재생 준비에 몇 분 걸릴 수 있습니다.', 'ok');
+  } catch (x) { U.link = ''; setProg(0, netmsg(x, '파일을 올리지 못했습니다. 연결을 확인하고 파일을 다시 골라 주세요.'), 'bad'); }
+  finally { U.busy = false; sb.disabled = false; } }
+const read = () => { const h = val('how'), w = who || {}; return { name: w.name || '', hq: w.hq || '', branch: w.branch || '', title: $('#f-title').value.trim(), how: h, vLink: h === 'link' ? $('#f-vLink').value.trim() : h === 'file' ? (U.link || U.prev || '') : '', vFile: '', track: vals('track').join(', '), extra: vals('extra').join(', '), extraLink: $('#f-extraLink').value.trim(), note: $('#f-note').value.trim(), help: $('#f-help').checked ? '도움 요청' : '', hp: $('#f-hp').value }; };
+const normLink = v => { v = String(v || '').trim(); if (!v) return ''; if (!/^https?:\/\//i.test(v)) v = 'https://' + v; return /^https?:\/\/[^\s]+\.[^\s]+$/i.test(v) ? v : null; };
+const check = o => {
+  if (!o.name || !o.branch || !o.hq) return ['내 이름을 골라 주세요.', 'qMe'];
+  if (!o.title) return ['발표 제목을 적어 주세요. 가제여도 괜찮습니다.', 'qTitle'];
+  if (!o.how) return ['영상을 링크로 올릴지, 파일로 올릴지 골라 주세요.', 'qHow'];
+  if (o.how === 'link') { if (!o.vLink) return ['영상 링크를 붙여 넣어 주세요.', 'qHow']; if (normLink(o.vLink) === null) return ['영상 링크 형식이 맞지 않습니다. 주소를 그대로 붙여 넣어 주세요.', 'qHow']; }
+  if (o.how === 'file') { if (U.busy) return ['파일이 아직 올라가는 중입니다. 다 올라간 뒤 다시 눌러 주세요.', 'qHow']; if (!o.vLink) return [U.file ? '파일을 올리지 못했습니다. 파일을 다시 골라 주세요.' : '영상 파일을 골라 주세요.', 'qHow']; }
+  if (!o.track) return ['발표 분야를 하나 이상 골라 주세요.', 'qTrack'];
+  if (o.extraLink && normLink(o.extraLink) === null) return ['추가 결과물 링크 형식이 맞지 않습니다.', 'extraBox'];
+  return null; };
+const flashQ = id => { const el = $('#' + id); if (!el) return; if (el.tagName === 'DETAILS') el.open = true; el.classList.add('flash'); el.scrollIntoView({ behavior: 'smooth', block: 'center' }); setTimeout(() => el.classList.remove('flash'), 1800); };
+f.addEventListener('submit', async e => { e.preventDefault(); const o = read(); const c = check(o); if (c) { $('#ferr').textContent = c[0]; flashQ(c[1]); return; }
+  const b = $('#saveBtn'); b.disabled = true; b.textContent = '올리는 중…';
+  const d = Object.assign({}, o, { vLink: normLink(o.vLink) || '', extraLink: normLink(o.extraLink) || '', ua: navigator.userAgent.slice(0, 110) }); delete d.how;
+  try { const j = await post({ action: 'save', data: d }); if (!j.ok) throw new Error(j.error); try { localStorage.setItem('bai_sv2_me', JSON.stringify({ name: o.name, hq: o.hq, branch: o.branch })); } catch (x) {} const k = keyOf(o); up.close(); toast(`${o.name} 님 영상이 올라갔습니다.`); TAB = TABS.some(([t]) => t === o.hq) ? o.hq : '전체'; await load(k); }
+  catch (x) { const m = netmsg(x, '연결이 원활하지 않아 올리지 못했습니다. 잠시 후 다시 눌러 주세요.'); $('#ferr').textContent = m; alert('아직 올라가지 않았습니다.\n\n' + m); }
+  finally { b.disabled = false; b.textContent = editing ? '고친 내용 올리기' : '올리기'; } });
+const openUp = w => { if (!up.showModal) { alert('이 브라우저에서는 올리기 창을 열 수 없습니다. 크롬이나 사파리 최신 버전으로 열어 주세요.'); return; } who = null; loadedKey = ''; clearForm(); msg('');
+  if (w) { fixWho(w); identify(); } else { let me = null; try { me = JSON.parse(localStorage.getItem('bai_sv2_me') || localStorage.getItem('bai_sv_me') || 'null'); } catch (e) {} if (me && me.name && me.branch && me.hq) { fixWho({ name: me.name, hq: me.hq, branch: me.branch }); identify(); } else { $('#fixedBox').hidden = true; $('#pickBox').hidden = false; fillHq(); msg('내 총국, 지사, 이름을 골라 주세요.'); } }
+  up.showModal(); $('.ub').scrollTop = 0; };
+$('#upOpen').onclick = () => openUp(null);
+document.addEventListener('click', e => { const a = e.target.closest('a[data-up]'); if (!a) return; e.preventDefault(); const p = DATA && DATA.people.find(x => keyOf(x) === a.dataset.up); if (p) openUp({ name: p.name, hq: p.hq, branch: p.branch }); });
+const closeUp = () => { if (U.busy && !confirm('파일을 올리는 중입니다. 닫으면 올리기가 멈춥니다. 닫을까요?')) return; up.close(); };
+$('#upx').onclick = closeUp; up.addEventListener('cancel', e => { if (U.busy) { e.preventDefault(); closeUp(); } });
+(async () => { const h = decodeURIComponent(location.hash.slice(1)); if (TABS.some(([k]) => k === h)) TAB = h; const q = new URLSearchParams(location.search);
+  await load(); const n = q.get('n'); if (n) openUp({ name: n, hq: q.get('h') || '', branch: q.get('b') || '' }); else if (q.get('up')) openUp(null); })();
 </script>
 </body>
 </html>
