@@ -181,6 +181,9 @@ details.q summary{font-size:15px;font-weight:700;color:var(--ink)}
 details.q[open] summary{margin-bottom:10px}
 .lead a,.seen a{color:var(--b);font-weight:700;text-decoration:none}
 #qMe .g2{grid-template-columns:1fr 1fr;gap:8px}#qMe .fi{min-width:0}
+#qMe .f small,#qMe label.sl small.h{display:block;font-size:13.5px;color:var(--mut);margin-bottom:5px;font-weight:600}#qMe label.sl{display:block;font-weight:600;font-size:14px;margin-bottom:6px}
+.who1{font-size:15px;color:var(--mut);display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}.who1 b{font-size:20px;color:var(--ink);letter-spacing:-.02em}
+.lnk{background:none;border:0;color:var(--b);font-weight:700;font-size:14px;padding:0;min-height:40px;cursor:pointer}
 </style>
 </head>
 <body>
@@ -193,9 +196,14 @@ details.q[open] summary{margin-bottom:10px}
   <p class="due"><b>2차 마감</b>11월 26일(목)까지</p>
   <form id="f" novalidate>
     <div class="q" id="qMe"><span class="ql">나</span>
-      <div class="g2"><div class="f"><small>이름</small><input class="fi" id="f-name" maxlength="20" autocomplete="name" aria-label="이름"></div><div class="f"><small>숫자 4자리</small><input class="fi" id="f-pin" inputmode="numeric" maxlength="4" placeholder="1차 때 정한 숫자" aria-label="숫자 4자리"></div></div>
-      <div class="g2"><div class="f"><small>총국</small><select class="fi" id="f-hq" aria-label="총국"></select></div><div class="f"><small>지사·부서</small><select class="fi" id="f-branch" aria-label="지사·부서"></select></div></div>
-      <p class="hint" id="meMsg" aria-live="polite">1차 때 정한 숫자 4자리를 넣으면 내 정보를 불러옵니다. 이미 올렸다면 내 내용이 그대로 열립니다.</p>
+      <div id="codeBox" hidden><label class="sl" for="f-code">직원 공통 코드<small class="h">카톡 공지에 있는 코드입니다. 한 번 넣으면 다시 묻지 않습니다.</small></label><input class="fi" id="f-code" inputmode="numeric" maxlength="12" autocomplete="off" placeholder="숫자 4자리"></div>
+      <div id="fixedBox" hidden><p class="who1"><b id="whoName"></b><span id="whoBr"></span></p><button type="button" class="lnk" id="changeWho">다른 사람으로 바꾸기</button></div>
+      <div id="pickBox" hidden>
+        <div class="g2"><div class="f"><small>총국</small><select class="fi" id="f-hq" aria-label="총국"></select></div><div class="f"><small>지사·부서</small><select class="fi" id="f-branch" aria-label="지사·부서"></select></div></div>
+        <div class="f" style="margin-top:10px"><small>이름</small><select class="fi" id="f-pick" aria-label="이름"></select></div>
+        <input class="fi" id="f-name" maxlength="20" placeholder="이름을 적어 주세요" aria-label="이름 직접 적기" hidden style="margin-top:8px">
+      </div>
+      <p class="hint" id="meMsg" aria-live="polite"></p>
     </div>
     <div class="q" id="qTitle"><label for="f-title">발표 제목<small class="h">가제여도 괜찮습니다.</small></label><input class="fi" id="f-title" maxlength="60" placeholder="예) 설교 한 편으로 쇼츠 세 편 만들기"></div>
     <div class="q" id="qHow"><span class="ql">영상</span><div class="opts col how" data-g="how" data-t="radio"></div>
@@ -213,7 +221,7 @@ details.q[open] summary{margin-bottom:10px}
     <input class="hp" id="f-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
     <p class="err" id="ferr" role="alert"></p>
     <button class="btn save" id="saveBtn" type="submit">올리기</button>
-    <p class="seen">보드에는 이름, 지사, 발표 제목, 영상 상태와 링크가 보입니다. 숫자 4자리, 도움 요청, 한마디는 보이지 않습니다. <a href="board.html">제작물 보드 보기 →</a></p>
+    <p class="seen">보드에는 이름, 지사, 발표 제목, 영상 상태와 링크가 보입니다. 도움 요청과 한마디는 보드에 나오지 않습니다. 직원 코드로 누구나 들어올 수 있으니 내 칸만 고쳐 주세요. 고치기 전 내용은 따로 기록해 둡니다. <a href="board.html">제작물 보드 보기 →</a></p>
   </form>
 </section>
 <section id="v-done" class="done" hidden>
@@ -237,19 +245,42 @@ const G = {
 };
 const ST = { done: '완성', wip: '만드는 중', file: '만드는 중', none: '시작 전' };
 const R1TR = { '업무': '업무 혁신', '교회': '교회 섬김', '세상과의 소통': '세상 소통' };
-const f = $('#f'); let loadedKey = '', editing = false, tmr = 0;
+const f = $('#f'); let CODE = '', ROSTER = [], who = null, loadedKey = '', editing = false, tmr = 0, ctmr = 0;
 $$('[data-g]').forEach(el => { const g = el.dataset.g, t = el.dataset.t; el.innerHTML = G[g].map(v => { const [lab, val, sub] = Array.isArray(v) ? v : [v, v]; return `<label><input type="${t}" name="${g}" value="${esc(val)}"><span>${esc(lab)}${sub ? ` <em>${esc(sub)}</em>` : ''}</span></label>`; }).join(''); });
-const fillHq = (v1, v2) => { const hq = $('#f-hq'), br = $('#f-branch'); hq.innerHTML = '<option value="">선택</option>' + Object.keys(HQ).map(h => `<option ${h === v1 ? 'selected' : ''}>${h}</option>`).join(''); const fb = () => br.innerHTML = '<option value="">선택</option>' + (HQ[hq.value] || []).map(b => `<option ${b === v2 ? 'selected' : ''}>${b}</option>`).join(''); hq.onchange = () => { v2 = ''; fb(); later(); }; fb(); };
-fillHq();
 const normLink = v => { v = String(v || '').trim(); if (!v) return ''; if (!/^https?:\/\//i.test(v)) v = 'https://' + v; return /^https?:\/\/[^\s]+\.[^\s]+$/i.test(v) ? v : null; };
 const val = n => (f.querySelector(`input[name=${n}]:checked`) || {}).value || '';
 const setRadio = (n, v) => $$(`input[name=${n}]`, f).forEach(i => i.checked = i.value === v);
 const sync = () => { const h = val('how'); $('#linkBox').hidden = !(h === 'done' || h === 'wip'); $('#dueBox').hidden = h !== 'none'; $('#fileMsg').hidden = h !== 'file'; };
-const read = () => { const h = val('how'); return { name: $('#f-name').value.trim(), hq: $('#f-hq').value, branch: $('#f-branch').value, pin: $('#f-pin').value.trim(), title: $('#f-title').value.trim(), how: h, vStatus: ST[h] || '', vLink: (h === 'done' || h === 'wip') ? $('#f-vLink').value.trim() : '', vFile: h === 'file' ? '예' : '', vDue: h === 'none' ? val('vDue') : '', track: val('track'), extra: $$('input[name=extra]:checked', f).map(i => i.value).join(', '), extraLink: $('#f-extraLink').value.trim(), note: $('#f-note').value.trim(), help: $('#f-help').checked ? '도움 요청' : '', hp: $('#f-hp').value }; };
+const msg = (t, k) => { const m = $('#meMsg'); m.className = 'hint' + (k ? ' ' + k : ''); m.textContent = t; };
+const netmsg = (x, d) => x && x.message && !/fetch|network|JSON|Load failed/i.test(x.message) ? x.message : (d || '연결이 원활하지 않습니다. 잠시 후 다시 해 주세요.');
+async function post(body) { const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(Object.assign({ round: 2 }, body)) }); return r.json(); }
+const clearForm = () => { $('#f-title').value = ''; ['how', 'vDue', 'track'].forEach(n => setRadio(n, '')); $('#f-vLink').value = ''; $$('input[name=extra]', f).forEach(i => i.checked = false); $('#f-extraLink').value = ''; $('#f-note').value = ''; $('#f-help').checked = false; $('#extraBox').open = false; editing = false; $('#saveBtn').textContent = '올리기'; sync(); };
+const fillHq = (v1, v2) => { const hq = $('#f-hq'), br = $('#f-branch'); hq.innerHTML = '<option value="">선택</option>' + Object.keys(HQ).map(h => `<option ${h === v1 ? 'selected' : ''}>${h}</option>`).join(''); const fb = () => br.innerHTML = '<option value="">선택</option>' + (HQ[hq.value] || []).map(b => `<option ${b === v2 ? 'selected' : ''}>${b}</option>`).join(''); hq.onchange = () => { v2 = ''; fb(); fillNames(); }; br.onchange = fillNames; fb(); fillNames(); };
+const fillNames = () => { const hq = $('#f-hq').value, br = $('#f-branch').value; const ps = ROSTER.filter(p => p.hq === hq && p.branch === br).map(p => p.name).sort((a, b) => a.localeCompare(b, 'ko')); $('#f-pick').innerHTML = '<option value="">' + (br ? '선택' : '지사를 먼저 골라 주세요') + '</option>' + ps.map(n => `<option>${esc(n)}</option>`).join('') + (br ? '<option value="__new">명단에 없어요 (직접 적기)</option>' : ''); $('#f-name').hidden = true; $('#f-name').value = ''; if (who) { who = null; loadedKey = ''; clearForm(); } };
+$('#f-pick').onchange = () => { const v = $('#f-pick').value; $('#f-name').hidden = v !== '__new'; if (v === '__new') { setWho(null); $('#f-name').focus(); return; } setWho(v ? { name: v, hq: $('#f-hq').value, branch: $('#f-branch').value } : null); };
+$('#f-name').addEventListener('input', () => { clearTimeout(tmr); tmr = setTimeout(() => { const n = $('#f-name').value.trim(); setWho(n ? { name: n, hq: $('#f-hq').value, branch: $('#f-branch').value } : null); }, 600); });
+const setWho = w => { const k = w ? w.name + '|' + w.branch : ''; if (k !== loadedKey) clearForm(); who = w; if (!w) { loadedKey = ''; msg(''); return; } identify(); };
+const fixWho = w => { who = w; $('#whoName').textContent = w.name; $('#whoBr').textContent = w.branch; $('#fixedBox').hidden = false; $('#pickBox').hidden = true; };
+$('#changeWho').onclick = () => { who = null; loadedKey = ''; clearForm(); msg(''); $('#fixedBox').hidden = true; if (CODE) { $('#pickBox').hidden = false; fillHq(); } else showCode(); };
+const showCode = () => { $('#codeBox').hidden = false; if (!who) msg('직원 공통 코드를 넣으면 명단이 열립니다.'); };
+async function unlock(c, quiet) { if (!quiet) msg('코드를 확인하는 중…');
+  try { const j = await post({ action: 'board', code: c }); if (!j.ok) throw new Error(j.error); CODE = c; ROSTER = j.people || []; try { localStorage.setItem('bai_board', c); } catch (e) {} $('#codeBox').hidden = true; if (!who) { $('#pickBox').hidden = false; fillHq(); msg('내 총국, 지사, 이름을 골라 주세요.'); } else identify(); return true; }
+  catch (x) { if (quiet) { try { localStorage.removeItem('bai_board'); } catch (e) {} } $('#codeBox').hidden = false; msg(netmsg(x), 'bad'); return false; } }
+$('#f-code').addEventListener('input', () => { clearTimeout(ctmr); const c = $('#f-code').value.replace(/\s+/g, ''); if (c.length >= 4) ctmr = setTimeout(() => unlock(c), 350); });
+const planText = r => { const k = { '업무': 'job', '교회': 'church', '세상과의 소통': 'world' }[r.track]; const items = String((k && r[k]) || '').split(',').map(x => x.trim()).filter(x => x && !/아직 모르겠음/.test(x)); return [R1TR[r.track], r.title || items.slice(0, 2).join(', ')].filter(Boolean).join(' · '); };
+const fillFrom2 = r => { $('#f-title').value = r.title || ''; setRadio('track', r.track || ''); const h = r.vFile ? 'file' : r.vStatus === '시작 전' ? 'none' : r.vStatus === '완성' ? 'done' : 'wip'; setRadio('how', h); $('#f-vLink').value = r.vLink || ''; setRadio('vDue', r.vDue || ''); const ex = String(r.extra || '').split(/\s*,\s*/); $$('input[name=extra]', f).forEach(i => i.checked = ex.includes(i.value)); $('#f-extraLink').value = r.extraLink || ''; $('#f-note').value = r.note || ''; $('#f-help').checked = !!(r.help && r.help !== '필요 없음'); if (r.extra || r.extraLink || r.note) $('#extraBox').open = true; sync(); };
+async function identify() { if (!who || !CODE) return; const key = who.name + '|' + who.branch; if (key === loadedKey) return; loadedKey = key; msg('불러오는 중…');
+  try { const j = await post({ action: 'load', code: CODE, name: who.name, branch: who.branch }); if (key !== loadedKey) return; if (!j.ok) throw new Error(j.error);
+    editing = !!j.r2;
+    if (j.r2) { fillFrom2(j.r2); msg(`${who.name} 님 칸에 이미 올라간 내용이 있습니다. 본인 칸이 맞는지 확인하고, 고칠 부분만 고쳐 주세요.`, 'ok'); }
+    else if (j.r1) { if (j.r1.title) $('#f-title').value = j.r1.title; const tr = R1TR[j.r1.track]; if (tr) setRadio('track', tr); msg('1차 계획을 불러왔습니다. ' + planText(j.r1), 'ok'); }
+    else msg('1차 응답이 없어 새로 받습니다.', 'ok');
+    $('#saveBtn').textContent = editing ? '고친 내용 올리기' : '올리기';
+  } catch (x) { loadedKey = ''; msg(netmsg(x), 'bad'); } }
+const read = () => { const h = val('how'), w = who || {}; return { name: w.name || '', hq: w.hq || '', branch: w.branch || '', title: $('#f-title').value.trim(), how: h, vStatus: ST[h] || '', vLink: (h === 'done' || h === 'wip') ? $('#f-vLink').value.trim() : '', vFile: h === 'file' ? '예' : '', vDue: h === 'none' ? val('vDue') : '', track: val('track'), extra: $$('input[name=extra]:checked', f).map(i => i.value).join(', '), extraLink: $('#f-extraLink').value.trim(), note: $('#f-note').value.trim(), help: $('#f-help').checked ? '도움 요청' : '', hp: $('#f-hp').value }; };
 const check = o => {
-  if (!o.name) return ['이름을 적어 주세요.', 'qMe'];
-  if (!/^\d{4}$/.test(o.pin)) return ['숫자 4자리를 넣어 주세요.', 'qMe'];
-  if (!o.hq || !o.branch) return ['총국과 지사·부서를 골라 주세요.', 'qMe'];
+  if (!CODE) return ['직원 공통 코드를 넣어 주세요.', 'qMe'];
+  if (!o.name || !o.branch || !o.hq) return ['내 이름을 골라 주세요.', 'qMe'];
   if (!o.title) return ['발표 제목을 적어 주세요. 가제여도 괜찮습니다.', 'qTitle'];
   if (!o.how) return ['영상을 어떻게 올릴지 골라 주세요.', 'qHow'];
   if (o.how === 'done' || o.how === 'wip') { if (!o.vLink) return ['영상 링크를 붙여 넣어 주세요.', 'qHow']; if (normLink(o.vLink) === null) return ['영상 링크 형식이 맞지 않습니다. 주소를 그대로 붙여 넣어 주세요.', 'qHow']; }
@@ -257,39 +288,25 @@ const check = o => {
   if (!o.track) return ['발표 분야를 골라 주세요.', 'qTrack'];
   if (o.extraLink && normLink(o.extraLink) === null) return ['추가 결과물 링크 형식이 맞지 않습니다.', 'extraBox'];
   return null; };
-const netmsg = (x, d) => x && x.message && !/fetch|network|JSON|Load failed/i.test(x.message) ? x.message : (d || '연결이 원활하지 않습니다. 잠시 후 다시 해 주세요.');
-async function post(body) { const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(Object.assign({ round: 2 }, body)) }); return r.json(); }
-const saveMe = o => { try { localStorage.setItem('bai_sv2_me', JSON.stringify({ name: o.name, hq: o.hq, branch: o.branch, pin: o.pin })); } catch (e) {} };
-const planText = r => { const k = { '업무': 'job', '교회': 'church', '세상과의 소통': 'world' }[r.track]; const items = String((k && r[k]) || '').split(',').map(x => x.trim()).filter(x => x && !/아직 모르겠음/.test(x)); return [R1TR[r.track], r.title || items.slice(0, 2).join(', ')].filter(Boolean).join(' · '); };
-const fillFrom2 = r => { $('#f-title').value = r.title || ''; setRadio('track', r.track || ''); const h = r.vFile ? 'file' : r.vStatus === '시작 전' ? 'none' : r.vStatus === '완성' ? 'done' : 'wip'; setRadio('how', h); $('#f-vLink').value = r.vLink || ''; setRadio('vDue', r.vDue || ''); const ex = String(r.extra || '').split(/\s*,\s*/); $$('input[name=extra]', f).forEach(i => i.checked = ex.includes(i.value)); $('#f-extraLink').value = r.extraLink || ''; $('#f-note').value = r.note || ''; $('#f-help').checked = !!(r.help && r.help !== '필요 없음'); if (r.extra || r.extraLink || r.note) $('#extraBox').open = true; sync(); };
-async function identify() { const o = read(); if (!o.name || !o.branch || !/^\d{4}$/.test(o.pin)) return; const key = [o.name, o.branch, o.pin].join('|'); if (key === loadedKey) return; loadedKey = key; const m = $('#meMsg'); m.className = 'hint'; m.textContent = '내 정보를 불러오는 중…';
-  try { const j = await post({ action: 'load', name: o.name, branch: o.branch, pin: o.pin }); if (key !== loadedKey) return; if (!j.ok) throw new Error(j.error);
-    saveMe(o); editing = !!j.r2; m.className = 'hint ok';
-    if (j.r2) { fillFrom2(j.r2); m.textContent = '올려 두신 내용을 불러왔습니다. 고칠 부분만 고친 뒤 아래 단추를 눌러 주세요.'; }
-    else if (j.r1) { if (!$('#f-title').value && j.r1.title) $('#f-title').value = j.r1.title; const tr = R1TR[j.r1.track]; if (tr && !val('track')) setRadio('track', tr); m.textContent = '1차 계획을 불러왔습니다. ' + planText(j.r1); }
-    else m.textContent = '1차 응답이 없어 새로 받습니다. 정하신 숫자 4자리를 꼭 기억해 주세요.';
-    $('#saveBtn').textContent = editing ? '고친 내용 올리기' : '올리기';
-  } catch (x) { loadedKey = ''; m.className = 'hint bad'; m.textContent = netmsg(x); } }
-const later = () => { clearTimeout(tmr); tmr = setTimeout(identify, 450); };
-['#f-name', '#f-pin'].forEach(s => $(s).addEventListener('input', later)); $('#f-branch').addEventListener('change', later);
 f.addEventListener('change', e => { if (e.target.name === 'how') sync(); $('#ferr').textContent = ''; });
 const flash = id => { const el = $('#' + id); if (!el) return; if (el.tagName === 'DETAILS') el.open = true; el.classList.add('flash'); el.scrollIntoView({ behavior: 'smooth', block: 'center' }); setTimeout(() => el.classList.remove('flash'), 1800); };
 f.addEventListener('submit', async e => { e.preventDefault(); const o = read(); const c = check(o); if (c) { $('#ferr').textContent = c[0]; flash(c[1]); return; }
   const b = $('#saveBtn'); b.disabled = true; b.textContent = '올리는 중…';
   const d = Object.assign({}, o, { vLink: normLink(o.vLink) || '', extraLink: normLink(o.extraLink) || '', ua: navigator.userAgent.slice(0, 110) }); delete d.how;
-  try { const j = await post({ action: 'save', data: d }); if (!j.ok) throw new Error(j.error); saveMe(o); loadedKey = [o.name, o.branch, o.pin].join('|'); editing = true; done(o, j.updated); }
+  try { const j = await post({ action: 'save', code: CODE, data: d }); if (!j.ok) throw new Error(j.error); editing = true; try { localStorage.setItem('bai_sv2_me', JSON.stringify({ name: o.name, hq: o.hq, branch: o.branch })); } catch (e) {} done(o, j.updated); }
   catch (x) { const m = netmsg(x, '연결이 원활하지 않아 올리지 못했습니다. 잠시 후 다시 눌러 주세요.'); $('#ferr').textContent = m; alert('아직 올라가지 않았습니다.\n\n' + m); }
   finally { b.disabled = false; b.textContent = editing ? '고친 내용 올리기' : '올리기'; } });
 const done = (o, upd) => { $('#doneTitle').textContent = upd ? '고친 내용이 올라갔습니다.' : '올라갔습니다.';
   const v = { done: '완성 · 링크 올림', wip: '만드는 중 · 링크 올림', file: '카톡으로 파일 보내기', none: `${o.vDue}까지 완성 예정` }[o.how];
-  $('#mine').innerHTML = [['발표 제목', o.title], ['영상', v], ['발표 분야', o.track], ['더 만든 것', o.extra || (o.extraLink ? '링크' : '없음')]].map(([a, c]) => `<dt>${esc(a)}</dt><dd>${esc(c)}</dd>`).join('');
+  $('#mine').innerHTML = [['이름', o.name + ' · ' + o.branch], ['발표 제목', o.title], ['영상', v], ['발표 분야', o.track], ['더 만든 것', o.extra || (o.extraLink ? '링크' : '없음')]].map(([a, c]) => `<dt>${esc(a)}</dt><dd>${esc(c)}</dd>`).join('');
   $('#nextMsg').innerHTML = (o.how === 'file' ? '지금 영상 파일을 행정팀(이정민 팀장, 여이슬 과장) 카톡으로 보내 주세요.<br>' : '') + (o.how === 'none' ? `${esc(o.vDue)}까지 완성해 주세요. 완성되면 여기서 링크만 바꿔 올리시면 됩니다.<br>` : '') + '3차(11월 30일~12월 3일)에는 완성 영상과 발표 슬라이드 1~2장을 받습니다.';
   $('#toBoard').href = 'board.html#' + encodeURIComponent(o.hq); $('#v-form').hidden = true; $('#v-done').hidden = false; scrollTo(0, 0); };
 $('#reedit').onclick = () => { $('#v-done').hidden = true; $('#v-form').hidden = false; scrollTo(0, 0); };
-(() => { const q = new URLSearchParams(location.search), n = q.get('n'); let me = null; try { me = JSON.parse(localStorage.getItem('bai_sv2_me') || localStorage.getItem('bai_sv_me') || 'null'); } catch (e) {}
-  if (n) { const h = q.get('h') || '', b = q.get('b') || ''; $('#f-name').value = n; fillHq(h, b); if (me && me.name === n && me.branch === b) $('#f-pin').value = me.pin || ''; }
-  else if (me && me.name) { $('#f-name').value = me.name; fillHq(me.hq, me.branch); $('#f-pin').value = me.pin || ''; }
-  if ($('#f-pin').value) identify(); else if (n) setTimeout(() => $('#f-pin').focus(), 300); })();
+(async () => { const q = new URLSearchParams(location.search), n = q.get('n'); let me = null; try { me = JSON.parse(localStorage.getItem('bai_sv2_me') || localStorage.getItem('bai_sv_me') || 'null'); } catch (e) {}
+  const init = n ? { name: n, hq: q.get('h') || '', branch: q.get('b') || '' } : (me && me.name && me.branch && me.hq ? { name: me.name, hq: me.hq, branch: me.branch } : null);
+  if (init) fixWho(init);
+  let c = ''; try { c = localStorage.getItem('bai_board') || ''; } catch (e) {}
+  if (c) await unlock(c, true); else showCode(); })();
 </script>
 </body>
 </html>
