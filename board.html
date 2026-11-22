@@ -305,7 +305,7 @@ dialog#up::backdrop{background:rgba(8,12,20,.6)}
     <div class="q" id="qTrack"><span class="ql">발표 분야<small class="h">여러 개 고를 수 있어요. 발표는 그중 한 부에서 합니다.</small></span><div class="opts" id="trackOpts"></div></div>
     <details class="q" id="extraBox"><summary>웹·앱 등 더 만든 것 (선택)</summary>
       <div class="opts" id="extraOpts"></div>
-      <input class="fi sub2" id="f-extraLink" inputmode="url" maxlength="300" placeholder="링크 https://" aria-label="추가 결과물 링크">
+      <input class="fi sub2" id="f-extraLink" inputmode="url" maxlength="600" placeholder="링크 https://" aria-label="추가 결과물 링크"><p class="hint">여러 개면 이름과 링크를 이어 적어 주세요. 예) 웹툰 https://…  책 https://…</p>
       <label class="ql2" for="f-note">한마디<small class="h">선택</small></label><textarea class="fi" id="f-note" maxlength="300"></textarea>
     </details>
     <label class="q chkq"><input type="checkbox" id="f-help"><span>도움이 필요해요<small>체크하시면 본부에서 먼저 연락드립니다. 보드에는 나오지 않습니다.</small></span></label>
@@ -325,6 +325,10 @@ const BR = { '호남총국': ['전북', '광주', '전남', '제주'], '중부�
 const MORNING = [['박대훈', '결과물 소개와 시연'], ['홍석진', '사례 · 부흥어게인'], ['박지양', '사례 · 뉴스·신앙에세이'], ['홍정희', '사례 · 뉴스·신앙에세이'], ['노찬영', '사례 · 투데이N·SNS']];
 const AM = Object.fromEntries(MORNING);
 const RANK = { '박대훈': 0, '하광희': 1, '이정민': 2, '여이슬': 3, '조다희': 4 };
+/* 지사 안 이름 순서 (국장님 지정, 11/23). 목록에 없는 사람은 지사장·총국장 먼저, 나머지 가나다순 */
+const SEQ = { '대전': ['오현숙', '정승귀', '김예슬', '이태관'], '강원': ['홍석진', '손의연'], '부산': ['김광득', '문찬양', '김근아'], '경남': ['윤종은', '진수영', '박누가'], '대구': ['정종욱', '홍정희', '이준영'], '경북': ['정운백', '배진우', '금성현', '이성민'] };
+const seq = p => { const i = (SEQ[p.branch] || []).indexOf(p.name); return i < 0 ? 99 : i; };
+const brI = p => { const i = (BR[p.hq] || []).indexOf(p.branch); return i < 0 ? 99 : i; };
 const TR1 = { '업무': '업무 혁신', '교회': '교회 섬김', '세상과의 소통': '세상 소통' };
 const TRACKS = [['업무 혁신', '지사 업무'], ['교회 섬김', '교회 필요'], ['세상 소통', '유튜브용']];
 const PARTS = [['업무 혁신', '오후 1부 · 13:30'], ['교회 섬김', '오후 2부 · 14:45'], ['세상 소통', '오후 3부 · 16:00']];
@@ -341,10 +345,10 @@ const state = p => { const r = p.r2; if (!r) return 'none'; if (link(r.vLink)) r
 const SUB = s => s === 'have' || s === 'file';
 const tracksOf = p => { const t = (p.r2 && p.r2.track) ? String(p.r2.track).split(/\s*,\s*/).filter(Boolean) : (TR1[p.r1 && p.r1.track] ? [TR1[p.r1.track]] : []); return t; };
 const planOf = p => { const r = p.r1; if (!r) return ''; if (r.title) return r.title; const k = { '업무': 'job', '교회': 'church', '세상과의 소통': 'world' }[r.track]; const items = String((k && r[k]) || [r.job, r.church, r.world].filter(Boolean).join(', ')).split(',').map(x => x.trim()).filter(x => x && !/아직 모르겠음/.test(x)); return items.slice(0, 2).join(', '); };
-const order = (a, b) => (RANK[a.name] ?? 9) - (RANK[b.name] ?? 9) || ((b.role === '지사장·총국장') - (a.role === '지사장·총국장')) || a.name.localeCompare(b.name, 'ko');
+const order = (a, b) => (RANK[a.name] ?? 9) - (RANK[b.name] ?? 9) || seq(a) - seq(b) || ((b.role === '지사장·총국장') - (a.role === '지사장·총국장')) || a.name.localeCompare(b.name, 'ko');
 const keyOf = p => p.name + '|' + p.branch;
 const card = p => {
-  const s = state(p), r = p.r2 || {}, L = link(r.vLink), Y = L ? yt(L) : null, G = L ? gd(L) : '', am = AM[p.name], trs = tracksOf(p), t = r.title || '', plan = planOf(p), xl = link(r.extraLink);
+  const s = state(p), r = p.r2 || {}, L = link(r.vLink), Y = L ? yt(L) : null, G = L ? gd(L) : '', am = AM[p.name], trs = tracksOf(p), t = r.title || '', plan = planOf(p), xs = xlinks(r);
   let th;
   if (s === 'have' && Y) th = `<button class="th" type="button" data-kind="yt" data-id="${esc(Y[0])}" data-short="${Y[1] ? 1 : ''}" data-href="${esc(L)}" data-name="${esc(p.name)} · ${esc(p.branch)}" data-title="${esc(t)}" aria-label="${esc(p.name)} 영상 보기"><img src="https://i.ytimg.com/vi/${esc(Y[0])}/mqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><i class="pl"></i></button>`;
   else if (s === 'have' && G) th = `<button class="th" type="button" data-kind="gd" data-id="${esc(G)}" data-href="https://drive.google.com/file/d/${esc(G)}/view" data-name="${esc(p.name)} · ${esc(p.branch)}" data-title="${esc(t)}" aria-label="${esc(p.name)} 영상 보기" style="background:#1d2633"><img src="https://drive.google.com/thumbnail?id=${esc(G)}&sz=w640" alt="" loading="lazy" onerror="this.remove()"><i class="pl"></i></button>`;
@@ -354,7 +358,7 @@ const card = p => {
   return `<article class="card s-${s}" data-k="${esc(keyOf(p))}">${th}<div class="cb"><div class="nm"><b>${esc(p.name)}</b><span>${esc(p.branch)}</span>${am ? `<em class="am">오전 발표</em>` : ''}</div>`
     + (t ? `<p class="tt">${esc(t)}</p>` : `<p class="tt mu">${plan ? '1차 계획 · ' + esc(plan) : '아직 응답 전'}</p>`)
     + `<div class="meta"><span class="ch c-${s}">${esc(chip)}</span>${am ? `<span class="tr">${esc(am)}</span>` : trs.map(x => `<span class="tr">${esc(x)}</span>`).join('')}</div>`
-    + `<div class="lk2">${xl ? `<a href="${esc(xl)}" target="_blank" rel="noopener">${esc(String(r.extra || '추가 결과물').split(',')[0].trim())} 보기 ↗</a>` : ''}<a class="up" href="#" data-up="${esc(keyOf(p))}">${p.r2 && (L || r.vFile) ? '고치기' : '올리기'}</a></div></div></article>`;
+    + `<div class="lk2">${xs.map(([a, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(a)} ↗</a>`).join('')}<a class="up" href="#" data-up="${esc(keyOf(p))}">${p.r2 && (L || r.vFile) ? '고치기' : '올리기'}</a></div></div></article>`;
 };
 const cnt = list => ({ n: list.length, sub: list.filter(p => SUB(state(p))).length });
 const grp = (title, list, gdText) => { const c = cnt(list); return `<section class="grp"><h3>${esc(title)}<small>${c.n}명 중 ${c.sub}명 올림</small></h3>${gdText ? `<p class="gd">${esc(gdText)}</p>` : ''}<div class="grid">${list.map(card).join('')}</div></section>`; };
@@ -371,7 +375,7 @@ function render() {
     const am = MORNING.map(([n]) => P.find(p => p.name === n)).filter(Boolean);
     h += `<section class="grp"><h3>오전 발표<small>10:10 발제 강경원 부사장에 이어</small></h3><div class="grid">${am.map(card).join('')}</div></section>`;
     const pm = P.filter(p => !AM[p.name]);
-    PARTS.forEach(([t, lab]) => { const L = pm.filter(p => tracksOf(p).includes(t)).sort((a, b) => HQS.indexOf(a.hq) - HQS.indexOf(b.hq) || order(a, b)); const multi = L.filter(p => tracksOf(p).length > 1).length; h += grp(`${lab} · ${t}`, L, `한 사람 5분 · 영상 1분과 슬라이드 1~2장${multi ? ` · 이 중 ${multi}명은 다른 분야도 골랐습니다` : ''}`); });
+    PARTS.forEach(([t, lab]) => { const L = pm.filter(p => tracksOf(p).includes(t)).sort((a, b) => HQS.indexOf(a.hq) - HQS.indexOf(b.hq) || brI(a) - brI(b) || order(a, b)); const multi = L.filter(p => tracksOf(p).length > 1).length; h += grp(`${lab} · ${t}`, L, `한 사람 5분 · 영상 1분과 슬라이드 1~2장${multi ? ` · 이 중 ${multi}명은 다른 분야도 골랐습니다` : ''}`); });
     const un = pm.filter(p => !tracksOf(p).length); if (un.length) h += grp('분야 미정', un);
     h += `<p class="gd" style="margin-top:14px">여러 분야를 고른 분은 부마다 인원을 맞춰 한 부에 배정합니다. 발표 순서는 12월 4일(금)에 따로 알려 드립니다.</p>`;
   }
@@ -439,6 +443,12 @@ async function startUpload() { const fl = U.file; if (!fl || !who || U.busy) ret
   finally { U.busy = false; sb.disabled = false; } }
 const read = () => { const h = val('how'), w = who || {}; return { name: w.name || '', hq: w.hq || '', branch: w.branch || '', title: $('#f-title').value.trim(), how: h, vLink: h === 'link' ? $('#f-vLink').value.trim() : h === 'file' ? (U.link || U.prev || '') : '', vFile: '', track: vals('track').join(', '), extra: vals('extra').join(', '), extraLink: $('#f-extraLink').value.trim(), note: $('#f-note').value.trim(), help: $('#f-help').checked ? '도움 요청' : '', hp: $('#f-hp').value }; };
 const normLink = v => { v = String(v || '').trim(); if (!v) return ''; if (!/^https?:\/\//i.test(v)) v = 'https://' + v; return /^https?:\/\/[^\s]+\.[^\s]+$/i.test(v) ? v : null; };
+/* 추가 결과물 링크 여러 개(최대 3): "이름 링크 이름 링크". 서버 links_와 같은 규칙 */
+const LRE = '(https?:\\/\\/[^\\s]+|[a-z0-9-]+(?:\\.[a-z0-9-]+)*\\.[a-z]{2,}(?:\\/[^\\s]*)?)';
+const trimLab = s => String(s || '').replace(/^[\s,·|\/\-]+|[\s,·|\/\-]+$/g, '').slice(0, 30);
+function splitLinks(v, fn) { const s = String(v || '').replace(/\s+/g, ' ').trim(); if (!s) return []; const re = new RegExp(LRE, 'ig'), out = []; let last = 0, m; while ((m = re.exec(s)) && out.length < 3) { const u = fn(m[0]); if (!u) return null; out.push([trimLab(s.slice(last, m.index)), u]); last = re.lastIndex; } if (!out.length) return null; const tail = trimLab(s.slice(last)); if (out.length === 1 && !out[0][0] && tail) out[0][0] = tail; return out; }
+const normLinks = v => { const L = splitLinks(v, normLink); return L === null ? null : L.map(([a, u]) => (a ? a + ' ' : '') + u).join(' '); };
+function xlinks(r) { const L = splitLinks(r.extraLink, link) || []; const ty = String(r.extra || '').split(',').map(x => x.trim()).filter(Boolean); return L.map(([a, u], i) => [a || `${ty[i] || ty[0] || '추가 결과물'} 보기`, u]); }
 const check = o => {
   if (!o.name || !o.branch || !o.hq) return ['내 이름을 골라 주세요.', 'qMe'];
   if (!o.title) return ['발표 제목을 적어 주세요. 가제여도 괜찮습니다.', 'qTitle'];
@@ -446,12 +456,12 @@ const check = o => {
   if (o.how === 'link') { if (!o.vLink) return ['영상 링크를 붙여 넣어 주세요.', 'qHow']; if (normLink(o.vLink) === null) return ['영상 링크 형식이 맞지 않습니다. 주소를 그대로 붙여 넣어 주세요.', 'qHow']; }
   if (o.how === 'file') { if (U.busy) return ['파일이 아직 올라가는 중입니다. 다 올라간 뒤 다시 눌러 주세요.', 'qHow']; if (!o.vLink) return [U.file ? '파일을 올리지 못했습니다. 파일을 다시 골라 주세요.' : '영상 파일을 골라 주세요.', 'qHow']; }
   if (!o.track) return ['발표 분야를 하나 이상 골라 주세요.', 'qTrack'];
-  if (o.extraLink && normLink(o.extraLink) === null) return ['추가 결과물 링크 형식이 맞지 않습니다.', 'extraBox'];
+  if (o.extraLink && normLinks(o.extraLink) === null) return ['추가 결과물 링크 형식이 맞지 않습니다.', 'extraBox'];
   return null; };
 const flashQ = id => { const el = $('#' + id); if (!el) return; if (el.tagName === 'DETAILS') el.open = true; el.classList.add('flash'); el.scrollIntoView({ behavior: 'smooth', block: 'center' }); setTimeout(() => el.classList.remove('flash'), 1800); };
 f.addEventListener('submit', async e => { e.preventDefault(); const o = read(); const c = check(o); if (c) { $('#ferr').textContent = c[0]; flashQ(c[1]); return; }
   const b = $('#saveBtn'); b.disabled = true; b.textContent = '올리는 중…';
-  const d = Object.assign({}, o, { vLink: normLink(o.vLink) || '', extraLink: normLink(o.extraLink) || '', ua: navigator.userAgent.slice(0, 110) }); delete d.how;
+  const d = Object.assign({}, o, { vLink: normLink(o.vLink) || '', extraLink: normLinks(o.extraLink) || '', ua: navigator.userAgent.slice(0, 110) }); delete d.how;
   try { const j = await post({ action: 'save', data: d }); if (!j.ok) throw new Error(j.error); try { localStorage.setItem('bai_sv2_me', JSON.stringify({ name: o.name, hq: o.hq, branch: o.branch })); } catch (x) {} const k = keyOf(o); up.close(); toast(`${o.name} 님 영상이 올라갔습니다.`); TAB = TABS.some(([t]) => t === o.hq) ? o.hq : '전체'; await load(k); }
   catch (x) { const m = netmsg(x, '연결이 원활하지 않아 올리지 못했습니다. 잠시 후 다시 눌러 주세요.'); $('#ferr').textContent = m; alert('아직 올라가지 않았습니다.\n\n' + m); }
   finally { b.disabled = false; b.textContent = editing ? '고친 내용 올리기' : '올리기'; } });
