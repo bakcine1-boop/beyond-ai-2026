@@ -9,7 +9,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="광역본부 AI 지식·활용 페스티벌">
 <meta property="og:description" content="AI, 업무의 한계를 넘다 · 2026.12.07(월) 10:00~17:30 · 11층 컨벤션홀 · 사전 등록">
-<meta property="og:image" content="https://beyond.churchhistory.kr/og-1118b.jpg">
+<meta property="og:image" content="https://beyond.churchhistory.kr/og-1125.jpg">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta property="og:url" content="https://beyond.churchhistory.kr/">
 <meta name="twitter:card" content="summary_large_image">
@@ -72,19 +72,49 @@ footer{margin-top:60px;border-top:1px solid var(--line);padding:24px 0 56px;colo
 @media(min-width:720px){.wrap{padding:0 32px}.top img{height:40px}.top span{font-size:18px}.frame{padding:34px 40px 28px}.hook{font-size:17px}.go{font-size:17px;min-height:48px;padding:0 20px}.tl li{grid-template-columns:90px 1fr auto}.tl b{font-size:20px}}
 @media(min-width:900px){.no{display:flex;flex-wrap:wrap;gap:4px 26px;margin-top:26px}.no li{font-size:28px}h1{font-size:84px;margin:20px 0 26px}h1 br{display:none}.frame{display:grid;grid-template-columns:auto 1fr;column-gap:34px;align-items:end;padding:26px 36px 24px}.frame small,.frame .fb{grid-column:1/-1}.frame .d{font-size:96px}.frame p{font-size:30px;margin:0 0 14px}}
 footer .bdl{color:var(--b);font-weight:700;text-decoration:none;align-self:flex-end}
+
+/* ===== v2 첫 화면: 현장 영상 배경 + 취소선 연출 ===== */
+.hero{position:relative;overflow:hidden;isolation:isolate}
+.hero .bgv{position:absolute;inset:0;z-index:-2;background:#0b3f78 url(hero-bg.jpg) center/cover no-repeat}
+.hero .bgv video{width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity 1.4s ease;filter:grayscale(.3) contrast(1.05)}
+.hero .bgv video.on{opacity:1}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,83,161,.80) 0%,rgba(0,83,161,.86) 50%,rgba(0,66,132,.93) 100%)}
+.hook b{display:inline-block;background:var(--b);color:#fff;font-size:.86em;padding:1px 7px;margin-right:8px;letter-spacing:.02em}
+.hook span{color:var(--g);font-weight:700;margin-left:6px}
+.dd{display:inline-block;margin-left:10px;background:var(--y);color:#111;font-size:13px;font-weight:800;padding:1px 8px;letter-spacing:.02em;vertical-align:1px}
+.stk{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:50;display:flex;justify-content:space-between;align-items:center;min-height:52px;padding:0 18px;background:var(--y);color:#111;font-weight:800;font-size:16px;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.22);transform:translateY(140%);transition:transform .35s ease}
+.stk.on{transform:none}.stk small{font-size:13.5px;font-weight:700;color:#3a2a00}
+@media(min-width:900px){.stk{display:none}}
+.hero .wrap{display:flex;flex-direction:column;min-height:100vh;min-height:100svh}.hero .no{margin-top:auto}.hero .frame{margin-bottom:auto}
+.cue{display:none}@media(min-width:900px){.hero .wrap{min-height:min(100vh,980px)}.cue{display:block;align-self:center;margin:18px 0 0;color:#cfe0f3;font-size:13px;font-weight:700;letter-spacing:.08em;text-decoration:none}.cue::after{content:"";display:block;width:1px;height:26px;background:#cfe0f3;margin:8px auto 0;animation:cue 1.6s ease-in-out infinite}}
+@keyframes cue{0%,100%{transform:scaleY(.4);transform-origin:top}50%{transform:scaleY(1)}}
+/* 연출: 처음 한 번만 */
+.anim .top{opacity:0;animation:fadeIn .6s ease .05s forwards}
+.anim .no li{opacity:0;transform:translateY(14px);color:#eaf2fb;animation:noIn .5s cubic-bezier(.2,.7,.2,1) forwards,noDim .45s ease forwards}
+.anim .no li:nth-child(1){animation-delay:.15s,1.05s}.anim .no li:nth-child(2){animation-delay:.3s,1.25s}.anim .no li:nth-child(3){animation-delay:.45s,1.45s}.anim .no li:nth-child(4){animation-delay:.6s,1.65s}
+.anim .no li::after{transform:scaleX(0);transform-origin:left center;animation:strike .38s cubic-bezier(.65,0,.25,1) forwards}
+.anim .no li:nth-child(1)::after{animation-delay:1s}.anim .no li:nth-child(2)::after{animation-delay:1.2s}.anim .no li:nth-child(3)::after{animation-delay:1.4s}.anim .no li:nth-child(4)::after{animation-delay:1.6s}
+.anim h1 em{opacity:0;transform:translateY(18px) scale(.92);transform-origin:left bottom;animation:aiIn .7s cubic-bezier(.2,.9,.25,1.12) 2s forwards}
+.anim h1 .l{display:inline-block;opacity:0;transform:translateY(26px);animation:up .6s cubic-bezier(.2,.8,.2,1) 2.45s forwards}
+.anim h1 i{display:inline-block;transform:scale(0);animation:pop .35s cubic-bezier(.3,1.6,.5,1) 3s forwards}
+.anim .frame{opacity:0;transform:translateY(26px);animation:up .6s cubic-bezier(.2,.8,.2,1) 3.05s forwards}
+@keyframes fadeIn{to{opacity:1}}@keyframes noIn{to{opacity:1;transform:none}}@keyframes noDim{to{color:#8fb3da}}@keyframes strike{to{transform:scaleX(1)}}
+@keyframes aiIn{to{opacity:1;transform:none}}@keyframes up{to{opacity:1;transform:none}}@keyframes pop{to{transform:none}}
+@media (prefers-reduced-motion:reduce){.anim *{animation:none!important;opacity:1!important;transform:none!important}.hero .bgv video{display:none}.cue::after{animation:none}}
 </style>
 </head>
 <body>
-<div class="hero"><div class="wrap">
-<header class="top"><img src="cts-w.png" alt="CTS기독교TV" width="468" height="104" style="width:auto"><span>광역본부 AI 지식·활용 페스티벌</span></header>
+<div class="hero"><div class="bgv" aria-hidden="true"><video id="hv" muted loop playsinline preload="none" poster="hero-bg.jpg"></video></div><div class="wrap">
+<header class="top"><img src="cts-ci-w.png" alt="CTS기독교TV" width="800" height="183" style="width:auto"><span>광역본부 AI 지식·활용 페스티벌</span></header>
 <ul class="no" aria-label="넘어선 한계"><li>사람이 없어서</li><li>시간이 없어서</li><li>장비가 없어서</li><li>해 본 적이 없어서</li></ul>
-<h1><em>AI,</em>업무의 한계를 <br>넘다<i>.</i></h1>
+<h1><em>AI,</em><span class="l">업무의 한계를 <br>넘다<i>.</i></span></h1>
 <div class="frame">
-  <small>일시 · 장소</small>
+  <small>일시 · 장소<b class="dd" id="dday" hidden></b></small>
   <div class="d">12.7<u>월요일</u></div>
   <p>10:00–17:30<span>|</span>11층 컨벤션홀</p>
-  <div class="fb"><span class="hook">한 달 · 12개 지사 · 한 사람 5분</span><a class="go" href="#rsvp">사전 등록 →</a></div>
+  <div class="fb"><span class="hook"><b>대상</b>CTS 임직원 누구나<span>본사 · 지사 · 자회사</span></span><a class="go" href="#rsvp">사전 등록 →</a></div>
 </div>
+<a class="cue" href="#program">아래로</a>
 </div></div>
 <div class="wrap">
 <main>
@@ -93,16 +123,15 @@ footer .bdl{color:var(--b);font-weight:700;text-decoration:none;align-self:flex-
 
 <section id="program">
   <span class="k mono">오전 · 10:00</span>
-  <h2>발제 · 시연 · 실무 사례</h2>
+  <h2>발제와 사례 발표</h2>
   <p class="sub">실제로 만든 결과물을 중심으로 보여 드립니다. CTS 임직원 누구나 사전 등록하고 함께하실 수 있습니다.</p>
   <ol class="tl">
     <li><time>10:00</time><b>여는 기도 · 인사말씀</b><em>10분</em></li>
     <li><time>10:10</time><b>발제<small>강경원 부사장</small></b><em>40분</em></li>
-    <li><time>10:50</time><b>결과물 소개와 시연<small>박대훈 국장</small></b><em>30분</em></li>
-    <li><time>11:20</time><b>사례 ① 부흥어게인<small>편집, 예고, 쇼츠 제작</small></b><em>10분</em></li>
-    <li><time>11:30</time><b>사례 ② 뉴스 · 신앙에세이<small>편집, 쇼츠 제작</small></b><em>10분</em></li>
-    <li><time>11:40</time><b>사례 ③ 투데이N · SNS<small>투데이N과 SNS, 지사 행사</small></b><em>10분</em></li>
-    <li><time>11:50</time><b>사례 ④ 직원 실무 사례</b><em>10분</em></li>
+    <li><time>10:50</time><b>사례 ① 결과물 소개와 시연<small>박대훈</small></b><em>30분</em></li>
+    <li><time>11:20</time><b>사례 ② 투데이N · SNS<small>노찬영 · 투데이N과 SNS, 지사 행사</small></b><em>10분</em></li>
+    <li><time>11:30</time><b>사례 ③ 부흥어게인<small>홍석진 · 편집, 예고, 쇼츠 제작</small></b><em>10분</em></li>
+    <li><time>11:40</time><b>사례 ④ 뉴스 · 신앙에세이<small>박지양 · 편집, 쇼츠 제작</small></b><em>10분</em></li>
   </ol>
 </section>
 <section>
@@ -174,6 +203,27 @@ f.addEventListener('submit', async e => {
   } catch (x) { err.textContent = x.message || '잠시 후 다시 시도해 주세요.'; }
   finally { b.disabled = false; b.textContent = '등록하기'; }
 });
+</script>
+<a class="stk" id="stk" href="#rsvp"><span>12월 7일(월) 사전 등록</span><small>→</small></a>
+<script>
+(function(){
+  var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var sd=navigator.connection&&navigator.connection.saveData;
+  if(!rm) document.documentElement.classList.add('anim');
+  // D-day (한국 시간 기준)
+  var now=new Date(Date.now()+9*3600e3), d0=Date.UTC(2026,11,7), t=Date.UTC(now.getUTCFullYear(),now.getUTCMonth(),now.getUTCDate()), n=Math.round((d0-t)/864e5), el=document.getElementById('dday');
+  if(el&&n>=0){el.textContent=n===0?'오늘':'D-'+n;el.hidden=false;}
+  // 배경 영상: 움직임 줄이기·데이터 절약이면 정지 이미지만
+  var v=document.getElementById('hv');
+  if(v&&!rm&&!sd){v.src=innerWidth<720?'hero-bg-m.mp4':'hero-bg.mp4';v.preload='auto';
+    v.addEventListener('playing',function(){v.classList.add('on')});
+    var p=v.play(); if(p&&p.catch)p.catch(function(){});}
+  // 휴대폰 아래 고정 등록 버튼: 첫 화면과 등록 칸이 안 보일 때만
+  var stk=document.getElementById('stk'), hero=document.querySelector('.hero'), rs=document.getElementById('rsvp');
+  if(stk&&'IntersectionObserver' in window){var hv=true,rv=false,upd=function(){stk.classList.toggle('on',!hv&&!rv)};
+    new IntersectionObserver(function(e){hv=e[0].isIntersecting;upd()},{threshold:0}).observe(hero);
+    if(rs)new IntersectionObserver(function(e){rv=e[0].isIntersecting;upd()},{threshold:0}).observe(rs);}
+})();
 </script>
 </body>
 </html>
